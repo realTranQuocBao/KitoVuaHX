@@ -1173,15 +1173,18 @@
       }
       if (!d.score) { div.classList.add('ht-score-shimmer'); return; }
 
-      let html = `<span class="nrs-score">${d.score[0]} – ${d.score[1]}</span>`;
-      if (d.penalty) html += `<span class="nrs-pen">⚽ Pen. ${d.penalty[0]} – ${d.penalty[1]}</span>`;
+      const mkCard = (y, r) => {
+        let s = '';
+        if (y) s += `<span class="nrs-cy">${y}</span>`;
+        if (r) s += `<span class="nrs-cr">${r}</span>`;
+        return s;
+      };
       const y = d.yellow || [0,0], r = d.red || [0,0];
-      const yTotal = y[0] + y[1], rTotal = r[0] + r[1];
-      if (yTotal || rTotal) {
-        html += '<span class="nrs-cards">';
-        if (yTotal) html += `<span class="nrs-cy">${yTotal}</span>`;
-        if (rTotal) html += `<span class="nrs-cr">${rTotal}</span>`;
-        html += '</span>';
+      let html = `<div class="nrs-score">${d.score[0]} – ${d.score[1]}</div>`;
+      if (d.penalty) html += `<div class="nrs-pen">⚽ Pen. ${d.penalty[0]} – ${d.penalty[1]}</div>`;
+      const t1 = mkCard(y[0], r[0]), t2 = mkCard(y[1], r[1]);
+      if (t1 || t2) {
+        html += `<div class="nrs-cards">${t1}<span class="nrs-sep">|</span>${t2}</div>`;
       }
       div.innerHTML = html;
       div.classList.add('ht-score-played');
