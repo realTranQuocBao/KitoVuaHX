@@ -179,6 +179,20 @@
     .down-arrows.vl-to-bk { grid-template-columns: 1fr; }
     .round-row.bk-row { grid-template-columns: 1fr; }
     .down-arrows.bk-to-ck { grid-template-columns: 1fr; }
+    .topnav { flex-wrap: wrap; gap: 6px; }
+    .version-tabs { flex-wrap: wrap; gap: 4px; }
+    .version-tabs a { font-size: .75rem; padding: 4px 10px; }
+    .hero h1 { font-size: clamp(1.1rem, 4vw, 1.6rem); }
+    .ng-tabs { flex-wrap: wrap; gap: 4px; }
+    .ng-tab { font-size: .82rem; padding: 8px 14px; }
+  }
+  @media (max-width: 420px) {
+    .round-row { margin-left: 64px; }
+    .round-row::before { left: -64px; width: 58px; font-size: .6rem; }
+    .down-arrows { margin-left: 64px; }
+    .row-connector { margin-left: 64px; }
+    .t2 span:first-child { font-size: .82rem; }
+    .mc2-hd { font-size: .75rem; padding: 6px 10px; }
   }
   </style>
 </head>

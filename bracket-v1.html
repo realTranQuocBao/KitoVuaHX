@@ -180,11 +180,31 @@
   }
   .notes-wrap strong { color: #fff; }
 
-  @media (max-width: 600px) {
-    .main { padding: 20px 14px; }
-    .hero { padding: 20px; }
+  .scroll-hint {
+    display: none;
+    text-align: center;
+    color: rgba(255,255,255,.45);
+    font-size: .78rem;
+    padding: 6px 0 2px;
+    letter-spacing: .04em;
+  }
+  @media (max-width: 700px) {
+    .bwrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+    .bcols { min-width: 640px; }
+    .score-table { overflow-x: auto; }
+    .scroll-hint { display: block; }
+    .main { padding: 20px 10px; }
+    .hero { padding: 20px 14px; }
     .hero-note { display: none; }
+    .hero h1 { font-size: clamp(1.1rem, 4vw, 1.6rem); }
+    .version-tabs { flex-wrap: wrap; gap: 4px; }
     .version-tabs a { padding: 4px 10px; font-size: .72rem; }
+    .topnav { flex-wrap: wrap; gap: 6px; padding: 8px 12px; }
+    .nb-hd { padding: 12px 14px; }
+    .nb-motto { font-size: .72rem; }
+    .match-box { padding: 8px 10px; }
+    .match-label { font-size: .7rem; }
+    .team-name { font-size: .78rem; }
   }
   </style>
 </head>
@@ -211,6 +231,8 @@
 <!-- ── MAIN ── -->
 <div class="main">
 
+  <p class="scroll-hint">← Vuốt ngang để xem sơ đồ đầy đủ →</p>
+
   <!-- ══ ẤU NHI ══ -->
   <div class="nb">
     <div class="nb-hd au">
@@ -219,7 +241,7 @@
         <div class="nb-name">Ngành Ấu Nhi</div>
         <div class="nb-time">⏰ 10h35 – 10h50 · Khẩu Hiệu: <strong style="color:#86efac">Ngoan</strong></div>
       </div>
-      <span class="nb-motto">Khăn Xanh Mạ ✝ Vàng</span>
+      <span class="nb-motto">"Ngoan"</span>
     </div>
     <div class="bwrap">
       <div class="bcols" id="bc-au">
@@ -294,7 +316,7 @@
         <div class="nb-name">Ngành Thiếu Nhi</div>
         <div class="nb-time">⏰ 10h55 – 11h10 · Khẩu Hiệu: <strong style="color:#7dd3fc">Hy Sinh</strong></div>
       </div>
-      <span class="nb-motto">Khăn Xanh Biển ✝ Vàng</span>
+      <span class="nb-motto">"Hy Sinh"</span>
     </div>
     <div class="bwrap">
       <div class="bcols" id="bc-thieu">
@@ -369,7 +391,7 @@
         <div class="nb-name">Ngành Nghĩa Sĩ – Hiệp Sĩ</div>
         <div class="nb-time">⏰ 11h15 – 11h30 · Khẩu Hiệu: <strong style="color:#fde68a">Dấn Thân</strong> / <strong style="color:#fde68a">Chinh Phục</strong></div>
       </div>
-      <span class="nb-motto">Khăn Vàng/Nâu ✝</span>
+      <span class="nb-motto">"Dấn Thân / Chinh Phục"</span>
     </div>
     <div class="bwrap">
       <div class="bcols" id="bc-nghia">
