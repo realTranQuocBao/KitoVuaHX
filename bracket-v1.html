@@ -232,6 +232,24 @@
     font-weight: 900;
   }
 
+  /* Pending (chưa đấu) shimmer */
+  .score-box.score-pending {
+    color: transparent;
+    background: linear-gradient(90deg,
+      rgba(255,255,255,.06) 25%,
+      rgba(255,255,255,.16) 50%,
+      rgba(255,255,255,.06) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+    border-radius: 4px;
+    min-width: 28px;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
   /* Card indicators (yellow / red rectangles) */
   .card-wrap { display: inline-flex; gap: 2px; margin-left: 5px; align-items: center; vertical-align: middle; flex-shrink: 0; }
   .card-y { display: inline-block; width: 7px; height: 10px; background: #fbbf24; border-radius: 1px; box-shadow: 0 1px 4px rgba(251,191,36,.55); }
@@ -572,9 +590,14 @@ function renderResults() {
     rows.forEach((row, i) => {
       // Score
       const sb = row.querySelector('.score-box');
-      if (sb && d.score) {
-        sb.textContent = d.score[i] ?? '';
-        if (i === winIdx) sb.classList.add('score-win');
+      if (sb) {
+        if (d.score) {
+          sb.textContent = d.score[i] ?? '';
+          if (i === winIdx) sb.classList.add('score-win');
+        } else {
+          sb.textContent = '  ';   // two nbsp for width
+          sb.classList.add('score-pending');
+        }
       }
 
       // Winner row highlight
