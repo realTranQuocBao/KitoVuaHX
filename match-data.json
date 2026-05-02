@@ -19,6 +19,6 @@
   "ng-B":  { "teams": ["Nghĩa 2A", "Nghĩa 2B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "ng-C":  { "teams": ["Nghĩa 3",  "Hiệp Sĩ"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "ng-D":  { "teams": ["Thắng A",  null],          "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "ng-E":  { "teams": ["Thắng C",  "Thắng D"],    "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-E":  { "teams": ["Thắng B",  "Thắng C"],    "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "ng-CK": { "teams": ["Thắng D",  "Thắng E"],    "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] }
 }
