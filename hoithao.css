@@ -446,7 +446,7 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   box-shadow: 0 2px 8px rgba(0,0,0,.28);
   flex-shrink: 0;
 }
-.ng-icon::before { content: ''; position: absolute; inset: 0; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
+.ng-icon::before { content: ''; position: absolute; inset: 12%; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
 .ng-name { color: var(--white); font-weight: 800; font-size: .95rem; }
 .ng-time { color: rgba(255,255,255,.5); font-size: .75rem; margin-top: 2px; }
 
@@ -579,7 +579,7 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   display: inline-block;
   vertical-align: middle;
 }
-.ntab-cross::before { content: ''; position: absolute; inset: 0; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
+.ntab-cross::before { content: ''; position: absolute; inset: 12%; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
 .ntab[data-tab="au"] .ntab-cross    { background: #4ade80; }
 .ntab[data-tab="au"] .ntab-cross::before    { background: #fbbf24; }
 .ntab[data-tab="thieu"] .ntab-cross { background: #38bdf8; }
@@ -609,7 +609,7 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   flex-shrink: 0;
   box-shadow: 0 4px 14px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.2);
 }
-.np-icon::before { content: ''; position: absolute; inset: 0; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
+.np-icon::before { content: ''; position: absolute; inset: 12%; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
 .au-header .np-icon    { background: #4ade80; }
 .au-header .np-icon::before    { background: #fbbf24; }
 .thieu-header .np-icon { background: #38bdf8; }
@@ -793,7 +793,7 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   flex-shrink: 0;
   position: relative;
 }
-.wk-nganh::before { content: ''; position: absolute; inset: 0; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
+.wk-nganh::before { content: ''; position: absolute; inset: 12%; clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%); }
 .wk-match.au .wk-nganh    { background: #4ade80; }
 .wk-match.au .wk-nganh::before    { background: #fbbf24; }
 .wk-match.thieu .wk-nganh { background: #38bdf8; }
