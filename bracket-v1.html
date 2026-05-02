@@ -481,14 +481,16 @@
 </div>
 
 <script>
-// Draw smooth SVG bezier connectors between match cards
 function drawConnectors(containerId, edges) {
   const wrap = document.getElementById(containerId);
   if (!wrap) return;
-  const wRect = wrap.getBoundingClientRect();
 
+  // Clear any existing overlay before redrawing
+  wrap.querySelectorAll('.svg-overlay').forEach(s => s.remove());
+
+  const wRect = wrap.getBoundingClientRect();
   const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-  svg.setAttribute('class', 'svg-overlay');
+  svg.classList.add('svg-overlay');
   svg.style.cssText = 'position:absolute;inset:0;pointer-events:none;overflow:visible;width:100%;height:100%;';
   wrap.style.position = 'relative';
   wrap.appendChild(svg);
@@ -507,20 +509,18 @@ function drawConnectors(containerId, edges) {
     const y2 = tR.top    - wRect.top + tR.height * 0.5;
     const mx = (x1 + x2) / 2;
 
-    const stroke   = clr || 'rgba(240,192,64,.65)';
-    const strokeW  = clr === 'special' ? 1.5 : 2;
-    const dashArr  = clr === 'special' ? '5,4' : null;
+    const isSpecial = clr === 'special';
+    const stroke  = isSpecial ? 'rgba(168,85,247,.75)' : 'rgba(240,192,64,.65)';
+    const dashArr = isSpecial ? '6,4' : null;
 
-    // Bezier path
     const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
     path.setAttribute('d', `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
     path.setAttribute('fill', 'none');
     path.setAttribute('stroke', stroke);
-    path.setAttribute('stroke-width', strokeW);
+    path.setAttribute('stroke-width', '2');
     if (dashArr) path.setAttribute('stroke-dasharray', dashArr);
     svg.appendChild(path);
 
-    // Arrow head
     const arr = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
     arr.setAttribute('points', `${x2},${y2} ${x2-8},${y2-4} ${x2-8},${y2+4}`);
     arr.setAttribute('fill', stroke);
@@ -528,32 +528,46 @@ function drawConnectors(containerId, edges) {
   });
 }
 
-window.addEventListener('load', () => {
-  // Ấu Nhi
-  drawConnectors('bc-au', [
-    ['au-A','au-D'],
-    ['au-B','au-E'],
-    ['au-C','au-E'],
-    ['au-D','au-CK'],
-    ['au-E','au-CK'],
-  ]);
-  // Thiếu Nhi (2C special — dashed from C to D)
-  drawConnectors('bc-thieu', [
-    ['th-A','th-E'],
-    ['th-B','th-E'],
-    ['th-C','th-D','special'],
-    ['th-D','th-CK'],
-    ['th-E','th-CK'],
-  ]);
-  // Nghĩa–Hiệp
-  drawConnectors('bc-nghia', [
-    ['ng-A','ng-D'],
-    ['ng-C','ng-E'],
-    ['ng-D','ng-E'],
-    ['ng-D','ng-CK','special'],
-    ['ng-E','ng-CK'],
-  ]);
-});
+const EDGES = {
+  'bc-au': [
+    ['au-A', 'au-D'],
+    ['au-B', 'au-E'],
+    ['au-C', 'au-E'],
+    ['au-D', 'au-CK'],
+    ['au-E', 'au-CK'],
+  ],
+  'bc-thieu': [
+    ['th-A', 'th-E'],
+    ['th-B', 'th-E'],
+    ['th-C', 'th-D', 'special'],
+    ['th-D', 'th-CK'],
+    ['th-E', 'th-CK'],
+  ],
+  'bc-nghia': [
+    ['ng-A', 'ng-D'],
+    ['ng-C', 'ng-E'],
+    ['ng-D', 'ng-E'],
+    ['ng-D', 'ng-CK', 'special'],
+    ['ng-E', 'ng-CK'],
+  ],
+};
+
+function drawAll() {
+  Object.entries(EDGES).forEach(([id, edges]) => drawConnectors(id, edges));
+}
+
+window.addEventListener('load', drawAll);
+
+// Debounced resize handler
+let _rt;
+window.addEventListener('resize', () => { clearTimeout(_rt); _rt = setTimeout(drawAll, 60); });
+
+// ResizeObserver: redraws when any bracket container changes size
+// (covers font load, content change, mobile orientation flip, etc.)
+if (typeof ResizeObserver !== 'undefined') {
+  const ro = new ResizeObserver(() => { clearTimeout(_rt); _rt = setTimeout(drawAll, 60); });
+  Object.keys(EDGES).forEach(id => { const el = document.getElementById(id); if (el) ro.observe(el); });
+}
 </script>
 </body>
 </html>
