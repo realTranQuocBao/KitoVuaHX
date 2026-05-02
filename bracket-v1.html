@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sơ Đồ Cây – Kiểu 1 | Hội Thao TNTT Kitô Vua 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg:      #070e1f;
+    --bg2:     #0d1c36;
+    --bg3:     #142545;
+    --gold:    #f0c040;
+    --gold2:   #c9860a;
+    --vl-c:    #4ade80;
+    --bk-c:    #fb923c;
+    --ck-c:    #f87171;
+    --au-c:    #22c55e;
+    --thieu-c: #38bdf8;
+    --nghia-c: #fbbf24;
+    --muted:   rgba(255,255,255,.45);
+    --border:  rgba(255,255,255,.08);
+    --card:    rgba(255,255,255,.04);
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: var(--bg); color: #fff; min-height: 100vh; }
+
+  /* ── TOPNAV ── */
+  .topnav {
+    position: sticky; top: 0; z-index: 200;
+    background: rgba(7,14,31,.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center;
+    padding: 10px 24px; gap: 12px;
+  }
+  .topnav a.back { color: var(--muted); font-size: .82rem; font-weight: 700; text-decoration: none; padding: 5px 13px; border: 1px solid var(--border); border-radius: 50px; transition: .2s; }
+  .topnav a.back:hover { color: #fff; border-color: var(--gold2); }
+  .topnav .title { color: var(--gold); font-weight: 800; font-size: .9rem; flex: 1; text-align: center; }
+  .version-tabs { display: flex; gap: 6px; }
+  .version-tabs a { font-size: .78rem; font-weight: 800; padding: 5px 14px; border-radius: 50px; border: 1px solid var(--border); color: var(--muted); text-decoration: none; transition: .2s; }
+  .version-tabs a.active { background: var(--gold); border-color: var(--gold); color: #000; }
+  .version-tabs a:not(.active):hover { border-color: var(--gold2); color: #fff; }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 36px 40px 28px;
+    background: linear-gradient(135deg, #071524, #0d2644, #071a30);
+    border-bottom: 1px solid rgba(240,192,64,.15);
+    display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  }
+  .hero-badge {
+    background: rgba(240,192,64,.12); border: 1px solid var(--gold2);
+    color: var(--gold); padding: 5px 16px; border-radius: 50px;
+    font-size: .75rem; font-weight: 800; letter-spacing: .12em; white-space: nowrap;
+  }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(1rem, 2.5vw, 1.7rem); line-height: 1.3; }
+  .hero h1 em { color: var(--gold); font-style: italic; }
+  .hero-note { font-size: .8rem; color: var(--muted); margin-left: auto; white-space: nowrap; }
+
+  /* ── MAIN ── */
+  .main { padding: 40px; max-width: 1400px; margin: 0 auto; }
+
+  /* ── NGÀNH SECTION ── */
+  .nb { margin-bottom: 64px; }
+  .nb-hd {
+    display: flex; align-items: center; gap: 14px;
+    padding: 14px 20px; border-radius: 12px;
+    margin-bottom: 28px;
+  }
+  .nb-hd.au    { background: linear-gradient(135deg,rgba(34,197,94,.12),rgba(21,128,61,.08)); border: 1px solid rgba(34,197,94,.2); }
+  .nb-hd.thieu { background: linear-gradient(135deg,rgba(56,189,248,.12),rgba(3,105,161,.08)); border: 1px solid rgba(56,189,248,.2); }
+  .nb-hd.nghia { background: linear-gradient(135deg,rgba(251,191,36,.12),rgba(161,98,7,.08));  border: 1px solid rgba(251,191,36,.2); }
+  .nb-icon { font-size: 2.2rem; }
+  .nb-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
+  .nb-hd.au    .nb-name { color: var(--au-c); }
+  .nb-hd.thieu .nb-name { color: var(--thieu-c); }
+  .nb-hd.nghia .nb-name { color: var(--nghia-c); }
+  .nb-time { font-size: .82rem; color: var(--muted); margin-top: 2px; }
+  .nb-motto {
+    margin-left: auto; padding: 5px 14px; border-radius: 50px;
+    font-size: .78rem; font-weight: 800; letter-spacing: .08em;
+  }
+  .au .nb-motto    { background: rgba(34,197,94,.15); color: var(--au-c); }
+  .thieu .nb-motto { background: rgba(56,189,248,.15); color: var(--thieu-c); }
+  .nghia .nb-motto { background: rgba(251,191,36,.15); color: var(--nghia-c); }
+
+  /* ── BRACKET WRAPPER ── */
+  .bwrap { position: relative; overflow-x: auto; padding-bottom: 8px; }
+  .bcols {
+    display: flex; align-items: stretch;
+    min-width: 800px;
+    position: relative;
+  }
+
+  /* ── ROUND COLUMN ── */
+  .rcol {
+    display: flex; flex-direction: column;
+    flex-shrink: 0;
+  }
+  .rcol-vl  { width: 210px; gap: 12px; justify-content: space-around; }
+  .rcol-gap { width: 70px; flex-shrink: 0; }    /* space for SVG lines */
+  .rcol-bk  { width: 210px; gap: 12px; justify-content: space-around; }
+  .rcol-ck  { width: 210px; justify-content: center; }
+
+  .phase-lbl {
+    text-align: center; font-size: .68rem; font-weight: 900;
+    letter-spacing: .14em; text-transform: uppercase;
+    padding: 5px 0 8px; margin-bottom: 6px;
+    border-bottom: 2px solid currentColor;
+  }
+  .phase-lbl.vl { color: var(--vl-c); }
+  .phase-lbl.bk { color: var(--bk-c); }
+  .phase-lbl.ck { color: var(--ck-c); }
+
+  /* ── MATCH CARD ── */
+  .mc {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    transition: border-color .2s, background .2s;
+    cursor: default;
+  }
+  .mc:hover { border-color: rgba(240,192,64,.35); background: rgba(240,192,64,.04); }
+  .mc.bk { border-color: rgba(251,146,60,.15); }
+  .mc.ck {
+    border-color: rgba(248,113,113,.3);
+    background: rgba(239,68,68,.04);
+    box-shadow: 0 0 24px rgba(239,68,68,.12);
+  }
+  .mc-top {
+    padding: 4px 10px; font-size: .65rem; font-weight: 900;
+    letter-spacing: .08em; text-transform: uppercase;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .mc-top.vl { background: rgba(74,222,128,.12); color: #86efac; }
+  .mc-top.bk { background: rgba(251,146,60,.12); color: #fed7aa; }
+  .mc-top.ck { background: rgba(248,113,113,.15); color: #fca5a5; }
+
+  .mc-body { padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .team-row {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 8px; border-radius: 6px; font-size: .88rem; font-weight: 700;
+    background: rgba(255,255,255,.03);
+    transition: background .2s;
+  }
+  .team-row:hover { background: rgba(255,255,255,.07); }
+  .team-row.tbd   { opacity: .5; font-style: italic; font-weight: 600; }
+  .team-row.lucky { color: #d8b4fe; background: rgba(168,85,247,.1); }
+  .score-box {
+    background: rgba(255,255,255,.07); color: var(--muted);
+    min-width: 28px; text-align: center;
+    padding: 2px 6px; border-radius: 4px;
+    font-size: .85rem; font-weight: 800;
+  }
+  .ck-trophy { text-align: center; padding: 8px 0 4px; font-size: 1.6rem; }
+
+  /* ── SVG overlay ── */
+  .svg-overlay {
+    position: absolute; inset: 0; pointer-events: none; overflow: visible;
+  }
+
+  /* ── DIVIDER ── */
+  .nb-divider { border: none; border-top: 1px solid var(--border); margin: 0 0 64px; }
+
+  /* ── NOTES ── */
+  .notes-wrap {
+    background: var(--bg2); border-radius: 16px; padding: 28px 32px;
+    border: 1px solid var(--border); max-width: 700px; margin: 0 auto;
+  }
+  .notes-wrap h4 { color: var(--gold); font-size: 1.1rem; margin-bottom: 16px; }
+  .notes-wrap ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .notes-wrap li {
+    font-size: .9rem; color: var(--muted);
+    padding: 10px 14px; background: rgba(255,255,255,.03);
+    border-radius: 8px; border-left: 3px solid var(--gold2);
+    line-height: 1.6;
+  }
+  .notes-wrap strong { color: #fff; }
+
+  @media (max-width: 600px) {
+    .main { padding: 20px 14px; }
+    .hero { padding: 20px; }
+    .hero-note { display: none; }
+    .version-tabs a { padding: 4px 10px; font-size: .72rem; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ── TOPNAV ── -->
+<nav class="topnav">
+  <a href="hoithao.html" class="back">← Lịch Thi Đấu</a>
+  <span class="title">⚽ Sơ Đồ Thi Đấu · Hội Thao 2025</span>
+  <div class="version-tabs">
+    <a href="bracket-v1.html" class="active">🌳 Cây Ngang</a>
+    <a href="bracket-v2.html">🎨 Màu Sắc</a>
+    <a href="bracket-v3.html">✨ Tối Giản</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <span class="hero-badge">🌳 KIỂU 1 · CÂY NGANG · ĐƯỜNG CONG BEZIER</span>
+  <h1>HỘI THAO <em>XỨ ĐOÀN TNTT KITÔ VUA HÀNG XANH</em> 2025</h1>
+  <span class="hero-note">03/05 → 07/06/2025</span>
+</div>
+
+<!-- ── MAIN ── -->
+<div class="main">
+
+  <!-- ══ ẤU NHI ══ -->
+  <div class="nb">
+    <div class="nb-hd au">
+      <span class="nb-icon">🌸</span>
+      <div>
+        <div class="nb-name">Ngành Ấu Nhi</div>
+        <div class="nb-time">⏰ 10h35 – 10h50 · Khẩu Hiệu: <strong style="color:#86efac">Ngoan</strong></div>
+      </div>
+      <span class="nb-motto">Khăn Xanh Mạ ✝ Vàng</span>
+    </div>
+    <div class="bwrap">
+      <div class="bcols" id="bc-au">
+        <!-- VL -->
+        <div class="rcol rcol-vl">
+          <div class="phase-lbl vl">Vòng Loại</div>
+          <div class="mc" id="au-A">
+            <div class="mc-top vl"><span>Bảng A</span><span>CN 03/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Lớp 1a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Lớp 1b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc" id="au-B">
+            <div class="mc-top vl"><span>Bảng B</span><span>CN 10/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Lớp 2a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Lớp 2b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc" id="au-C">
+            <div class="mc-top vl"><span>Bảng C</span><span>CN 17/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Lớp 3a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Lớp 3b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rcol rcol-gap"></div>
+        <!-- BK -->
+        <div class="rcol rcol-bk">
+          <div class="phase-lbl bk">Bán Kết</div>
+          <div class="mc bk" id="au-D">
+            <div class="mc-top bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏅 Thắng A</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>___</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc bk" id="au-E">
+            <div class="mc-top bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏅 Thắng B</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>🏅 Thắng C</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rcol rcol-gap"></div>
+        <!-- CK -->
+        <div class="rcol rcol-ck">
+          <div class="phase-lbl ck">🏆 Chung Kết</div>
+          <div class="mc ck" id="au-CK">
+            <div class="ck-trophy">🏆</div>
+            <div class="mc-top ck"><span>Chung Kết</span><span>CN 07/06</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏆 Thắng D</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>🏆 Thắng E</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="nb-divider" />
+
+  <!-- ══ THIẾU NHI ══ -->
+  <div class="nb">
+    <div class="nb-hd thieu">
+      <span class="nb-icon">⭐</span>
+      <div>
+        <div class="nb-name">Ngành Thiếu Nhi</div>
+        <div class="nb-time">⏰ 10h55 – 11h10 · Khẩu Hiệu: <strong style="color:#7dd3fc">Hy Sinh</strong></div>
+      </div>
+      <span class="nb-motto">Khăn Xanh Biển ✝ Vàng</span>
+    </div>
+    <div class="bwrap">
+      <div class="bcols" id="bc-thieu">
+        <!-- VL -->
+        <div class="rcol rcol-vl">
+          <div class="phase-lbl vl">Vòng Loại</div>
+          <div class="mc" id="th-A">
+            <div class="mc-top vl"><span>Bảng A</span><span>CN 03/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Lớp 1a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Lớp 1b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc" id="th-B">
+            <div class="mc-top vl"><span>Bảng B</span><span>CN 10/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Lớp 2a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Lớp 2b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc" id="th-C">
+            <div class="mc-top vl"><span>Bảng C</span><span>CN 17/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Lớp 3a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Lớp 3b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rcol rcol-gap"></div>
+        <!-- BK -->
+        <div class="rcol rcol-bk">
+          <div class="phase-lbl bk">Bán Kết</div>
+          <div class="mc bk" id="th-D">
+            <div class="mc-top bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
+            <div class="mc-body">
+              <div class="team-row lucky"><span>🍀 Lớp 2C</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>🏅 Thắng C</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc bk" id="th-E">
+            <div class="mc-top bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏅 Thắng A</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>🏅 Thắng B</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rcol rcol-gap"></div>
+        <!-- CK -->
+        <div class="rcol rcol-ck">
+          <div class="phase-lbl ck">🏆 Chung Kết</div>
+          <div class="mc ck" id="th-CK">
+            <div class="ck-trophy">🏆</div>
+            <div class="mc-top ck"><span>Chung Kết</span><span>CN 07/06</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏆 Thắng D</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>🏆 Thắng E</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="nb-divider" />
+
+  <!-- ══ NGHĨA–HIỆP ══ -->
+  <div class="nb">
+    <div class="nb-hd nghia">
+      <span class="nb-icon">⚔️</span>
+      <div>
+        <div class="nb-name">Ngành Nghĩa Sĩ – Hiệp Sĩ</div>
+        <div class="nb-time">⏰ 11h15 – 11h30 · Khẩu Hiệu: <strong style="color:#fde68a">Dấn Thân</strong> / <strong style="color:#fde68a">Chinh Phục</strong></div>
+      </div>
+      <span class="nb-motto">Khăn Vàng/Nâu ✝</span>
+    </div>
+    <div class="bwrap">
+      <div class="bcols" id="bc-nghia">
+        <!-- VL -->
+        <div class="rcol rcol-vl">
+          <div class="phase-lbl vl">Vòng Loại</div>
+          <div class="mc" id="ng-A">
+            <div class="mc-top vl"><span>Bảng A</span><span>CN 03/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Nghĩa 1a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Nghĩa 1b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc" id="ng-B">
+            <div class="mc-top vl"><span>Bảng B</span><span>CN 10/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Nghĩa 2a</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Nghĩa 2b</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc" id="ng-C">
+            <div class="mc-top vl"><span>Bảng C</span><span>CN 17/05</span></div>
+            <div class="mc-body">
+              <div class="team-row"><span>Nghĩa 3</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row"><span>Hiệp Sĩ</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rcol rcol-gap"></div>
+        <!-- BK -->
+        <div class="rcol rcol-bk">
+          <div class="phase-lbl bk">Bán Kết</div>
+          <div class="mc bk" id="ng-D">
+            <div class="mc-top bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏅 Thắng A</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>___</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+          <div class="mc bk" id="ng-E">
+            <div class="mc-top bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏅 Thắng C</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>🏅 Thắng D</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="rcol rcol-gap"></div>
+        <!-- CK -->
+        <div class="rcol rcol-ck">
+          <div class="phase-lbl ck">🏆 Chung Kết</div>
+          <div class="mc ck" id="ng-CK">
+            <div class="ck-trophy">🏆</div>
+            <div class="mc-top ck"><span>Chung Kết</span><span>CN 07/06</span></div>
+            <div class="mc-body">
+              <div class="team-row tbd"><span>🏆 Thắng D</span><span class="score-box">&nbsp;</span></div>
+              <div class="team-row tbd"><span>🏆 Thắng E</span><span class="score-box">&nbsp;</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes-wrap">
+    <h4>📌 Lưu Ý Thể Lệ</h4>
+    <ul>
+      <li>🍀 <strong>Lớp 2C (Thiếu Nhi)</strong> được bốc thăm may mắn, không qua vòng loại, vào thẳng Bán Kết.</li>
+      <li>🏅 Vòng <strong>Bán Kết</strong> sẽ chọn thêm 1 đội đi tiếp — dựa trên hiệu số bàn thắng &amp; số thẻ phạt.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+// Draw smooth SVG bezier connectors between match cards
+function drawConnectors(containerId, edges) {
+  const wrap = document.getElementById(containerId);
+  if (!wrap) return;
+  const wRect = wrap.getBoundingClientRect();
+
+  const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+  svg.setAttribute('class', 'svg-overlay');
+  svg.style.cssText = 'position:absolute;inset:0;pointer-events:none;overflow:visible;width:100%;height:100%;';
+  wrap.style.position = 'relative';
+  wrap.appendChild(svg);
+
+  edges.forEach(([fId, tId, clr]) => {
+    const f = document.getElementById(fId);
+    const t = document.getElementById(tId);
+    if (!f || !t) return;
+
+    const fR = f.getBoundingClientRect();
+    const tR = t.getBoundingClientRect();
+
+    const x1 = fR.right  - wRect.left;
+    const y1 = fR.top    - wRect.top + fR.height * 0.5;
+    const x2 = tR.left   - wRect.left;
+    const y2 = tR.top    - wRect.top + tR.height * 0.5;
+    const mx = (x1 + x2) / 2;
+
+    const stroke   = clr || 'rgba(240,192,64,.65)';
+    const strokeW  = clr === 'special' ? 1.5 : 2;
+    const dashArr  = clr === 'special' ? '5,4' : null;
+
+    // Bezier path
+    const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+    path.setAttribute('d', `M${x1},${y1} C${mx},${y1} ${mx},${y2} ${x2},${y2}`);
+    path.setAttribute('fill', 'none');
+    path.setAttribute('stroke', stroke);
+    path.setAttribute('stroke-width', strokeW);
+    if (dashArr) path.setAttribute('stroke-dasharray', dashArr);
+    svg.appendChild(path);
+
+    // Arrow head
+    const arr = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
+    arr.setAttribute('points', `${x2},${y2} ${x2-8},${y2-4} ${x2-8},${y2+4}`);
+    arr.setAttribute('fill', stroke);
+    svg.appendChild(arr);
+  });
+}
+
+window.addEventListener('load', () => {
+  // Ấu Nhi
+  drawConnectors('bc-au', [
+    ['au-A','au-D'],
+    ['au-B','au-E'],
+    ['au-C','au-E'],
+    ['au-D','au-CK'],
+    ['au-E','au-CK'],
+  ]);
+  // Thiếu Nhi (2C special — dashed from C to D)
+  drawConnectors('bc-thieu', [
+    ['th-A','th-E'],
+    ['th-B','th-E'],
+    ['th-C','th-D','special'],
+    ['th-D','th-CK'],
+    ['th-E','th-CK'],
+  ]);
+  // Nghĩa–Hiệp
+  drawConnectors('bc-nghia', [
+    ['ng-A','ng-D'],
+    ['ng-C','ng-E'],
+    ['ng-D','ng-E'],
+    ['ng-D','ng-CK','special'],
+    ['ng-E','ng-CK'],
+  ]);
+});
+</script>
+</body>
+</html>
