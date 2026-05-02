@@ -578,17 +578,18 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   border-color: rgba(255,255,255,.3);
   padding: 6px 8px;
 }
-.nrs-score { font-size: 1.05rem; font-weight: 900; color: #fff; }
-.nrs-pen   { font-size: .72rem;  font-weight: 700; color: #c4b5fd; }
-.nrs-cards { display: flex; gap: 4px; align-items: center; margin-top: 1px; }
+.nrs-score { display: block; font-size: 1.05rem; font-weight: 900; color: #fff; }
+.nrs-pen   { display: block; font-size: .72rem;  font-weight: 700; color: #c4b5fd; margin-top: 2px; }
+.nrs-cards { display: flex; gap: 4px; align-items: center; flex-wrap: wrap; margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,.12); }
+.nrs-sep   { color: rgba(255,255,255,.3); font-size: .65rem; }
 .nrs-cy, .nrs-cr {
   display: inline-flex; align-items: center; gap: 2px;
   font-size: .72rem; font-weight: 800; padding: 1px 5px; border-radius: 3px;
 }
-.nrs-cy { background: rgba(251,191,36,.25); color: #fbbf24; }
-.nrs-cr { background: rgba(239,68,68,.22);  color: #f87171; }
-.nrs-cy::before { content: ''; display: inline-block; width: 6px; height: 9px; background: #fbbf24; border-radius: 1px; margin-right: 2px; }
-.nrs-cr::before { content: ''; display: inline-block; width: 6px; height: 9px; background: #f87171; border-radius: 1px; margin-right: 2px; }
+.nrs-cy { background: #92400e; color: #fcd34d; }
+.nrs-cr { background: #7f1d1d; color: #fca5a5; }
+.nrs-cy::before { content: ''; display: inline-block; width: 5px; height: 8px; background: #fcd34d; border-radius: 1px; margin-right: 2px; }
+.nrs-cr::before { content: ''; display: inline-block; width: 5px; height: 8px; background: #fca5a5; border-radius: 1px; margin-right: 2px; }
 
 /* ===================================================
    NGÀNH TABS
