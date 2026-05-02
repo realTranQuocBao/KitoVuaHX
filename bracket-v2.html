@@ -223,9 +223,9 @@
   @keyframes v2-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
   .sc-win { background: rgba(22,163,74,.18) !important; color: #14532d !important; font-weight: 900 !important; border-radius: 3px; }
   .t2-winner > span:first-child { font-weight: 900; }
-  .card-wrap2 { display: inline-flex; gap: 2px; margin-left: 4px; vertical-align: middle; }
-  .card-y2 { display: inline-block; width: 7px; height: 10px; background: #ca8a04; border-radius: 1px; }
-  .card-r2 { display: inline-block; width: 7px; height: 10px; background: #dc2626; border-radius: 1px; }
+  .card-wrap2 { display: inline-flex; gap: 3px; margin-left: 4px; vertical-align: middle; }
+  .card-y2 { display: inline-flex; align-items: center; justify-content: center; min-width: 15px; height: 13px; background: #ca8a04; border-radius: 2px; font-size: .62rem; font-weight: 900; color: #fff; padding: 0 3px; }
+  .card-r2 { display: inline-flex; align-items: center; justify-content: center; min-width: 15px; height: 13px; background: #dc2626; border-radius: 2px; font-size: .62rem; font-weight: 900; color: #fff; padding: 0 3px; }
   .pen-row2 { display: flex; justify-content: space-between; padding: 4px 8px; font-size: .7rem; font-weight: 700; color: #7c3aed; background: rgba(124,58,237,.07); border-top: 1px solid rgba(124,58,237,.18); }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -526,8 +526,8 @@ function renderV2(data) {
         if (yc || rc) {
           const wrap = document.createElement('span');
           wrap.className = 'card-wrap2';
-          for (let k=0;k<yc;k++) wrap.insertAdjacentHTML('beforeend','<span class="card-y2"></span>');
-          for (let k=0;k<rc;k++) wrap.insertAdjacentHTML('beforeend','<span class="card-r2"></span>');
+          if (yc) wrap.insertAdjacentHTML('beforeend', `<span class="card-y2">${yc}</span>`);
+          if (rc) wrap.insertAdjacentHTML('beforeend', `<span class="card-r2">${rc}</span>`);
           row.querySelector('span:first-child')?.insertAdjacentElement('afterend', wrap);
         }
       } else {
