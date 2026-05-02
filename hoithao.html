@@ -1150,32 +1150,31 @@
       const d = data[td.dataset.match];
       if (!d) return;
       if (d.score) {
-        td.textContent = d.score[0] + ' – ' + d.score[1];
-        if (d.penalty) td.title = 'Luân lưu: ' + d.penalty[0] + ' – ' + d.penalty[1];
+        let html = d.score[0] + ' – ' + d.score[1];
+        if (d.penalty) html += `<span class="sc-pen">⚽ pk ${d.penalty[0]}–${d.penalty[1]}</span>`;
+        td.innerHTML = html;
       } else {
-        const sh = document.createElement('span');
-        sh.className = 'ht-shimmer-bar';
-        td.appendChild(sh);
+        td.innerHTML = '<span class="ht-shimmer-bar"></span>';
       }
     });
     // Panel ngành (nr-score-box)
     document.querySelectorAll('.nr-score-box[data-match]').forEach(div => {
       const d = data[div.dataset.match];
       if (!d) return;
-      if (div.classList.contains('champion-box')) {
-        if (d.score) {
-          div.innerHTML = '';
-          div.textContent = d.score[0] + ' – ' + d.score[1];
-          div.classList.add('ht-score-played');
-        }
-        return;
+      if (!d.score) { div.classList.add('ht-score-shimmer'); return; }
+
+      let html = `<span class="nrs-score">${d.score[0]} – ${d.score[1]}</span>`;
+      if (d.penalty) html += `<span class="nrs-pen">⚽ pk ${d.penalty[0]} – ${d.penalty[1]}</span>`;
+      const y = d.yellow || [0,0], r = d.red || [0,0];
+      const yTotal = y[0] + y[1], rTotal = r[0] + r[1];
+      if (yTotal || rTotal) {
+        html += '<span class="nrs-cards">';
+        if (yTotal) html += `<span class="nrs-cy">${yTotal}</span>`;
+        if (rTotal) html += `<span class="nrs-cr">${rTotal}</span>`;
+        html += '</span>';
       }
-      if (d.score) {
-        div.textContent = d.score[0] + ' – ' + d.score[1];
-        div.classList.add('ht-score-played');
-      } else {
-        div.classList.add('ht-score-shimmer');
-      }
+      div.innerHTML = html;
+      div.classList.add('ht-score-played');
     });
   }
   fetch('match-data.json')

@@ -251,9 +251,9 @@
   }
 
   /* Card indicators (yellow / red rectangles) */
-  .card-wrap { display: inline-flex; gap: 2px; margin-left: 5px; align-items: center; vertical-align: middle; flex-shrink: 0; }
-  .card-y { display: inline-block; width: 7px; height: 10px; background: #fbbf24; border-radius: 1px; box-shadow: 0 1px 4px rgba(251,191,36,.55); }
-  .card-r { display: inline-block; width: 7px; height: 10px; background: #ef4444; border-radius: 1px; box-shadow: 0 1px 4px rgba(239,68,68,.55); }
+  .card-wrap { display: inline-flex; gap: 3px; margin-left: 5px; align-items: center; vertical-align: middle; flex-shrink: 0; }
+  .card-y { display: inline-flex; align-items: center; justify-content: center; min-width: 15px; height: 13px; background: #fbbf24; border-radius: 2px; font-size: .62rem; font-weight: 900; color: #78350f; padding: 0 3px; }
+  .card-r { display: inline-flex; align-items: center; justify-content: center; min-width: 15px; height: 13px; background: #ef4444; border-radius: 2px; font-size: .62rem; font-weight: 900; color: #fff;    padding: 0 3px; }
 
   /* Penalty shootout row */
   .penalty-row {
@@ -569,8 +569,8 @@ function renderResults(MATCH_DATA) {
       if (yc || rc) {
         const wrap = document.createElement('span');
         wrap.className = 'card-wrap';
-        for (let k = 0; k < yc; k++) wrap.insertAdjacentHTML('beforeend', '<span class="card-y" title="Thẻ vàng"></span>');
-        for (let k = 0; k < rc; k++) wrap.insertAdjacentHTML('beforeend', '<span class="card-r" title="Thẻ đỏ"></span>');
+        if (yc) wrap.insertAdjacentHTML('beforeend', `<span class="card-y">${yc}</span>`);
+        if (rc) wrap.insertAdjacentHTML('beforeend', `<span class="card-r">${rc}</span>`);
         const nameSpan = row.querySelector('span:first-child');
         if (nameSpan) nameSpan.insertAdjacentElement('afterend', wrap);
       }
