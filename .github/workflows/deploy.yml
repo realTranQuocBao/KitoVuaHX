@@ -1,0 +1,36 @@
+name: Deploy to giaoly.edu.vn
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: SSH Deploy → hangsanh
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_KEY }}
+          script: |
+            set -e
+            BRANCH="${{ github.ref_name }}"
+            REPO_DIR="/var/www/html/giaoly.edu.vn_comingsoon/KitoVuaHX"
+            DEST_DIR="/var/www/html/giaoly.edu.vn_comingsoon/hangsanh"
+
+            echo "▶ Pulling branch: $BRANCH"
+            cd "$REPO_DIR"
+            git fetch origin
+            git checkout "$BRANCH"
+            git reset --hard "origin/$BRANCH"
+
+            echo "▶ Syncing files to $DEST_DIR (giữ nguyên *.json)"
+            find "$DEST_DIR" -maxdepth 1 -type f ! -name '*.json' -delete
+            find "$REPO_DIR" -maxdepth 1 -type f ! -name '*.json' -exec cp -t "$DEST_DIR" {} +
+
+            echo "✓ Deploy xong lúc $(date '+%Y-%m-%d %H:%M:%S')"
