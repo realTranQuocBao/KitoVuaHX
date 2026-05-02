@@ -132,7 +132,20 @@
   .ng-hdr.au    { background: #d1fae5; }
   .ng-hdr.thieu { background: #dbeafe; }
   .ng-hdr.nghia { background: #fef3c7; }
-  .ng-hdr .icon { font-size: 1.8rem; }
+  .ng-hdr .icon {
+    width: 36px; height: 36px; border-radius: 9px;
+    flex-shrink: 0; position: relative; overflow: hidden;
+  }
+  .ng-hdr .icon::before {
+    content: ''; position: absolute; inset: 0;
+    clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%);
+  }
+  .ng-hdr.au    .icon { background: #4ade80; }
+  .ng-hdr.au    .icon::before { background: #fbbf24; }
+  .ng-hdr.thieu .icon { background: #38bdf8; }
+  .ng-hdr.thieu .icon::before { background: #fbbf24; }
+  .ng-hdr.nghia .icon { background: #facc15; }
+  .ng-hdr.nghia .icon::before { background: #dc2626; }
   .ng-hdr .nm   { font-family: 'Playfair Display', serif; font-size: 1.05rem; }
   .ng-hdr.au    .nm { color: var(--au); }
   .ng-hdr.thieu .nm { color: var(--th); }
@@ -210,17 +223,17 @@
   <!-- Ngành headers -->
   <div class="ng-headers">
     <div class="ng-hdr au">
-      <span class="icon"><i class="fa-solid fa-spa"></i></span>
+      <span class="icon" aria-hidden="true"></span>
       <div><div class="nm">Ấu Nhi</div><div class="tm">10h35–10h50</div></div>
       <span class="kh">Ngoan</span>
     </div>
     <div class="ng-hdr thieu">
-      <span class="icon"><i class="fa-solid fa-star"></i></span>
+      <span class="icon" aria-hidden="true"></span>
       <div><div class="nm">Thiếu Nhi</div><div class="tm">10h55–11h10</div></div>
       <span class="kh">Hy Sinh</span>
     </div>
     <div class="ng-hdr nghia">
-      <span class="icon"><i class="fa-solid fa-chess-knight"></i></span>
+      <span class="icon" aria-hidden="true"></span>
       <div><div class="nm">Nghĩa–Hiệp</div><div class="tm">11h15–11h30</div></div>
       <span class="kh">Dấn Thân</span>
     </div>
