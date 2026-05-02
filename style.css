@@ -571,6 +571,48 @@ ul { list-style: none; }
   border-color: var(--gold);
   color: var(--white);
 }
+/* ── Scarf colour bar (top of card) ── */
+.card-scarf-bar {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 5px;
+  background: var(--sc, rgba(255,255,255,.3));
+  border-radius: 20px 20px 0 0;
+  box-shadow: 0 0 12px var(--sc, transparent);
+}
+
+/* ── CSS Maltese-style cross (top-right corner) ── */
+.card-cross {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 20px;
+  height: 20px;
+}
+.card-cross-left {
+  right: auto;
+  left: 16px;
+}
+.card-cross::before,
+.card-cross::after {
+  content: '';
+  position: absolute;
+  background: var(--cc, #fbbf24);
+  border-radius: 2px;
+}
+.card-cross::before {   /* horizontal bar */
+  width: 100%;
+  height: 36%;
+  top: 32%;
+  left: 0;
+}
+.card-cross::after {    /* vertical bar */
+  width: 36%;
+  height: 100%;
+  top: 0;
+  left: 32%;
+}
+
 .nganh-abbr {
   display: inline-block;
   font-size: .72rem;
@@ -590,22 +632,6 @@ ul { list-style: none; }
   font-weight: 700;
   margin-bottom: 8px;
   opacity: .9;
-}
-.nganh-scarf {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: .8rem;
-  opacity: .7;
-  margin-bottom: 14px;
-}
-.scarf-dot {
-  display: inline-block;
-  width: 14px;
-  height: 14px;
-  border-radius: 3px;
-  flex-shrink: 0;
-  box-shadow: 0 1px 3px rgba(0,0,0,.4);
 }
 
 /* ===================================================
