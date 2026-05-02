@@ -609,7 +609,7 @@ ul { list-style: none; }
 .card-icon-badge::before {
   content: '';
   position: absolute;
-  inset: 0;
+  inset: 12%;
   background: var(--cc, #fbbf24);
   clip-path: polygon(
     30% 5%,  70% 5%,  60% 40%,
@@ -689,6 +689,11 @@ ul { list-style: none; }
   position: absolute;
   top: 12px; right: 14px;
   width: 18px; height: 18px;
+}
+.card-cross::before {
+  content: '';
+  position: absolute;
+  inset: 12%;
   background: var(--cc, #fbbf24);
   clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%);
 }
