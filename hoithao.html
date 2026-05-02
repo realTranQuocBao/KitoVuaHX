@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hội Thao 2025 – TNTT Kitô Vua Hàng Xanh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="hoithao.css" />
+</head>
+<body>
+
+  <!-- ░░ TOP NAV ░░ -->
+  <nav class="ht-topnav">
+    <a href="index.html" class="ht-back">← Trang Chủ Xứ Đoàn</a>
+    <span class="ht-topnav-title">✝ TNTT Kitô Vua Hàng Xanh</span>
+    <span class="ht-topnav-year">2025</span>
+  </nav>
+
+  <!-- ░░ HERO ░░ -->
+  <section class="ht-hero">
+    <div class="ht-hero-bg">
+      <span class="bg-ball b1">⚽</span>
+      <span class="bg-ball b2">⚽</span>
+      <span class="bg-ball b3">⚽</span>
+      <span class="bg-cross c1">✝</span>
+      <span class="bg-cross c2">✝</span>
+      <span class="bg-star s1">⭐</span>
+    </div>
+    <div class="ht-hero-inner">
+      <div class="ht-eyebrow">⚽ Thể Thao &amp; Đức Tin ✝</div>
+      <h1 class="ht-title">
+        HỘI THAO<br />
+        <em>XỨ ĐOÀN TNTT</em><br />
+        KITÔ VUA HÀNG XANH
+      </h1>
+      <div class="ht-dates">
+        <span class="date-chip start">📅 03 / 05 / 2025</span>
+        <span class="date-sep">→</span>
+        <span class="date-chip end">🏆 07 / 06 / 2025</span>
+      </div>
+      <div class="ht-tags">
+        <span>⚽ Bóng Đá</span>
+        <span>✝ 3 Ngành</span>
+        <span>📍 Sân Nhà Thờ</span>
+        <span>🕐 10:35 – 11:30</span>
+        <span>📅 6 Chủ Nhật</span>
+      </div>
+    </div>
+    <div class="ht-wave">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,40 C360,0 1080,80 1440,40 L1440,80 L0,80 Z" fill="#0f1f3a"/>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ░░ TIMELINE ░░ -->
+  <section class="ht-timeline">
+    <div class="tl-wrap">
+      <div class="tl-item vl">
+        <div class="tl-circle vl">A</div>
+        <div class="tl-info">
+          <strong>Bảng A</strong>
+          <span>CN 03/05</span>
+          <em>Vòng Loại</em>
+        </div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item vl">
+        <div class="tl-circle vl">B</div>
+        <div class="tl-info">
+          <strong>Bảng B</strong>
+          <span>CN 10/05</span>
+          <em>Vòng Loại</em>
+        </div>
+      </div>
+      <div class="tl-line"></div>
+      <div class="tl-item vl">
+        <div class="tl-circle vl">C</div>
+        <div class="tl-info">
+          <strong>Bảng C</strong>
+          <span>CN 17/05</span>
+          <em>Vòng Loại</em>
+        </div>
+      </div>
+      <div class="tl-line bk"></div>
+      <div class="tl-item bk">
+        <div class="tl-circle bk">D</div>
+        <div class="tl-info">
+          <strong>Bảng D</strong>
+          <span>CN 24/05</span>
+          <em>Bán Kết</em>
+        </div>
+      </div>
+      <div class="tl-line bk"></div>
+      <div class="tl-item bk">
+        <div class="tl-circle bk">E</div>
+        <div class="tl-info">
+          <strong>Bảng E</strong>
+          <span>CN 31/05</span>
+          <em>Bán Kết</em>
+        </div>
+      </div>
+      <div class="tl-line ck"></div>
+      <div class="tl-item ck">
+        <div class="tl-circle ck">🏆</div>
+        <div class="tl-info">
+          <strong>Chung Kết</strong>
+          <span>CN 07/06</span>
+          <em>Trận Cuối</em>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ BRACKET TABLE ░░ -->
+  <section class="ht-bracket">
+    <div class="ht-container">
+      <div class="ht-section-header">
+        <span class="ht-section-tag">⚽ Lịch Thi Đấu</span>
+        <h2>Bảng Đấu Tổng Hợp</h2>
+        <p>Lịch thi đấu chính thức cho cả 3 ngành – Kết quả sẽ được cập nhật sau từng trận</p>
+      </div>
+
+      <div class="table-scroll-wrap">
+        <table class="bracket-table">
+          <thead>
+            <tr class="tr-phase">
+              <th class="th-corner" rowspan="2">
+                <div class="corner-box">
+                  <span class="corner-ngay">Ngày</span>
+                  <div class="corner-slash"></div>
+                  <span class="corner-nganh">Ngành</span>
+                </div>
+              </th>
+              <th colspan="3" class="th-phase ph-vl">Vòng Loại</th>
+              <th colspan="2" class="th-phase ph-bk">Bán Kết</th>
+              <th class="th-phase ph-ck">🏆 Chung Kết</th>
+            </tr>
+            <tr class="tr-round">
+              <th class="th-round vl-col">
+                <div class="round-lbl vl">A</div>
+                <div class="round-dt">CN 03/05</div>
+              </th>
+              <th class="th-round vl-col">
+                <div class="round-lbl vl">B</div>
+                <div class="round-dt">CN 10/05</div>
+              </th>
+              <th class="th-round vl-col">
+                <div class="round-lbl vl">C</div>
+                <div class="round-dt">CN 17/05</div>
+              </th>
+              <th class="th-round bk-col">
+                <div class="round-lbl bk">D</div>
+                <div class="round-dt">CN 24/05</div>
+              </th>
+              <th class="th-round bk-col">
+                <div class="round-lbl bk">E</div>
+                <div class="round-dt">CN 31/05</div>
+              </th>
+              <th class="th-round ck-col">
+                <div class="round-lbl ck">CK</div>
+                <div class="round-dt">CN 07/06</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- ── ẤU NHI ── -->
+            <tr class="tr-match au-row">
+              <td class="td-nganh">
+                <div class="ng-icon">🌸</div>
+                <div class="ng-name">Ấu Nhi</div>
+                <div class="ng-time">10:35 – 10:50</div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">1a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">1b</span>
+                </div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">2a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">2b</span>
+                </div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">3a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">3b</span>
+                </div>
+              </td>
+              <td class="mc bk-cell">
+                <div class="match-chip tbd">
+                  <span class="team tbd-t">🏅 A</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team tbd-t">___</span>
+                </div>
+              </td>
+              <td class="mc bk-cell">
+                <div class="match-chip tbd">
+                  <span class="team tbd-t">🏅 B</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team tbd-t">C</span>
+                </div>
+              </td>
+              <td class="mc ck-cell">
+                <div class="match-chip champion">
+                  <span class="team champ-t">🏆 D</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team champ-t">E</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="tr-score au-score">
+              <td class="score-lbl">Tỉ Số</td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+            </tr>
+
+            <!-- ── THIẾU NHI ── -->
+            <tr class="tr-match thieu-row">
+              <td class="td-nganh">
+                <div class="ng-icon">⭐</div>
+                <div class="ng-name">Thiếu Nhi</div>
+                <div class="ng-time">10:55 – 11:10</div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">1a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">1b</span>
+                </div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">2a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">2b</span>
+                </div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">3a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">3b</span>
+                </div>
+              </td>
+              <td class="mc bk-cell special">
+                <div class="match-chip tbd special-chip">
+                  <span class="team lucky">2C 🍀</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team tbd-t">🏅 C</span>
+                </div>
+              </td>
+              <td class="mc bk-cell">
+                <div class="match-chip tbd">
+                  <span class="team tbd-t">🏅 A</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team tbd-t">B</span>
+                </div>
+              </td>
+              <td class="mc ck-cell">
+                <div class="match-chip champion">
+                  <span class="team champ-t">🏆 C</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team champ-t">D</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="tr-score thieu-score">
+              <td class="score-lbl">Tỉ Số</td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+            </tr>
+
+            <!-- ── NGHĨA SĨ – HIỆP SĨ ── -->
+            <tr class="tr-match nghia-row">
+              <td class="td-nganh">
+                <div class="ng-icon">⚔️</div>
+                <div class="ng-name">Nghĩa – Hiệp</div>
+                <div class="ng-time">11:15 – 11:30</div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">1a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">1b</span>
+                </div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">2a</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">2b</span>
+                </div>
+              </td>
+              <td class="mc vl-cell">
+                <div class="match-chip">
+                  <span class="team">N3</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team">Hiệp</span>
+                </div>
+              </td>
+              <td class="mc bk-cell">
+                <div class="match-chip tbd">
+                  <span class="team tbd-t">🏅 A</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team tbd-t">___</span>
+                </div>
+              </td>
+              <td class="mc bk-cell">
+                <div class="match-chip tbd">
+                  <span class="team tbd-t">🏅 C</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team tbd-t">D</span>
+                </div>
+              </td>
+              <td class="mc ck-cell">
+                <div class="match-chip champion">
+                  <span class="team champ-t">🏆 D</span>
+                  <span class="vs-dot">VS</span>
+                  <span class="team champ-t">E</span>
+                </div>
+              </td>
+            </tr>
+            <tr class="tr-score nghia-score">
+              <td class="score-lbl">Tỉ Số</td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+              <td class="score-cell"></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div><!-- /table-scroll-wrap -->
+    </div>
+  </section>
+
+  <!-- ░░ NGÀNH CARDS ░░ -->
+  <section class="ht-nganh-section">
+    <div class="ht-container">
+      <div class="ht-section-header">
+        <span class="ht-section-tag">⚽ Chi Tiết Từng Ngành</span>
+        <h2>Lịch Thi Đấu <em>3 Ngành</em></h2>
+      </div>
+
+      <div class="nganh-tabs">
+        <button class="ntab active" data-tab="au">🌸 Ấu Nhi</button>
+        <button class="ntab" data-tab="thieu">⭐ Thiếu Nhi</button>
+        <button class="ntab" data-tab="nghia">⚔️ Nghĩa–Hiệp</button>
+      </div>
+
+      <!-- ẤU NHI -->
+      <div class="nganh-panel active" id="tab-au">
+        <div class="np-header au-header">
+          <div class="np-icon">🌸</div>
+          <div class="np-meta">
+            <h3>Ngành Ấu Nhi</h3>
+            <span>Giờ thi đấu: 10:35 – 10:50 mỗi Chủ Nhật</span>
+          </div>
+          <div class="np-teams-badge">4 Đội</div>
+        </div>
+        <div class="np-rounds">
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">A</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Lớp 1a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Lớp 1b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 03/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">B</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Lớp 2a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Lớp 2b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 10/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">C</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Lớp 3a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Lớp 3b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 17/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card bk">
+            <div class="nr-round-badge bk">D</div>
+            <div class="nr-details">
+              <span class="nr-phase bk">Bán Kết</span>
+              <div class="nr-match-display tbd">
+                <span class="nr-team">🏅 Thắng A</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">___</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 24/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card bk">
+            <div class="nr-round-badge bk">E</div>
+            <div class="nr-details">
+              <span class="nr-phase bk">Bán Kết</span>
+              <div class="nr-match-display tbd">
+                <span class="nr-team">🏅 Thắng B</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Thắng C</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 31/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card ck">
+            <div class="nr-round-badge ck">🏆</div>
+            <div class="nr-details">
+              <span class="nr-phase ck">Chung Kết</span>
+              <div class="nr-match-display tbd champion">
+                <span class="nr-team">🏆 Thắng D</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Thắng E</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 07/06/2025</span>
+            </div>
+            <div class="nr-score-box champion-box">🏅</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THIẾU NHI -->
+      <div class="nganh-panel" id="tab-thieu">
+        <div class="np-header thieu-header">
+          <div class="np-icon">⭐</div>
+          <div class="np-meta">
+            <h3>Ngành Thiếu Nhi</h3>
+            <span>Giờ thi đấu: 10:55 – 11:10 mỗi Chủ Nhật</span>
+          </div>
+          <div class="np-teams-badge">5 Đội <span class="lucky-note">🍀 2C may mắn</span></div>
+        </div>
+        <div class="np-rounds">
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">A</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Lớp 1a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Lớp 1b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 03/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">B</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Lớp 2a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Lớp 2b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 10/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">C</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Lớp 3a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Lớp 3b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 17/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card bk special-bk">
+            <div class="nr-round-badge bk">D</div>
+            <div class="nr-details">
+              <span class="nr-phase bk">Bán Kết</span>
+              <div class="nr-match-display tbd">
+                <span class="nr-team lucky">🍀 Lớp 2C</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">🏅 Thắng C</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 24/05/2025</span>
+              <span class="nr-note">🍀 2C vào thẳng không qua vòng loại</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card bk">
+            <div class="nr-round-badge bk">E</div>
+            <div class="nr-details">
+              <span class="nr-phase bk">Bán Kết</span>
+              <div class="nr-match-display tbd">
+                <span class="nr-team">🏅 Thắng A</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Thắng B</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 31/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card ck">
+            <div class="nr-round-badge ck">🏆</div>
+            <div class="nr-details">
+              <span class="nr-phase ck">Chung Kết</span>
+              <div class="nr-match-display tbd champion">
+                <span class="nr-team">🏆 Thắng D</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Thắng E</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 07/06/2025</span>
+            </div>
+            <div class="nr-score-box champion-box">🏅</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NGHĨA SĨ – HIỆP SĨ -->
+      <div class="nganh-panel" id="tab-nghia">
+        <div class="np-header nghia-header">
+          <div class="np-icon">⚔️</div>
+          <div class="np-meta">
+            <h3>Ngành Nghĩa Sĩ – Hiệp Sĩ</h3>
+            <span>Giờ thi đấu: 11:15 – 11:30 mỗi Chủ Nhật</span>
+          </div>
+          <div class="np-teams-badge">4 Đội</div>
+        </div>
+        <div class="np-rounds">
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">A</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Nghĩa 1a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Nghĩa 1b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 03/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">B</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Nghĩa 2a</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Nghĩa 2b</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 10/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card vl">
+            <div class="nr-round-badge vl">C</div>
+            <div class="nr-details">
+              <span class="nr-phase vl">Vòng Loại</span>
+              <div class="nr-match-display">
+                <span class="nr-team">Nghĩa 3</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Hiệp Sĩ</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 17/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card bk">
+            <div class="nr-round-badge bk">D</div>
+            <div class="nr-details">
+              <span class="nr-phase bk">Bán Kết</span>
+              <div class="nr-match-display tbd">
+                <span class="nr-team">🏅 Thắng A</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">___</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 24/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card bk">
+            <div class="nr-round-badge bk">E</div>
+            <div class="nr-details">
+              <span class="nr-phase bk">Bán Kết</span>
+              <div class="nr-match-display tbd">
+                <span class="nr-team">🏅 Thắng C</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Thắng D</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 31/05/2025</span>
+            </div>
+            <div class="nr-score-box"></div>
+          </div>
+          <div class="nr-card ck">
+            <div class="nr-round-badge ck">🏆</div>
+            <div class="nr-details">
+              <span class="nr-phase ck">Chung Kết</span>
+              <div class="nr-match-display tbd champion">
+                <span class="nr-team">🏆 Thắng D</span>
+                <span class="nr-ball">⚽</span>
+                <span class="nr-team">Thắng E</span>
+              </div>
+              <span class="nr-date-tag">📅 CN 07/06/2025</span>
+            </div>
+            <div class="nr-score-box champion-box">🏅</div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /ht-container -->
+  </section>
+
+  <!-- ░░ LỊCH TỪNG NGÀY ░░ -->
+  <section class="ht-weekly">
+    <div class="ht-container">
+      <div class="ht-section-header">
+        <span class="ht-section-tag">📅 Theo Chủ Nhật</span>
+        <h2>Lịch Thi Đấu <em>Từng Tuần</em></h2>
+      </div>
+      <div class="weekly-grid">
+
+        <div class="week-card">
+          <div class="wk-header vl">
+            <span class="wk-badge">Bảng A</span>
+            <span class="wk-date">CN 03 / 05</span>
+            <span class="wk-tag">Vòng Loại</span>
+          </div>
+          <div class="wk-matches">
+            <div class="wk-match au">
+              <span class="wk-nganh">🌸</span>
+              <span class="wk-time">10:35</span>
+              <span class="wk-vs">1a ⚽ 1b</span>
+            </div>
+            <div class="wk-match thieu">
+              <span class="wk-nganh">⭐</span>
+              <span class="wk-time">10:55</span>
+              <span class="wk-vs">1a ⚽ 1b</span>
+            </div>
+            <div class="wk-match nghia">
+              <span class="wk-nganh">⚔️</span>
+              <span class="wk-time">11:15</span>
+              <span class="wk-vs">1a ⚽ 1b</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-card">
+          <div class="wk-header vl">
+            <span class="wk-badge">Bảng B</span>
+            <span class="wk-date">CN 10 / 05</span>
+            <span class="wk-tag">Vòng Loại</span>
+          </div>
+          <div class="wk-matches">
+            <div class="wk-match au">
+              <span class="wk-nganh">🌸</span>
+              <span class="wk-time">10:35</span>
+              <span class="wk-vs">2a ⚽ 2b</span>
+            </div>
+            <div class="wk-match thieu">
+              <span class="wk-nganh">⭐</span>
+              <span class="wk-time">10:55</span>
+              <span class="wk-vs">2a ⚽ 2b</span>
+            </div>
+            <div class="wk-match nghia">
+              <span class="wk-nganh">⚔️</span>
+              <span class="wk-time">11:15</span>
+              <span class="wk-vs">2a ⚽ 2b</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-card">
+          <div class="wk-header vl">
+            <span class="wk-badge">Bảng C</span>
+            <span class="wk-date">CN 17 / 05</span>
+            <span class="wk-tag">Vòng Loại</span>
+          </div>
+          <div class="wk-matches">
+            <div class="wk-match au">
+              <span class="wk-nganh">🌸</span>
+              <span class="wk-time">10:35</span>
+              <span class="wk-vs">3a ⚽ 3b</span>
+            </div>
+            <div class="wk-match thieu">
+              <span class="wk-nganh">⭐</span>
+              <span class="wk-time">10:55</span>
+              <span class="wk-vs">3a ⚽ 3b</span>
+            </div>
+            <div class="wk-match nghia">
+              <span class="wk-nganh">⚔️</span>
+              <span class="wk-time">11:15</span>
+              <span class="wk-vs">N3 ⚽ Hiệp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-card">
+          <div class="wk-header bk">
+            <span class="wk-badge">Bảng D</span>
+            <span class="wk-date">CN 24 / 05</span>
+            <span class="wk-tag">Bán Kết</span>
+          </div>
+          <div class="wk-matches">
+            <div class="wk-match au tbd-match">
+              <span class="wk-nganh">🌸</span>
+              <span class="wk-time">10:35</span>
+              <span class="wk-vs">🏅 A ⚽ ___</span>
+            </div>
+            <div class="wk-match thieu tbd-match special-match">
+              <span class="wk-nganh">⭐</span>
+              <span class="wk-time">10:55</span>
+              <span class="wk-vs">🍀 2C ⚽ 🏅 C</span>
+            </div>
+            <div class="wk-match nghia tbd-match">
+              <span class="wk-nganh">⚔️</span>
+              <span class="wk-time">11:15</span>
+              <span class="wk-vs">🏅 A ⚽ ___</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-card">
+          <div class="wk-header bk">
+            <span class="wk-badge">Bảng E</span>
+            <span class="wk-date">CN 31 / 05</span>
+            <span class="wk-tag">Bán Kết</span>
+          </div>
+          <div class="wk-matches">
+            <div class="wk-match au tbd-match">
+              <span class="wk-nganh">🌸</span>
+              <span class="wk-time">10:35</span>
+              <span class="wk-vs">🏅 B ⚽ C</span>
+            </div>
+            <div class="wk-match thieu tbd-match">
+              <span class="wk-nganh">⭐</span>
+              <span class="wk-time">10:55</span>
+              <span class="wk-vs">🏅 A ⚽ B</span>
+            </div>
+            <div class="wk-match nghia tbd-match">
+              <span class="wk-nganh">⚔️</span>
+              <span class="wk-time">11:15</span>
+              <span class="wk-vs">🏅 C ⚽ D</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="week-card champion-week">
+          <div class="wk-header ck">
+            <span class="wk-badge">Chung Kết</span>
+            <span class="wk-date">CN 07 / 06</span>
+            <span class="wk-tag">🏆 GRAND FINAL</span>
+          </div>
+          <div class="wk-matches">
+            <div class="wk-match au tbd-match ck-match">
+              <span class="wk-nganh">🌸</span>
+              <span class="wk-time">10:35</span>
+              <span class="wk-vs">🏆 D ⚽ E</span>
+            </div>
+            <div class="wk-match thieu tbd-match ck-match">
+              <span class="wk-nganh">⭐</span>
+              <span class="wk-time">10:55</span>
+              <span class="wk-vs">🏆 C ⚽ D</span>
+            </div>
+            <div class="wk-match nghia tbd-match ck-match">
+              <span class="wk-nganh">⚔️</span>
+              <span class="wk-time">11:15</span>
+              <span class="wk-vs">🏆 D ⚽ E</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ NOTES ░░ -->
+  <section class="ht-notes">
+    <div class="ht-container">
+      <div class="notes-box">
+        <h3>📌 Lưu Ý Thể Lệ</h3>
+        <ul>
+          <li>
+            <span class="note-icon">🍀</span>
+            <div>
+              <strong>Lớp 2C (Thiếu Nhi)</strong> được bốc thăm may mắn —
+              không phải đá vòng loại, vào thẳng vòng trong (Bán Kết Bảng D).
+            </div>
+          </li>
+          <li>
+            <span class="note-icon">🏅</span>
+            <div>
+              Ở vòng <strong>BÁN KẾT</strong> sẽ chọn thêm một đội đi tiếp!
+              Dựa trên <strong>hiệu số bàn thắng</strong> &amp; <strong>số thẻ phạt</strong>.
+            </div>
+          </li>
+          <li>
+            <span class="note-icon">⛪</span>
+            <div>
+              Tất cả các trận đấu diễn ra vào <strong>Chủ Nhật</strong> tại <strong>Sân Nhà Thờ Kitô Vua</strong>.
+              Tinh thần thi đấu Fair-play và huynh đệ là trên hết.
+            </div>
+          </li>
+          <li>
+            <span class="note-icon">✝</span>
+            <div>
+              Trước mỗi trận đấu sẽ có <strong>lời cầu nguyện</strong> chung.
+              Hội Thao là dịp vui chơi lành mạnh trong tinh thần Công Giáo.
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░ FOOTER ░░ -->
+  <footer class="ht-footer">
+    <div class="ht-footer-inner">
+      <a href="index.html" class="hf-back-btn">← Quay Về Trang Chủ Xứ Đoàn</a>
+      <div class="hf-brand">
+        <span class="hf-cross">✝</span>
+        <div>
+          <strong>Xứ Đoàn TNTT Kitô Vua Hàng Xanh</strong>
+          <span>Hội Thao 2025 · Thể Thao &amp; Đức Tin</span>
+        </div>
+      </div>
+      <p>© 2025 Xứ Đoàn TNTT Kitô Vua Hàng Xanh ✝ Sống Đức Tin – Loan Truyền Đức Tin</p>
+    </div>
+  </footer>
+
+  <script src="hoithao-script.js"></script>
+</body>
+</html>
