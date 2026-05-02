@@ -1,7 +1,48 @@
 /* ===================================================
-   THIẾU NHI THÁNH THỂ – XỨ ĐOÀN KITO VUA
+   THIẾU NHI THÁNH THỂ – XỨ ĐOÀN TNTT KITÔ VUA
    Style Sheet
 =================================================== */
+/* ── Font Awesome icon helpers ── */
+.fa-solid, .fa-regular { line-height: inherit; }
+
+/* Logo cross icon */
+.logo-cross .fa-solid { font-size: 1.4rem; }
+
+/* Section tag cross */
+.section-tag .fa-solid.fa-cross { font-size: .85em; opacity: .8; }
+
+/* List check icons in cards */
+.doanthe-card li .fa-solid.fa-check {
+  color: var(--gold-light);
+  margin-right: 5px;
+  font-size: .85em;
+}
+
+/* Card icons (big icons at top of each card) */
+.card-icon .fa-solid {
+  font-size: 2.4rem;
+  display: block;
+}
+
+/* News date calendar icon */
+.news-date .fa-solid { margin-right: 4px; opacity: .7; font-size: .9em; }
+
+/* Nav event link icon */
+.nav-event-link .fa-solid { margin-right: 3px; }
+
+/* About section illustrations — children icons in grid */
+.about-illustration .fa-solid.fa-child {
+  font-size: 2rem;
+  color: var(--gold-light);
+  opacity: .85;
+}
+
+/* Footer social / contact icons */
+.contact-info-item .fa-solid { font-size: 1.1rem; flex-shrink: 0; }
+.footer-prayer .fa-solid.fa-cross { font-size: .75em; opacity: .6; }
+
+/* Value items */
+.value-icon .fa-solid { font-size: 1.5rem; }
 
 /* --- Reset & Base --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }

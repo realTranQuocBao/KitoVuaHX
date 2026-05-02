@@ -1,7 +1,33 @@
 /* ===================================================
-   HỘI THAO 2025 – TNTT Kitô Vua Hàng Xanh
+   HỘI THAO 2026 – TNTT Kitô Vua Hàng Xanh
    Event Page Styles
 =================================================== */
+/* ── Font Awesome icon helpers ── */
+.fa-solid, .fa-regular { line-height: inherit; vertical-align: middle; }
+
+/* Soccer ball VS separator in match chips — keep small */
+.match-chip .fa-solid.fa-futbol {
+  font-size: .75rem;
+  color: #94a3b8;
+}
+/* Trophy / medal icons in match cells */
+.team .fa-solid.fa-trophy  { color: var(--ck); }
+.team .fa-solid.fa-medal   { color: var(--bk); }
+.team .fa-solid.fa-clover  { color: #16a34a; margin-right: 2px; }
+
+/* Ngành icon in weekly schedule and tab buttons */
+.wk-nganh .fa-solid { font-size: 1rem; }
+.nganh-tab .fa-solid { margin-right: 5px; }
+
+/* Timeline icons */
+.tl-circle .fa-solid { font-size: 1rem; }
+.tl-circle.ck .fa-solid { font-size: 1.3rem; }
+
+/* Date chip calendar icon */
+.date-chip .fa-solid { margin-right: 5px; opacity: .75; font-size: .85em; }
+
+/* Nr-match team icons */
+.nr-team .fa-solid { margin-right: 3px; font-size: .85em; }
 
 /* --- Variables & Reset --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
