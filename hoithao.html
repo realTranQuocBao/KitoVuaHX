@@ -2,8 +2,9 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpeg" href="http://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hội Thao 2026 – TNTT Kitô Vua Hàng Sanh</title>
+  <title>Hội Thao 2026 – Xứ Đoàn TNTT Kitô Vua Hàng Sanh</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -15,10 +16,11 @@
   <!-- ░░ TOP NAV ░░ -->
   <nav class="ht-topnav">
     <a href="index.html" class="ht-back">← Trang Chủ</a>
-    <span class="ht-topnav-title"><i class="fa-solid fa-cross"></i> TNTT Kitô Vua Hàng Sanh</span>
+    <span class="ht-topnav-title"><i class="fa-solid fa-cross"></i> Xứ Đoàn TNTT Kitô Vua Hàng Sanh</span>
     <nav class="ht-topnav-links">
       <a href="#thele"><i class="fa-solid fa-book-open"></i> Thể Lệ</a>
       <a href="#bracket"><i class="fa-solid fa-futbol"></i> Lịch Thi Đấu</a>
+      <a href="bracket-v1.html"><i class="fa-solid fa-diagram-project"></i> Sơ Đồ Thi Đấu</a>
     </nav>
     <span class="ht-topnav-year">2026</span>
   </nav>
@@ -355,6 +357,7 @@
           </tbody>
         </table>
       </div><!-- /table-scroll-wrap -->
+      <p class="bracket-legend"><span class="leg-y">2</span> Thẻ vàng &ensp;<span class="leg-r">1</span> Thẻ đỏ &ensp;⚽ <strong>Pen. 4–3</strong> = hòa, đá luân lưu kết quả 4–3</p>
     </div>
   </section>
 
@@ -790,7 +793,7 @@
           <div class="wk-header ck">
             <span class="wk-badge">Chung Kết</span>
             <span class="wk-date">CN 07 / 06</span>
-            <span class="wk-tag"><i class="fa-solid fa-trophy"></i> GRAND FINAL</span>
+            <span class="wk-tag"><i class="fa-solid fa-trophy"></i> CHUNG KẾT</span>
           </div>
           <div class="wk-matches">
             <div class="wk-match au tbd-match ck-match">
@@ -1151,20 +1154,27 @@
       if (!d) return;
       if (d.score) {
         let html = d.score[0] + ' – ' + d.score[1];
-        if (d.penalty) html += `<span class="sc-pen">⚽ pk ${d.penalty[0]}–${d.penalty[1]}</span>`;
+        if (d.penalty) html += `<span class="sc-pen">⚽ Pen. ${d.penalty[0]}–${d.penalty[1]}</span>`;
         td.innerHTML = html;
       } else {
         td.innerHTML = '<span class="ht-shimmer-bar"></span>';
       }
     });
-    // Panel ngành (nr-score-box)
+    // Panel ngành (nr-score-box) + cập nhật tên đội
     document.querySelectorAll('.nr-score-box[data-match]').forEach(div => {
       const d = data[div.dataset.match];
       if (!d) return;
+      // Cập nhật tên đội trong nr-match-display
+      if (d.teams) {
+        const teamSpans = div.closest('.nr-card')?.querySelectorAll('.nr-team');
+        if (teamSpans) d.teams.forEach((name, i) => {
+          if (name && teamSpans[i]) teamSpans[i].textContent = name;
+        });
+      }
       if (!d.score) { div.classList.add('ht-score-shimmer'); return; }
 
       let html = `<span class="nrs-score">${d.score[0]} – ${d.score[1]}</span>`;
-      if (d.penalty) html += `<span class="nrs-pen">⚽ pk ${d.penalty[0]} – ${d.penalty[1]}</span>`;
+      if (d.penalty) html += `<span class="nrs-pen">⚽ Pen. ${d.penalty[0]} – ${d.penalty[1]}</span>`;
       const y = d.yellow || [0,0], r = d.red || [0,0];
       const yTotal = y[0] + y[1], rTotal = r[0] + r[1];
       if (yTotal || rTotal) {

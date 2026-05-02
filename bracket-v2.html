@@ -2,6 +2,7 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/jpeg" href="http://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sơ Đồ Cây – Kiểu 2 | Hội Thao TNTT Kitô Vua 2026</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
@@ -484,6 +485,7 @@
     <ul>
       <li><i class="fa-solid fa-clover"></i> <strong>Thiếu 2C</strong> được bốc thăm may mắn, vào thẳng Bán Kết mà không cần đấu Vòng Loại.</li>
       <li><i class="fa-solid fa-medal"></i> Vòng Bán Kết sẽ chọn thêm 1 đội đi tiếp — dựa trên <strong>hiệu số bàn thắng &amp; thẻ phạt</strong>.</li>
+      <li><span style="display:inline-flex;gap:3px;vertical-align:middle;margin-right:4px"><span class="card-y2">2</span><span class="card-r2">1</span></span>Số thẻ vàng / thẻ đỏ của mỗi đội &nbsp;·&nbsp; <strong>Pen. 4–3</strong> = hòa, đá luân lưu kết quả 4–3</li>
     </ul>
   </div>
 </div>
@@ -517,6 +519,10 @@ function renderV2(data) {
       else if (d.penalty) winIdx = d.penalty[0] > d.penalty[1] ? 0 : 1;
     }
     card.querySelectorAll('.t2').forEach((row, i) => {
+      if (d.teams?.[i] != null) {
+        const ns = row.querySelector('span:first-child');
+        if (ns) { ns.textContent = d.teams[i]; row.classList.remove('tbd'); }
+      }
       const sc = row.querySelector('.sc');
       if (!sc) return;
       if (d.score) {
