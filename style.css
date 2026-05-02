@@ -1281,11 +1281,13 @@ cite {
   .nav-toggle { display: flex; }
   .nav-container { position: relative; }
 
+  .hero-badge { font-size: .78rem; padding: 7px 14px; letter-spacing: .06em; max-width: 92vw; text-align: center; }
   .hero-title { font-size: clamp(2.4rem, 8vw, 3.5rem); }
   .hero-scroll { display: none; }
 
   .about-grid { grid-template-columns: 1fr; }
   .about-image { aspect-ratio: 16/9; }
+  .about-badge-float { display: none; }
 
   .doanthe-grid { grid-template-columns: 1fr 1fr; }
 
@@ -1301,8 +1303,8 @@ cite {
 
   .contact-form-wrap { padding: 28px 20px; }
 
-  .stats-container { gap: 0; }
-  .stat-item { padding: 12px 20px; }
+  .stats-container { gap: 0; flex-wrap: wrap; }
+  .stat-item { padding: 12px 16px; flex: 1; min-width: 100px; }
   .stat-divider { display: none; }
 
   .schedule-row { grid-template-columns: 1fr 1fr; }
@@ -1318,9 +1320,35 @@ cite {
 }
 
 @media (max-width: 480px) {
+  .section { padding: 48px 0; }
+  .container { padding: 0 16px; }
+
+  .hero-badge { font-size: .72rem; }
+  .hero-sub { font-size: .92rem; }
+
   .doanthe-grid { grid-template-columns: 1fr; }
+  .doanthe-card { padding: 24px 18px; }
+  .card-cross { width: 16px; height: 16px; top: 12px; right: 12px; }
+  .nganh-motto { font-size: .88rem; }
+
   .contact-info { grid-template-columns: 1fr; }
   .hero-cta { flex-direction: column; align-items: center; }
+  .hero-cta .btn { width: 220px; text-align: center; }
   .schedule-row { grid-template-columns: 1fr; }
   .giaoly-info { grid-template-columns: 1fr; }
+
+  .stat-num { font-size: 2rem; }
+  .stat-label { font-size: .72rem; }
+
+  .section-header h2 { font-size: clamp(1.6rem, 6vw, 2.4rem); }
+
+  .news-featured { padding: 24px 18px; }
+  .news-date { font-size: .75rem; }
+
+  .sk-nganh-tags { flex-direction: column; gap: 8px; }
+  .sk-nganh-tag { font-size: .82rem; }
+  .sk-title { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+  .sk-btn { width: 100%; text-align: center; }
+
+  .footer-bottom p { font-size: .75rem; }
 }

@@ -910,8 +910,54 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   .np-rounds { grid-template-columns: 1fr; }
   .nr-card.ck { grid-column: span 1; }
   .weekly-grid { grid-template-columns: 1fr; }
-  .nganh-tabs { flex-direction: column; align-items: center; }
+  .nganh-tabs { flex-direction: row; flex-wrap: wrap; justify-content: center; }
+  .nganh-tab { flex: 1; min-width: 100px; text-align: center; font-size: .82rem; padding: 8px 10px; }
   .np-header { flex-wrap: wrap; }
   .np-teams-badge { margin-left: 0; }
   .notes-box { padding: 24px 18px; }
+
+  /* Bracket table cells — more compact on mobile */
+  .mc { padding: 8px 5px; }
+  .team { font-size: .75rem; }
+  .vs-dot { font-size: .6rem; padding: 1px 3px; }
+  .match-chip { gap: 3px; }
+  /* Stack match chip vertically on very small screens */
+  .match-chip { flex-direction: column; gap: 1px; }
+  .vs-dot { align-self: center; }
+  .td-nganh { padding: 8px 6px; }
+  .ng-name { font-size: .75rem; font-weight: 800; }
+  .ng-time { font-size: .65rem; }
+  .ng-icon { font-size: 1.1rem; }
+  .th-round .round-lbl { font-size: .72rem; }
+  .th-round .round-dt  { font-size: .62rem; }
+
+  /* Nr-round match display */
+  .nr-match-display { flex-direction: column; align-items: flex-start; gap: 4px; }
+  .nr-team { font-size: .88rem; }
+  .nr-vs { display: none; }
+
+  /* Bracket picker */
+  .picker-grid { grid-template-columns: 1fr; }
+
+  /* Hero */
+  .ht-hero { padding: 56px 16px 80px; }
+  .ht-title-wrap { gap: 8px; }
+  .date-chips { flex-direction: column; align-items: center; gap: 6px; }
+  .ht-hero-badge { font-size: .72rem; }
+
+  /* Section header */
+  .ht-section-header h2 { font-size: clamp(1.5rem, 5vw, 2rem); }
+
+  /* Notes */
+  .notes-list li { font-size: .85rem; }
+}
+
+@media (max-width: 380px) {
+  /* Very small phones */
+  .match-chip { gap: 0; }
+  .team { font-size: .68rem; }
+  .nganh-tab { font-size: .75rem; padding: 6px 8px; }
+  .tl-item { min-width: 60px; padding: 4px; }
+  .tl-circle { width: 36px; height: 36px; font-size: .9rem; }
+  .tl-circle.ck { width: 42px; height: 42px; font-size: 1.1rem; }
 }
