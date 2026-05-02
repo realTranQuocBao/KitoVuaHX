@@ -67,4 +67,4 @@ Match IDs: `au-A..au-CK`, `th-A..th-CK`, `ng-A..ng-CK`
 
 Edges Ấu Nhi: A→D, B→E, C→E, D→CK, E→CK  
 Edges Thiếu Nhi: A→E, B→E, C→D (special/lucky), D→CK, E→CK  
-Edges Nghĩa–Hiệp: A→D, C→E, D→E, D→CK (special), E→CK
+Edges Nghĩa–Hiệp: A→D, B→E, C→E, D→CK, E→CK
