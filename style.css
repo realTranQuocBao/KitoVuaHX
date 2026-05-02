@@ -488,7 +488,7 @@ ul { list-style: none; }
 
 .doanthe-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
 }
 
@@ -570,6 +570,42 @@ ul { list-style: none; }
   background: var(--gold);
   border-color: var(--gold);
   color: var(--white);
+}
+.nganh-abbr {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 800;
+  background: rgba(255,255,255,.15);
+  color: var(--gold-light);
+  padding: 1px 7px;
+  border-radius: 50px;
+  vertical-align: middle;
+  margin-left: 6px;
+  letter-spacing: .04em;
+}
+.nganh-motto {
+  font-size: .95rem;
+  font-style: italic;
+  color: var(--gold-light);
+  font-weight: 700;
+  margin-bottom: 8px;
+  opacity: .9;
+}
+.nganh-scarf {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: .8rem;
+  opacity: .7;
+  margin-bottom: 14px;
+}
+.scarf-dot {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+  flex-shrink: 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,.4);
 }
 
 /* ===================================================

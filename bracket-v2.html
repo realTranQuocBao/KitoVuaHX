@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sơ Đồ Cây – Kiểu 2 | Hội Thao TNTT Kitô Vua 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --au:    #16a34a; --au-l: #dcfce7; --au-m: #4ade80;
+    --th:    #0284c7; --th-l: #e0f2fe; --th-m: #38bdf8;
+    --ng:    #ca8a04; --ng-l: #fef9c3; --ng-m: #fbbf24;
+    --vl:    #15803d; --bk: #b45309; --ck: #dc2626;
+    --lucky: #7c3aed;
+    --gray:  #f1f5f9; --text: #0f172a; --muted: #64748b;
+    --white: #fff; --border: #e2e8f0;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Nunito', sans-serif; background: #f8fafc; color: var(--text); }
+
+  /* ── TOPNAV ── */
+  .topnav {
+    position: sticky; top: 0; z-index: 200;
+    background: var(--white);
+    border-bottom: 2px solid var(--border);
+    display: flex; align-items: center; padding: 10px 24px; gap: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.07);
+  }
+  .topnav a.back { color: var(--muted); font-size: .82rem; font-weight: 700; text-decoration: none; padding: 5px 13px; border: 1px solid var(--border); border-radius: 50px; transition: .2s; }
+  .topnav a.back:hover { color: var(--text); }
+  .topnav .title { color: #1e3a5f; font-weight: 900; font-size: .9rem; flex: 1; text-align: center; }
+  .version-tabs { display: flex; gap: 6px; }
+  .version-tabs a { font-size: .78rem; font-weight: 800; padding: 5px 14px; border-radius: 50px; border: 2px solid var(--border); color: var(--muted); text-decoration: none; transition: .2s; }
+  .version-tabs a.active { background: #1e3a5f; border-color: #1e3a5f; color: var(--white); }
+  .version-tabs a:not(.active):hover { border-color: #94a3b8; color: var(--text); }
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, #1e3a5f, #0f2040);
+    padding: 32px 40px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+    border-bottom: 4px solid #c9860a;
+  }
+  .hero-badge { background: rgba(240,192,64,.2); border: 1px solid #c9860a; color: #f0c040; padding: 5px 16px; border-radius: 50px; font-size: .75rem; font-weight: 800; letter-spacing: .12em; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(.95rem, 2.5vw, 1.65rem); color: #fff; }
+  .hero h1 em { color: #f0c040; font-style: italic; }
+  .hero-dates { margin-left: auto; color: rgba(255,255,255,.6); font-size: .82rem; font-weight: 700; }
+
+  /* ── MAIN ── */
+  .main { padding: 40px; max-width: 1200px; margin: 0 auto; }
+
+  /* ── NGÀNH TABS ── */
+  .ng-tabs { display: flex; gap: 0; margin-bottom: 32px; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,.1); }
+  .ng-tab {
+    flex: 1; padding: 14px 20px; text-align: center; cursor: pointer;
+    font-weight: 800; font-size: .9rem; border: none; transition: .25s;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+  }
+  .ng-tab.au    { background: var(--au-l); color: var(--au); border-right: 1px solid #bbf7d0; }
+  .ng-tab.thieu { background: var(--th-l); color: var(--th); border-right: 1px solid #bae6fd; }
+  .ng-tab.nghia { background: var(--ng-l); color: var(--ng); }
+  .ng-tab.active { color: var(--white) !important; transform: scaleY(1.04); position: relative; z-index: 1; }
+  .ng-tab.au.active    { background: var(--au); }
+  .ng-tab.thieu.active { background: var(--th); }
+  .ng-tab.nghia.active { background: var(--ng); }
+  .ng-sub { display: block; font-size: .72rem; font-weight: 600; opacity: .8; margin-top: 2px; }
+
+  .ng-panel { display: none; }
+  .ng-panel.active { display: block; }
+
+  /* ── VERTICAL BRACKET ── */
+  .vbracket { display: flex; flex-direction: column; gap: 0; }
+
+  .round-row {
+    display: grid; align-items: center; gap: 16px;
+    padding: 12px 0;
+    border-left: 3px solid var(--border);
+    padding-left: 20px;
+    position: relative;
+    margin-left: 120px;
+  }
+  .round-row::before {
+    content: attr(data-label);
+    position: absolute; left: -120px;
+    top: 50%; transform: translateY(-50%);
+    width: 110px; text-align: right; padding-right: 16px;
+    font-size: .72rem; font-weight: 900;
+    text-transform: uppercase; letter-spacing: .1em;
+  }
+  .round-row.vl-row  { grid-template-columns: repeat(3, 1fr); border-color: var(--vl); }
+  .round-row.vl-row::before { color: var(--vl); }
+  .round-row.bk-row  { grid-template-columns: repeat(2, 220px); border-color: var(--bk); }
+  .round-row.bk-row::before { color: var(--bk); }
+  .round-row.ck-row  { grid-template-columns: 260px; border-color: var(--ck); }
+  .round-row.ck-row::before { color: var(--ck); }
+
+  /* Connector arrows between rows */
+  .row-connector {
+    margin-left: 120px; padding-left: 20px;
+    display: flex; align-items: center;
+    gap: 8px; color: var(--muted); font-size: .75rem; font-weight: 700;
+    padding-top: 4px; padding-bottom: 4px;
+  }
+  .row-connector .arrow-line {
+    flex: 1; height: 2px; background: linear-gradient(90deg, var(--border), transparent);
+    position: relative;
+  }
+  .down-arrows {
+    margin-left: 120px; padding-left: 20px;
+    display: grid; align-items: center; gap: 16px;
+    padding: 6px 0;
+  }
+  .down-arrows.vl-to-bk { grid-template-columns: repeat(3,1fr); }
+  .down-arrows.bk-to-ck { grid-template-columns: repeat(2,220px); }
+  .arr-col { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+  .arr-line { width: 2px; height: 16px; background: var(--border); margin: 0 auto; }
+  .arr-tip { color: var(--muted); font-size: .75rem; line-height: 1; }
+  .arr-label { font-size: .68rem; color: var(--muted); text-align: center; }
+
+  /* ── MATCH CARD ── */
+  .mc2 {
+    background: var(--white); border: 2px solid var(--border);
+    border-radius: 10px; overflow: hidden;
+    box-shadow: 0 1px 6px rgba(0,0,0,.06);
+    transition: .2s;
+  }
+  .mc2:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,.1); }
+  .mc2.bk { border-color: #fed7aa; }
+  .mc2.ck {
+    border-color: #fca5a5; border-width: 3px;
+    box-shadow: 0 4px 20px rgba(220,38,38,.12);
+  }
+  .mc2-hd {
+    padding: 5px 10px; font-size: .68rem; font-weight: 900;
+    letter-spacing: .08em; text-transform: uppercase;
+    display: flex; justify-content: space-between;
+  }
+  .mc2-hd.vl { background: #dcfce7; color: var(--vl); }
+  .mc2-hd.bk { background: #fef3c7; color: var(--bk); }
+  .mc2-hd.ck { background: #fee2e2; color: var(--ck); }
+  .mc2-body { padding: 8px; display: flex; flex-direction: column; gap: 4px; }
+  .t2 {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 6px 8px; border-radius: 6px; font-size: .85rem; font-weight: 700;
+    background: var(--gray);
+  }
+  .t2.tbd { color: var(--muted); font-style: italic; font-weight: 600; }
+  .t2.lucky { background: #ede9fe; color: var(--lucky); }
+  .t2 .sc { background: var(--border); min-width: 26px; text-align: center; padding: 2px 5px; border-radius: 4px; font-weight: 800; }
+  .ck-trophy2 { text-align: center; padding: 10px; font-size: 2rem; background: #fff1f2; }
+
+  /* Color accent based on ngành */
+  .au-panel    .mc2-hd.vl { background: #dcfce7; color: var(--au); }
+  .thieu-panel .mc2-hd.vl { background: #e0f2fe; color: var(--th); }
+  .nghia-panel .mc2-hd.vl { background: #fef9c3; color: var(--ng); }
+
+  /* ── LEGEND ── */
+  .legend {
+    display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap;
+    padding: 16px 20px; background: var(--white); border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .leg-item { display: flex; align-items: center; gap: 6px; font-size: .82rem; }
+  .leg-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* ── NOTES ── */
+  .notes2 { background: var(--white); border-radius: 14px; padding: 24px 28px; border: 1px solid var(--border); box-shadow: 0 1px 6px rgba(0,0,0,.06); margin-top: 32px; max-width: 680px; }
+  .notes2 h4 { color: #1e3a5f; margin-bottom: 14px; }
+  .notes2 li { list-style: none; padding: 9px 12px; border-left: 3px solid #c9860a; border-radius: 0 6px 6px 0; background: #fffbeb; margin-bottom: 8px; font-size: .88rem; color: var(--muted); }
+  .notes2 strong { color: var(--text); }
+
+  @media (max-width: 700px) {
+    .main { padding: 20px 12px; }
+    .round-row { margin-left: 80px; padding-left: 12px; }
+    .round-row::before { left: -80px; width: 74px; font-size: .65rem; }
+    .down-arrows { margin-left: 80px; padding-left: 12px; }
+    .row-connector { margin-left: 80px; padding-left: 12px; }
+    .round-row.vl-row { grid-template-columns: 1fr; }
+    .down-arrows.vl-to-bk { grid-template-columns: 1fr; }
+    .round-row.bk-row { grid-template-columns: 1fr; }
+    .down-arrows.bk-to-ck { grid-template-columns: 1fr; }
+  }
+  </style>
+</head>
+<body>
+
+<!-- ── TOPNAV ── -->
+<nav class="topnav">
+  <a href="hoithao.html" class="back">← Lịch Thi Đấu</a>
+  <span class="title">⚽ Sơ Đồ Thi Đấu · Hội Thao 2025</span>
+  <div class="version-tabs">
+    <a href="bracket-v1.html">🌳 Cây Ngang</a>
+    <a href="bracket-v2.html" class="active">🎨 Màu Sắc</a>
+    <a href="bracket-v3.html">✨ Tối Giản</a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <span class="hero-badge">🎨 KIỂU 2 · DÒNG CHẢY MÀU SẮC · CHỌN NGÀNH</span>
+  <h1>HỘI THAO <em>XỨ ĐOÀN TNTT KITÔ VUA HÀNG XANH</em> 2025</h1>
+  <span class="hero-dates">03/05 → 07/06/2025</span>
+</div>
+
+<div class="main">
+
+  <!-- ── NGÀNH TABS ── -->
+  <div class="ng-tabs">
+    <button class="ng-tab au active" data-tab="au">
+      🌸 Ấu Nhi <span class="ng-sub">10h35–10h50 · Ngoan</span>
+    </button>
+    <button class="ng-tab thieu" data-tab="thieu">
+      ⭐ Thiếu Nhi <span class="ng-sub">10h55–11h10 · Hy Sinh</span>
+    </button>
+    <button class="ng-tab nghia" data-tab="nghia">
+      ⚔️ Nghĩa–Hiệp <span class="ng-sub">11h15–11h30 · Dấn Thân</span>
+    </button>
+  </div>
+
+  <!-- ══ ẤU NHI ══ -->
+  <div class="ng-panel active au-panel" id="pnl-au">
+    <div class="vbracket">
+
+      <!-- VL -->
+      <div class="round-row vl-row" data-label="Vòng Loại">
+        <div class="mc2" id="v2-au-A">
+          <div class="mc2-hd vl"><span>Bảng A</span><span>CN 03/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Lớp 1a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Lớp 1b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2" id="v2-au-B">
+          <div class="mc2-hd vl"><span>Bảng B</span><span>CN 10/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Lớp 2a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Lớp 2b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2" id="v2-au-C">
+          <div class="mc2-hd vl"><span>Bảng C</span><span>CN 17/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Lớp 3a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Lớp 3b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows VL→BK -->
+      <div class="down-arrows vl-to-bk">
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết D</div></div>
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết E</div></div>
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết E</div></div>
+      </div>
+
+      <!-- BK -->
+      <div class="round-row bk-row" data-label="Bán Kết">
+        <div class="mc2 bk" id="v2-au-D">
+          <div class="mc2-hd bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏅 Thắng A</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>___</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2 bk" id="v2-au-E">
+          <div class="mc2-hd bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏅 Thắng B</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>🏅 Thắng C</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows BK→CK -->
+      <div class="down-arrows bk-to-ck">
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Chung Kết</div></div>
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Chung Kết</div></div>
+      </div>
+
+      <!-- CK -->
+      <div class="round-row ck-row" data-label="🏆 Chung Kết">
+        <div class="mc2 ck" id="v2-au-CK">
+          <div class="ck-trophy2">🏆</div>
+          <div class="mc2-hd ck"><span>Chung Kết</span><span>CN 07/06</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏆 Thắng D</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>🏆 Thắng E</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--vl)"></div><span>Vòng Loại (A→C): 3 trận đấu Chủ Nhật liên tiếp</span></div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--bk)"></div><span>Bán Kết (D, E): Loại trực tiếp</span></div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--ck)"></div><span>Chung Kết: Trận quyết định 07/06</span></div>
+    </div>
+  </div>
+
+  <!-- ══ THIẾU NHI ══ -->
+  <div class="ng-panel thieu-panel" id="pnl-thieu">
+    <div class="vbracket">
+      <div class="round-row vl-row" data-label="Vòng Loại">
+        <div class="mc2">
+          <div class="mc2-hd" style="background:#e0f2fe;color:var(--th)"><span>Bảng A</span><span>CN 03/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Lớp 1a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Lớp 1b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2">
+          <div class="mc2-hd" style="background:#e0f2fe;color:var(--th)"><span>Bảng B</span><span>CN 10/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Lớp 2a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Lớp 2b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2">
+          <div class="mc2-hd" style="background:#e0f2fe;color:var(--th)"><span>Bảng C</span><span>CN 17/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Lớp 3a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Lớp 3b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="down-arrows vl-to-bk">
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết E</div></div>
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết E</div></div>
+        <div class="arr-col"><div class="arr-line" style="background:#7c3aed"></div><div class="arr-tip" style="color:#7c3aed">▼</div><div class="arr-label" style="color:#7c3aed">→ Bán Kết D</div></div>
+      </div>
+      <div class="round-row bk-row" data-label="Bán Kết">
+        <div class="mc2 bk">
+          <div class="mc2-hd bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
+          <div class="mc2-body">
+            <div class="t2 lucky"><span>🍀 Lớp 2C</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>🏅 Thắng C</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2 bk">
+          <div class="mc2-hd bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏅 Thắng A</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>🏅 Thắng B</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="down-arrows bk-to-ck">
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Chung Kết</div></div>
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Chung Kết</div></div>
+      </div>
+      <div class="round-row ck-row" data-label="🏆 Chung Kết">
+        <div class="mc2 ck">
+          <div class="ck-trophy2">🏆</div>
+          <div class="mc2-hd ck"><span>Chung Kết</span><span>CN 07/06</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏆 Thắng D</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>🏆 Thắng E</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="legend">
+      <div class="leg-item"><div class="leg-dot" style="background:var(--lucky)"></div><span>🍀 Lớp 2C: vào thẳng Bán Kết D (bốc thăm may mắn)</span></div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--bk)"></div><span>Bán Kết D: 2C vs Thắng C</span></div>
+      <div class="leg-item"><div class="leg-dot" style="background:var(--bk)"></div><span>Bán Kết E: Thắng A vs Thắng B</span></div>
+    </div>
+  </div>
+
+  <!-- ══ NGHĨA–HIỆP ══ -->
+  <div class="ng-panel nghia-panel" id="pnl-nghia">
+    <div class="vbracket">
+      <div class="round-row vl-row" data-label="Vòng Loại">
+        <div class="mc2">
+          <div class="mc2-hd" style="background:#fef9c3;color:var(--ng)"><span>Bảng A</span><span>CN 03/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Nghĩa 1a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Nghĩa 1b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2">
+          <div class="mc2-hd" style="background:#fef9c3;color:var(--ng)"><span>Bảng B</span><span>CN 10/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Nghĩa 2a</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Nghĩa 2b</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2">
+          <div class="mc2-hd" style="background:#fef9c3;color:var(--ng)"><span>Bảng C</span><span>CN 17/05</span></div>
+          <div class="mc2-body">
+            <div class="t2"><span>Nghĩa 3</span><span class="sc">&nbsp;</span></div>
+            <div class="t2"><span>Hiệp Sĩ</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="down-arrows vl-to-bk">
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết D</div></div>
+        <div class="arr-col" style="opacity:.3"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">TBD</div></div>
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết E</div></div>
+      </div>
+      <div class="round-row bk-row" data-label="Bán Kết">
+        <div class="mc2 bk">
+          <div class="mc2-hd bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏅 Thắng A</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>___</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+        <div class="mc2 bk">
+          <div class="mc2-hd bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏅 Thắng C</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>🏅 Thắng D</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="down-arrows bk-to-ck">
+        <div class="arr-col" style="opacity:.3"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết E</div></div>
+        <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Chung Kết</div></div>
+      </div>
+      <div class="round-row ck-row" data-label="🏆 Chung Kết">
+        <div class="mc2 ck">
+          <div class="ck-trophy2">🏆</div>
+          <div class="mc2-hd ck"><span>Chung Kết</span><span>CN 07/06</span></div>
+          <div class="mc2-body">
+            <div class="t2 tbd"><span>🏆 Thắng D</span><span class="sc">&nbsp;</span></div>
+            <div class="t2 tbd"><span>🏆 Thắng E</span><span class="sc">&nbsp;</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div class="notes2">
+    <h4>📌 Lưu Ý</h4>
+    <ul>
+      <li>🍀 <strong>Lớp 2C</strong> được bốc thăm may mắn, vào thẳng Bán Kết mà không cần đấu Vòng Loại.</li>
+      <li>🏅 Vòng Bán Kết sẽ chọn thêm 1 đội đi tiếp — dựa trên <strong>hiệu số bàn thắng &amp; thẻ phạt</strong>.</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+document.querySelectorAll('.ng-tab').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const t = btn.dataset.tab;
+    document.querySelectorAll('.ng-tab').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.ng-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('pnl-' + t).classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
