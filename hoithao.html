@@ -8,44 +8,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="hoithao.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
 <body>
 
   <!-- ░░ TOP NAV ░░ -->
   <nav class="ht-topnav">
-    <a href="index.html" class="ht-back">← Trang Chủ Xứ Đoàn</a>
-    <span class="ht-topnav-title">✝ TNTT Kitô Vua Hàng Xanh</span>
+    <a href="index.html" class="ht-back">← Trang Chủ</a>
+    <span class="ht-topnav-title"><i class="fa-solid fa-cross"></i> TNTT Kitô Vua Hàng Xanh</span>
+    <nav class="ht-topnav-links">
+      <a href="#thele"><i class="fa-solid fa-book-open"></i> Thể Lệ</a>
+      <a href="#bracket"><i class="fa-solid fa-futbol"></i> Lịch Thi Đấu</a>
+    </nav>
     <span class="ht-topnav-year">2026</span>
   </nav>
 
   <!-- ░░ HERO ░░ -->
   <section class="ht-hero">
     <div class="ht-hero-bg">
-      <span class="bg-ball b1">⚽</span>
-      <span class="bg-ball b2">⚽</span>
-      <span class="bg-ball b3">⚽</span>
-      <span class="bg-cross c1">✝</span>
-      <span class="bg-cross c2">✝</span>
-      <span class="bg-star s1">⭐</span>
+      <span class="bg-ball b1"><i class="fa-solid fa-futbol"></i></span>
+      <span class="bg-ball b2"><i class="fa-solid fa-futbol"></i></span>
+      <span class="bg-ball b3"><i class="fa-solid fa-futbol"></i></span>
+      <span class="bg-cross c1"><i class="fa-solid fa-cross"></i></span>
+      <span class="bg-cross c2"><i class="fa-solid fa-cross"></i></span>
+      <span class="bg-star s1"><i class="fa-solid fa-star"></i></span>
     </div>
     <div class="ht-hero-inner">
-      <div class="ht-eyebrow">⚽ Thể Thao &amp; Đức Tin ✝</div>
+      <div class="ht-eyebrow"><i class="fa-solid fa-futbol"></i> Thể Thao &amp; Đức Tin <i class="fa-solid fa-cross"></i></div>
       <h1 class="ht-title">
         HỘI THAO<br />
         <em>XỨ ĐOÀN TNTT</em><br />
         KITÔ VUA HÀNG XANH
       </h1>
       <div class="ht-dates">
-        <span class="date-chip start">📅 03 / 05 / 2026</span>
+        <span class="date-chip start"><i class="fa-solid fa-calendar-days"></i> 03 / 05 / 2026</span>
         <span class="date-sep">→</span>
-        <span class="date-chip end">🏆 07 / 06 / 2026</span>
+        <span class="date-chip end"><i class="fa-solid fa-trophy"></i> 07 / 06 / 2026</span>
       </div>
       <div class="ht-tags">
-        <span>⚽ Bóng Đá</span>
-        <span>✝ 3 Ngành</span>
-        <span>📍 Sân Nhà Thờ</span>
-        <span>🕐 10:35 – 11:30</span>
-        <span>📅 6 Chủ Nhật</span>
+        <span><i class="fa-solid fa-futbol"></i> Bóng Đá</span>
+        <span><i class="fa-solid fa-cross"></i> 3 Ngành</span>
+        <span><i class="fa-solid fa-location-dot"></i> Sân Nhà Thờ</span>
+        <span><i class="fa-solid fa-clock"></i> 10:35 – 11:30</span>
+        <span><i class="fa-solid fa-calendar-days"></i> 6 Chủ Nhật</span>
       </div>
     </div>
     <div class="ht-wave">
@@ -104,7 +109,7 @@
       </div>
       <div class="tl-line ck"></div>
       <div class="tl-item ck">
-        <div class="tl-circle ck">🏆</div>
+        <div class="tl-circle ck"><i class="fa-solid fa-trophy"></i></div>
         <div class="tl-info">
           <strong>Chung Kết</strong>
           <span>CN 07/06</span>
@@ -115,10 +120,10 @@
   </section>
 
   <!-- ░░ BRACKET TABLE ░░ -->
-  <section class="ht-bracket">
+  <section class="ht-bracket" id="bracket">
     <div class="ht-container">
       <div class="ht-section-header">
-        <span class="ht-section-tag">⚽ Lịch Thi Đấu</span>
+        <span class="ht-section-tag"><i class="fa-solid fa-futbol"></i> Lịch Thi Đấu</span>
         <h2>Bảng Đấu Tổng Hợp</h2>
         <p>Lịch thi đấu chính thức cho cả 3 ngành – Kết quả sẽ được cập nhật sau từng trận</p>
       </div>
@@ -136,7 +141,7 @@
               </th>
               <th colspan="3" class="th-phase ph-vl">Vòng Loại</th>
               <th colspan="2" class="th-phase ph-bk">Bán Kết</th>
-              <th class="th-phase ph-ck">🏆 Chung Kết</th>
+              <th class="th-phase ph-ck"><i class="fa-solid fa-trophy"></i> Chung Kết</th>
             </tr>
             <tr class="tr-round">
               <th class="th-round vl-col">
@@ -170,7 +175,7 @@
             <!-- ── ẤU NHI ── -->
             <tr class="tr-match au-row">
               <td class="td-nganh">
-                <div class="ng-icon">🌸</div>
+                <div class="ng-icon"><i class="fa-solid fa-spa"></i></div>
                 <div class="ng-name">Ấu Nhi</div>
                 <div class="ng-time">10:35 – 10:50</div>
               </td>
@@ -197,21 +202,21 @@
               </td>
               <td class="mc bk-cell">
                 <div class="match-chip tbd">
-                  <span class="team tbd-t">🏅 A</span>
+                  <span class="team tbd-t"><i class="fa-solid fa-medal"></i> A</span>
                   <span class="vs-dot">VS</span>
                   <span class="team tbd-t">___</span>
                 </div>
               </td>
               <td class="mc bk-cell">
                 <div class="match-chip tbd">
-                  <span class="team tbd-t">🏅 B</span>
+                  <span class="team tbd-t"><i class="fa-solid fa-medal"></i> B</span>
                   <span class="vs-dot">VS</span>
                   <span class="team tbd-t">C</span>
                 </div>
               </td>
               <td class="mc ck-cell">
                 <div class="match-chip champion">
-                  <span class="team champ-t">🏆 D</span>
+                  <span class="team champ-t"><i class="fa-solid fa-trophy"></i> D</span>
                   <span class="vs-dot">VS</span>
                   <span class="team champ-t">E</span>
                 </div>
@@ -230,7 +235,7 @@
             <!-- ── THIẾU NHI ── -->
             <tr class="tr-match thieu-row">
               <td class="td-nganh">
-                <div class="ng-icon">⭐</div>
+                <div class="ng-icon"><i class="fa-solid fa-star"></i></div>
                 <div class="ng-name">Thiếu Nhi</div>
                 <div class="ng-time">10:55 – 11:10</div>
               </td>
@@ -257,21 +262,21 @@
               </td>
               <td class="mc bk-cell special">
                 <div class="match-chip tbd special-chip">
-                  <span class="team lucky">Thiếu 2C 🍀</span>
+                  <span class="team lucky">Thiếu 2C <i class="fa-solid fa-clover"></i></span>
                   <span class="vs-dot">VS</span>
-                  <span class="team tbd-t">🏅 C</span>
+                  <span class="team tbd-t"><i class="fa-solid fa-medal"></i> C</span>
                 </div>
               </td>
               <td class="mc bk-cell">
                 <div class="match-chip tbd">
-                  <span class="team tbd-t">🏅 A</span>
+                  <span class="team tbd-t"><i class="fa-solid fa-medal"></i> A</span>
                   <span class="vs-dot">VS</span>
                   <span class="team tbd-t">B</span>
                 </div>
               </td>
               <td class="mc ck-cell">
                 <div class="match-chip champion">
-                  <span class="team champ-t">🏆 C</span>
+                  <span class="team champ-t"><i class="fa-solid fa-trophy"></i> C</span>
                   <span class="vs-dot">VS</span>
                   <span class="team champ-t">D</span>
                 </div>
@@ -290,7 +295,7 @@
             <!-- ── NGHĨA SĨ – HIỆP SĨ ── -->
             <tr class="tr-match nghia-row">
               <td class="td-nganh">
-                <div class="ng-icon">⚔️</div>
+                <div class="ng-icon"><i class="fa-solid fa-chess-knight"></i></div>
                 <div class="ng-name">Nghĩa – Hiệp</div>
                 <div class="ng-time">11:15 – 11:30</div>
               </td>
@@ -317,21 +322,21 @@
               </td>
               <td class="mc bk-cell">
                 <div class="match-chip tbd">
-                  <span class="team tbd-t">🏅 A</span>
+                  <span class="team tbd-t"><i class="fa-solid fa-medal"></i> A</span>
                   <span class="vs-dot">VS</span>
                   <span class="team tbd-t">___</span>
                 </div>
               </td>
               <td class="mc bk-cell">
                 <div class="match-chip tbd">
-                  <span class="team tbd-t">🏅 C</span>
+                  <span class="team tbd-t"><i class="fa-solid fa-medal"></i> C</span>
                   <span class="vs-dot">VS</span>
                   <span class="team tbd-t">D</span>
                 </div>
               </td>
               <td class="mc ck-cell">
                 <div class="match-chip champion">
-                  <span class="team champ-t">🏆 D</span>
+                  <span class="team champ-t"><i class="fa-solid fa-trophy"></i> D</span>
                   <span class="vs-dot">VS</span>
                   <span class="team champ-t">E</span>
                 </div>
@@ -357,20 +362,20 @@
   <section class="ht-nganh-section">
     <div class="ht-container">
       <div class="ht-section-header">
-        <span class="ht-section-tag">⚽ Chi Tiết Từng Ngành</span>
+        <span class="ht-section-tag"><i class="fa-solid fa-futbol"></i> Chi Tiết Từng Ngành</span>
         <h2>Lịch Thi Đấu <em>3 Ngành</em></h2>
       </div>
 
       <div class="nganh-tabs">
-        <button class="ntab active" data-tab="au">🌸 Ấu Nhi</button>
-        <button class="ntab" data-tab="thieu">⭐ Thiếu Nhi</button>
-        <button class="ntab" data-tab="nghia">⚔️ Nghĩa–Hiệp</button>
+        <button class="ntab active" data-tab="au"><i class="fa-solid fa-spa"></i> Ấu Nhi</button>
+        <button class="ntab" data-tab="thieu"><i class="fa-solid fa-star"></i> Thiếu Nhi</button>
+        <button class="ntab" data-tab="nghia"><i class="fa-solid fa-chess-knight"></i> Nghĩa–Hiệp</button>
       </div>
 
       <!-- ẤU NHI -->
       <div class="nganh-panel active" id="tab-au">
         <div class="np-header au-header">
-          <div class="np-icon">🌸</div>
+          <div class="np-icon"><i class="fa-solid fa-spa"></i></div>
           <div class="np-meta">
             <h3>Ngành Ấu Nhi</h3>
             <span>Giờ thi đấu: 10:35 – 10:50 mỗi Chủ Nhật</span>
@@ -384,10 +389,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Ấu 1A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Ấu 1B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 03/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 03/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -397,10 +402,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Ấu 2A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Ấu 2B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 10/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 10/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -410,10 +415,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Ấu 3A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Ấu 3B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 17/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 17/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -422,11 +427,11 @@
             <div class="nr-details">
               <span class="nr-phase bk">Bán Kết</span>
               <div class="nr-match-display tbd">
-                <span class="nr-team">🏅 Thắng A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-medal"></i> Thắng A</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">___</span>
               </div>
-              <span class="nr-date-tag">📅 CN 24/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 24/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -435,26 +440,26 @@
             <div class="nr-details">
               <span class="nr-phase bk">Bán Kết</span>
               <div class="nr-match-display tbd">
-                <span class="nr-team">🏅 Thắng B</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-medal"></i> Thắng B</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thắng C</span>
               </div>
-              <span class="nr-date-tag">📅 CN 31/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 31/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
           <div class="nr-card ck">
-            <div class="nr-round-badge ck">🏆</div>
+            <div class="nr-round-badge ck"><i class="fa-solid fa-trophy"></i></div>
             <div class="nr-details">
               <span class="nr-phase ck">Chung Kết</span>
               <div class="nr-match-display tbd champion">
-                <span class="nr-team">🏆 Thắng D</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-trophy"></i> Thắng D</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thắng E</span>
               </div>
-              <span class="nr-date-tag">📅 CN 07/06/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 07/06/2026</span>
             </div>
-            <div class="nr-score-box champion-box">🏅</div>
+            <div class="nr-score-box champion-box"><i class="fa-solid fa-medal"></i></div>
           </div>
         </div>
       </div>
@@ -462,12 +467,12 @@
       <!-- THIẾU NHI -->
       <div class="nganh-panel" id="tab-thieu">
         <div class="np-header thieu-header">
-          <div class="np-icon">⭐</div>
+          <div class="np-icon"><i class="fa-solid fa-star"></i></div>
           <div class="np-meta">
             <h3>Ngành Thiếu Nhi</h3>
             <span>Giờ thi đấu: 10:55 – 11:10 mỗi Chủ Nhật</span>
           </div>
-          <div class="np-teams-badge">5 Đội <span class="lucky-note">🍀 Thiếu 2C may mắn</span></div>
+          <div class="np-teams-badge">5 Đội <span class="lucky-note"><i class="fa-solid fa-clover"></i> Thiếu 2C may mắn</span></div>
         </div>
         <div class="np-rounds">
           <div class="nr-card vl">
@@ -476,10 +481,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Thiếu 1A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thiếu 1B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 03/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 03/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -489,10 +494,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Thiếu 2A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thiếu 2B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 10/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 10/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -502,10 +507,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Thiếu 3A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thiếu 3B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 17/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 17/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -514,12 +519,12 @@
             <div class="nr-details">
               <span class="nr-phase bk">Bán Kết</span>
               <div class="nr-match-display tbd">
-                <span class="nr-team lucky">🍀 Thiếu 2C</span>
-                <span class="nr-ball">⚽</span>
-                <span class="nr-team">🏅 Thắng C</span>
+                <span class="nr-team lucky"><i class="fa-solid fa-clover"></i> Thiếu 2C</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
+                <span class="nr-team"><i class="fa-solid fa-medal"></i> Thắng C</span>
               </div>
-              <span class="nr-date-tag">📅 CN 24/05/2026</span>
-              <span class="nr-note">🍀 Thiếu 2C vào thẳng không qua vòng loại</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 24/05/2026</span>
+              <span class="nr-note"><i class="fa-solid fa-clover"></i> Thiếu 2C vào thẳng không qua vòng loại</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -528,26 +533,26 @@
             <div class="nr-details">
               <span class="nr-phase bk">Bán Kết</span>
               <div class="nr-match-display tbd">
-                <span class="nr-team">🏅 Thắng A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-medal"></i> Thắng A</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thắng B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 31/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 31/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
           <div class="nr-card ck">
-            <div class="nr-round-badge ck">🏆</div>
+            <div class="nr-round-badge ck"><i class="fa-solid fa-trophy"></i></div>
             <div class="nr-details">
               <span class="nr-phase ck">Chung Kết</span>
               <div class="nr-match-display tbd champion">
-                <span class="nr-team">🏆 Thắng D</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-trophy"></i> Thắng D</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thắng E</span>
               </div>
-              <span class="nr-date-tag">📅 CN 07/06/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 07/06/2026</span>
             </div>
-            <div class="nr-score-box champion-box">🏅</div>
+            <div class="nr-score-box champion-box"><i class="fa-solid fa-medal"></i></div>
           </div>
         </div>
       </div>
@@ -555,7 +560,7 @@
       <!-- NGHĨA SĨ – HIỆP SĨ -->
       <div class="nganh-panel" id="tab-nghia">
         <div class="np-header nghia-header">
-          <div class="np-icon">⚔️</div>
+          <div class="np-icon"><i class="fa-solid fa-chess-knight"></i></div>
           <div class="np-meta">
             <h3>Ngành Nghĩa Sĩ – Hiệp Sĩ</h3>
             <span>Giờ thi đấu: 11:15 – 11:30 mỗi Chủ Nhật</span>
@@ -569,10 +574,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Nghĩa 1A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Nghĩa 1B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 03/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 03/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -582,10 +587,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Nghĩa 2A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Nghĩa 2B</span>
               </div>
-              <span class="nr-date-tag">📅 CN 10/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 10/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -595,10 +600,10 @@
               <span class="nr-phase vl">Vòng Loại</span>
               <div class="nr-match-display">
                 <span class="nr-team">Nghĩa 3</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Hiệp Sĩ</span>
               </div>
-              <span class="nr-date-tag">📅 CN 17/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 17/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -607,11 +612,11 @@
             <div class="nr-details">
               <span class="nr-phase bk">Bán Kết</span>
               <div class="nr-match-display tbd">
-                <span class="nr-team">🏅 Thắng A</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-medal"></i> Thắng A</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">___</span>
               </div>
-              <span class="nr-date-tag">📅 CN 24/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 24/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
@@ -620,26 +625,26 @@
             <div class="nr-details">
               <span class="nr-phase bk">Bán Kết</span>
               <div class="nr-match-display tbd">
-                <span class="nr-team">🏅 Thắng C</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-medal"></i> Thắng C</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thắng D</span>
               </div>
-              <span class="nr-date-tag">📅 CN 31/05/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 31/05/2026</span>
             </div>
             <div class="nr-score-box"></div>
           </div>
           <div class="nr-card ck">
-            <div class="nr-round-badge ck">🏆</div>
+            <div class="nr-round-badge ck"><i class="fa-solid fa-trophy"></i></div>
             <div class="nr-details">
               <span class="nr-phase ck">Chung Kết</span>
               <div class="nr-match-display tbd champion">
-                <span class="nr-team">🏆 Thắng D</span>
-                <span class="nr-ball">⚽</span>
+                <span class="nr-team"><i class="fa-solid fa-trophy"></i> Thắng D</span>
+                <span class="nr-ball"><i class="fa-solid fa-futbol"></i></span>
                 <span class="nr-team">Thắng E</span>
               </div>
-              <span class="nr-date-tag">📅 CN 07/06/2026</span>
+              <span class="nr-date-tag"><i class="fa-solid fa-calendar-days"></i> CN 07/06/2026</span>
             </div>
-            <div class="nr-score-box champion-box">🏅</div>
+            <div class="nr-score-box champion-box"><i class="fa-solid fa-medal"></i></div>
           </div>
         </div>
       </div>
@@ -651,7 +656,7 @@
   <section class="ht-weekly">
     <div class="ht-container">
       <div class="ht-section-header">
-        <span class="ht-section-tag">📅 Theo Chủ Nhật</span>
+        <span class="ht-section-tag"><i class="fa-solid fa-calendar-days"></i> Theo Chủ Nhật</span>
         <h2>Lịch Thi Đấu <em>Từng Tuần</em></h2>
       </div>
       <div class="weekly-grid">
@@ -664,19 +669,19 @@
           </div>
           <div class="wk-matches">
             <div class="wk-match au">
-              <span class="wk-nganh">🌸</span>
+              <span class="wk-nganh"><i class="fa-solid fa-spa"></i></span>
               <span class="wk-time">10:35</span>
-              <span class="wk-vs">Ấu 1A ⚽ Ấu 1B</span>
+              <span class="wk-vs">Ấu 1A <i class="fa-solid fa-futbol"></i> Ấu 1B</span>
             </div>
             <div class="wk-match thieu">
-              <span class="wk-nganh">⭐</span>
+              <span class="wk-nganh"><i class="fa-solid fa-star"></i></span>
               <span class="wk-time">10:55</span>
-              <span class="wk-vs">Thiếu 1A ⚽ Thiếu 1B</span>
+              <span class="wk-vs">Thiếu 1A <i class="fa-solid fa-futbol"></i> Thiếu 1B</span>
             </div>
             <div class="wk-match nghia">
-              <span class="wk-nganh">⚔️</span>
+              <span class="wk-nganh"><i class="fa-solid fa-chess-knight"></i></span>
               <span class="wk-time">11:15</span>
-              <span class="wk-vs">Nghĩa 1A ⚽ Nghĩa 1B</span>
+              <span class="wk-vs">Nghĩa 1A <i class="fa-solid fa-futbol"></i> Nghĩa 1B</span>
             </div>
           </div>
         </div>
@@ -689,19 +694,19 @@
           </div>
           <div class="wk-matches">
             <div class="wk-match au">
-              <span class="wk-nganh">🌸</span>
+              <span class="wk-nganh"><i class="fa-solid fa-spa"></i></span>
               <span class="wk-time">10:35</span>
-              <span class="wk-vs">Ấu 2A ⚽ Ấu 2B</span>
+              <span class="wk-vs">Ấu 2A <i class="fa-solid fa-futbol"></i> Ấu 2B</span>
             </div>
             <div class="wk-match thieu">
-              <span class="wk-nganh">⭐</span>
+              <span class="wk-nganh"><i class="fa-solid fa-star"></i></span>
               <span class="wk-time">10:55</span>
-              <span class="wk-vs">Thiếu 2A ⚽ Thiếu 2B</span>
+              <span class="wk-vs">Thiếu 2A <i class="fa-solid fa-futbol"></i> Thiếu 2B</span>
             </div>
             <div class="wk-match nghia">
-              <span class="wk-nganh">⚔️</span>
+              <span class="wk-nganh"><i class="fa-solid fa-chess-knight"></i></span>
               <span class="wk-time">11:15</span>
-              <span class="wk-vs">Nghĩa 2A ⚽ Nghĩa 2B</span>
+              <span class="wk-vs">Nghĩa 2A <i class="fa-solid fa-futbol"></i> Nghĩa 2B</span>
             </div>
           </div>
         </div>
@@ -714,19 +719,19 @@
           </div>
           <div class="wk-matches">
             <div class="wk-match au">
-              <span class="wk-nganh">🌸</span>
+              <span class="wk-nganh"><i class="fa-solid fa-spa"></i></span>
               <span class="wk-time">10:35</span>
-              <span class="wk-vs">Ấu 3A ⚽ Ấu 3B</span>
+              <span class="wk-vs">Ấu 3A <i class="fa-solid fa-futbol"></i> Ấu 3B</span>
             </div>
             <div class="wk-match thieu">
-              <span class="wk-nganh">⭐</span>
+              <span class="wk-nganh"><i class="fa-solid fa-star"></i></span>
               <span class="wk-time">10:55</span>
-              <span class="wk-vs">Thiếu 3A ⚽ Thiếu 3B</span>
+              <span class="wk-vs">Thiếu 3A <i class="fa-solid fa-futbol"></i> Thiếu 3B</span>
             </div>
             <div class="wk-match nghia">
-              <span class="wk-nganh">⚔️</span>
+              <span class="wk-nganh"><i class="fa-solid fa-chess-knight"></i></span>
               <span class="wk-time">11:15</span>
-              <span class="wk-vs">Nghĩa 3 ⚽ Hiệp Sĩ</span>
+              <span class="wk-vs">Nghĩa 3 <i class="fa-solid fa-futbol"></i> Hiệp Sĩ</span>
             </div>
           </div>
         </div>
@@ -739,19 +744,19 @@
           </div>
           <div class="wk-matches">
             <div class="wk-match au tbd-match">
-              <span class="wk-nganh">🌸</span>
+              <span class="wk-nganh"><i class="fa-solid fa-spa"></i></span>
               <span class="wk-time">10:35</span>
-              <span class="wk-vs">🏅 A ⚽ ___</span>
+              <span class="wk-vs"><i class="fa-solid fa-medal"></i> A <i class="fa-solid fa-futbol"></i> ___</span>
             </div>
             <div class="wk-match thieu tbd-match special-match">
-              <span class="wk-nganh">⭐</span>
+              <span class="wk-nganh"><i class="fa-solid fa-star"></i></span>
               <span class="wk-time">10:55</span>
-              <span class="wk-vs">🍀 Thiếu 2C ⚽ 🏅 C</span>
+              <span class="wk-vs"><i class="fa-solid fa-clover"></i> Thiếu 2C <i class="fa-solid fa-futbol"></i> <i class="fa-solid fa-medal"></i> C</span>
             </div>
             <div class="wk-match nghia tbd-match">
-              <span class="wk-nganh">⚔️</span>
+              <span class="wk-nganh"><i class="fa-solid fa-chess-knight"></i></span>
               <span class="wk-time">11:15</span>
-              <span class="wk-vs">🏅 A ⚽ ___</span>
+              <span class="wk-vs"><i class="fa-solid fa-medal"></i> A <i class="fa-solid fa-futbol"></i> ___</span>
             </div>
           </div>
         </div>
@@ -764,19 +769,19 @@
           </div>
           <div class="wk-matches">
             <div class="wk-match au tbd-match">
-              <span class="wk-nganh">🌸</span>
+              <span class="wk-nganh"><i class="fa-solid fa-spa"></i></span>
               <span class="wk-time">10:35</span>
-              <span class="wk-vs">🏅 B ⚽ C</span>
+              <span class="wk-vs"><i class="fa-solid fa-medal"></i> B <i class="fa-solid fa-futbol"></i> C</span>
             </div>
             <div class="wk-match thieu tbd-match">
-              <span class="wk-nganh">⭐</span>
+              <span class="wk-nganh"><i class="fa-solid fa-star"></i></span>
               <span class="wk-time">10:55</span>
-              <span class="wk-vs">🏅 A ⚽ B</span>
+              <span class="wk-vs"><i class="fa-solid fa-medal"></i> A <i class="fa-solid fa-futbol"></i> B</span>
             </div>
             <div class="wk-match nghia tbd-match">
-              <span class="wk-nganh">⚔️</span>
+              <span class="wk-nganh"><i class="fa-solid fa-chess-knight"></i></span>
               <span class="wk-time">11:15</span>
-              <span class="wk-vs">🏅 C ⚽ D</span>
+              <span class="wk-vs"><i class="fa-solid fa-medal"></i> C <i class="fa-solid fa-futbol"></i> D</span>
             </div>
           </div>
         </div>
@@ -785,23 +790,23 @@
           <div class="wk-header ck">
             <span class="wk-badge">Chung Kết</span>
             <span class="wk-date">CN 07 / 06</span>
-            <span class="wk-tag">🏆 GRAND FINAL</span>
+            <span class="wk-tag"><i class="fa-solid fa-trophy"></i> GRAND FINAL</span>
           </div>
           <div class="wk-matches">
             <div class="wk-match au tbd-match ck-match">
-              <span class="wk-nganh">🌸</span>
+              <span class="wk-nganh"><i class="fa-solid fa-spa"></i></span>
               <span class="wk-time">10:35</span>
-              <span class="wk-vs">🏆 D ⚽ E</span>
+              <span class="wk-vs"><i class="fa-solid fa-trophy"></i> D <i class="fa-solid fa-futbol"></i> E</span>
             </div>
             <div class="wk-match thieu tbd-match ck-match">
-              <span class="wk-nganh">⭐</span>
+              <span class="wk-nganh"><i class="fa-solid fa-star"></i></span>
               <span class="wk-time">10:55</span>
-              <span class="wk-vs">🏆 C ⚽ D</span>
+              <span class="wk-vs"><i class="fa-solid fa-trophy"></i> C <i class="fa-solid fa-futbol"></i> D</span>
             </div>
             <div class="wk-match nghia tbd-match ck-match">
-              <span class="wk-nganh">⚔️</span>
+              <span class="wk-nganh"><i class="fa-solid fa-chess-knight"></i></span>
               <span class="wk-time">11:15</span>
-              <span class="wk-vs">🏆 D ⚽ E</span>
+              <span class="wk-vs"><i class="fa-solid fa-trophy"></i> D <i class="fa-solid fa-futbol"></i> E</span>
             </div>
           </div>
         </div>
@@ -814,7 +819,7 @@
   <section class="ht-bracket-picker">
     <div class="ht-container">
       <div class="ht-section-header">
-        <span class="ht-section-tag">🌳 Sơ Đồ Cây</span>
+        <span class="ht-section-tag"><i class="fa-solid fa-tree"></i> Sơ Đồ Cây</span>
         <h2>Xem Sơ Đồ <em>Thi Đấu</em></h2>
         <p>Chọn kiểu trình bày sơ đồ cây bạn thích — 3 phong cách khác nhau</p>
       </div>
@@ -833,7 +838,7 @@
           </div>
           <div class="pc-info">
             <span class="pc-num">01</span>
-            <h3>🌳 Cây Ngang</h3>
+            <h3><i class="fa-solid fa-tree"></i> Cây Ngang</h3>
             <p>Đường cong Bezier nối các trận đấu — phong cách World Cup cổ điển, nền tối premium</p>
             <span class="pc-btn">Xem Kiểu 1 →</span>
           </div>
@@ -852,7 +857,7 @@
           </div>
           <div class="pc-info">
             <span class="pc-num">02</span>
-            <h3>🎨 Dòng Chảy Màu Sắc</h3>
+            <h3><i class="fa-solid fa-palette"></i> Dòng Chảy Màu Sắc</h3>
             <p>Từng ngành một, dạng dọc từ trên xuống — tab chuyển đổi giữa 3 ngành, nền sáng</p>
             <span class="pc-btn">Xem Kiểu 2 →</span>
           </div>
@@ -867,7 +872,7 @@
           </div>
           <div class="pc-info">
             <span class="pc-num">03</span>
-            <h3>✨ Tối Giản Song Song</h3>
+            <h3><i class="fa-solid fa-wand-magic-sparkles"></i> Tối Giản Song Song</h3>
             <p>3 ngành hiển thị song song — nhìn toàn cảnh một lúc, thiết kế tối giản tinh tế</p>
             <span class="pc-btn">Xem Kiểu 3 →</span>
           </div>
@@ -876,35 +881,241 @@
     </div>
   </section>
 
+  <!-- ░░ THỂ LỆ THI ĐẤU ░░ -->
+  <section class="ht-thele" id="thele">
+    <div class="ht-container">
+      <div class="ht-section-header">
+        <span class="ht-section-tag"><i class="fa-solid fa-book-open"></i> Quy Định</span>
+        <h2>Thể Lệ <em>Thi Đấu</em></h2>
+        <p>Môn bóng đá – Hội Thao Xứ Đoàn Kitô Vua Hàng Xanh 2026</p>
+      </div>
+
+      <!-- INFO CARDS row -->
+      <div class="tl-info-grid">
+        <div class="tl-info-card">
+          <div class="tl-info-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="tl-info-body">
+            <div class="tl-info-label">Thành phần</div>
+            <div class="tl-info-val">Ngành Ấu · Thiếu · Nghĩa–Hiệp</div>
+          </div>
+        </div>
+        <div class="tl-info-card">
+          <div class="tl-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+          <div class="tl-info-body">
+            <div class="tl-info-label">Địa điểm</div>
+            <div class="tl-info-val">Giáo xứ Hàng Xanh – Sân Tầng Trệt</div>
+          </div>
+        </div>
+        <div class="tl-info-card">
+          <div class="tl-info-icon"><i class="fa-solid fa-clock"></i></div>
+          <div class="tl-info-body">
+            <div class="tl-info-label">Thời gian</div>
+            <div class="tl-info-val">Sau Giáo Lý mỗi Chủ Nhật</div>
+          </div>
+        </div>
+        <div class="tl-info-card">
+          <div class="tl-info-icon"><i class="fa-solid fa-person-running"></i></div>
+          <div class="tl-info-body">
+            <div class="tl-info-label">Số cầu thủ</div>
+            <div class="tl-info-val">4 cầu thủ + 1 thủ môn / đội</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Phụ trách -->
+      <div class="tl-block">
+        <div class="tl-block-hd">
+          <i class="fa-solid fa-star"></i>
+          <h4>Phụ Trách</h4>
+        </div>
+        <div class="tl-phutach-row">
+          <div class="tl-pt-item chief">
+            <i class="fa-solid fa-crown"></i>
+            <span class="tl-pt-role">Trưởng phụ trách</span>
+            <span class="tl-pt-name">G.B Ngô Vạn Cát</span>
+          </div>
+          <div class="tl-pt-item">
+            <i class="fa-solid fa-wrench"></i>
+            <span class="tl-pt-role">Ban Kỹ Thuật</span>
+          </div>
+          <div class="tl-pt-item">
+            <i class="fa-solid fa-shield-halved"></i>
+            <span class="tl-pt-role">Dự Trưởng II</span>
+          </div>
+          <div class="tl-pt-item">
+            <i class="fa-solid fa-clipboard-list"></i>
+            <span class="tl-pt-role">Ban Quản Lý</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Accordion rules -->
+      <div class="tl-rules">
+
+        <details class="tl-rule-block" open>
+          <summary class="tl-rule-hd">
+            <span class="tl-rule-num">1</span>
+            <span>Thể Thức Thi Đấu</span>
+            <i class="fa-solid fa-chevron-down tl-chevron"></i>
+          </summary>
+          <ul class="tl-rule-list">
+            <li><i class="fa-solid fa-futbol"></i> Mỗi lớp đăng ký <strong>1 đội gồm 4 cầu thủ và 1 thủ môn</strong>, không phân biệt nam nữ, thi đấu theo Ngành.</li>
+            <li><i class="fa-solid fa-table-list"></i> Các đội thi đấu theo Bảng Thi Đấu đã được xếp sẵn.</li>
+            <li><i class="fa-solid fa-calendar-days"></i> Danh sách cầu thủ nộp cho BTC (Tr. Cát) trước ngày <strong>02/05/2026</strong>.</li>
+          </ul>
+        </details>
+
+        <details class="tl-rule-block">
+          <summary class="tl-rule-hd">
+            <span class="tl-rule-num">2</span>
+            <span>Luật Thi Đấu</span>
+            <i class="fa-solid fa-chevron-down tl-chevron"></i>
+          </summary>
+          <ul class="tl-rule-list">
+            <li><i class="fa-solid fa-clock"></i> Áp dụng Luật bóng đá <strong>5 người</strong>. Mỗi trận <strong>15 phút</strong>; thời gian bù giờ do trọng tài quyết định.</li>
+            <li><i class="fa-solid fa-scale-balanced"></i> Nếu sau vòng loại các đội bằng điểm: xét Hiệu số → Số bàn thắng → Fairplay → Đá luân lưu (5 quả/đội).</li>
+            <li><i class="fa-solid fa-stopwatch"></i> Đá biên không quá <strong>3 giây</strong>, bóng đặt trên đường biên. Tình huống bóng chết không tính vào thời gian.</li>
+            <li><i class="fa-solid fa-arrows-rotate"></i> Mỗi đội được thay người <strong>không giới hạn</strong> trong trận.</li>
+            <li><i class="fa-solid fa-gavel"></i> Trọng tài có toàn quyền điều khiển. Khiếu nại giải quyết sau trận.</li>
+            <li><i class="fa-solid fa-hand"></i> Không vào bóng nguy hiểm, không tỳ đè xô đẩy quá mạnh, không lăng mạ xúc phạm.</li>
+            <li><i class="fa-solid fa-users"></i> Đội chuẩn bị đến lượt tập trung khu vực thi đấu <strong>trước 5 phút</strong>.</li>
+          </ul>
+        </details>
+
+        <details class="tl-rule-block">
+          <summary class="tl-rule-hd">
+            <span class="tl-rule-num">3</span>
+            <span>Trang Phục Thi Đấu</span>
+            <i class="fa-solid fa-chevron-down tl-chevron"></i>
+          </summary>
+          <ul class="tl-rule-list">
+            <li><i class="fa-solid fa-shirt"></i> Đồ TNTT hoặc đồng phục riêng của lớp; áo thun + quần đùi dài ngang gối trở xuống.</li>
+            <li><i class="fa-solid fa-shirt"></i> Xứ Đoàn chuẩn bị <strong>áo pitch</strong> để phân biệt 2 đội và thủ môn. Nếu màu trùng → bốc thăm mặc áo pitch.</li>
+            <li><i class="fa-solid fa-shoe-prints"></i> Giày đế trơn, sandal, bata. <strong>Không mang giày đinh, không đi chân không.</strong></li>
+          </ul>
+        </details>
+
+        <details class="tl-rule-block">
+          <summary class="tl-rule-hd">
+            <span class="tl-rule-num">4</span>
+            <span>Quy Định Xử Phạt</span>
+            <i class="fa-solid fa-chevron-down tl-chevron"></i>
+          </summary>
+          <div class="tl-card-row">
+            <div class="tl-penalty-card yellow">
+              <i class="fa-solid fa-square"></i>
+              <strong>Thẻ Vàng</strong>
+              <span class="tl-penalty-pts">–1 điểm</span>
+            </div>
+            <div class="tl-penalty-card red">
+              <i class="fa-solid fa-square"></i>
+              <strong>Thẻ Đỏ</strong>
+              <span class="tl-penalty-pts">–2 điểm</span>
+            </div>
+            <div class="tl-penalty-card dark">
+              <i class="fa-solid fa-equals"></i>
+              <strong>2 Thẻ Vàng</strong>
+              <span class="tl-penalty-pts">= 1 Thẻ Đỏ</span>
+            </div>
+          </div>
+          <ul class="tl-rule-list" style="margin-top:12px">
+            <li><i class="fa-solid fa-square" style="color:#ef4444"></i> Cầu thủ thẻ đỏ bị truất quyền thi đấu trận đó; trận sau vẫn tham gia được.</li>
+            <li><i class="fa-solid fa-stopwatch"></i> Sau <strong>5 phút</strong> đội có cầu thủ bị thẻ đỏ được bổ sung cầu thủ khác vào sân.</li>
+            <li><i class="fa-solid fa-triangle-exclamation"></i> Hành vi phi thể thao (chửi thề, xúc phạm…) bị trừ điểm tuỳ mức độ.</li>
+          </ul>
+        </details>
+
+        <details class="tl-rule-block">
+          <summary class="tl-rule-hd">
+            <span class="tl-rule-num">5</span>
+            <span>Cơ Cấu Giải Thưởng</span>
+            <i class="fa-solid fa-chevron-down tl-chevron"></i>
+          </summary>
+          <div class="tl-awards">
+            <div class="tl-award first">
+              <i class="fa-solid fa-trophy"></i>
+              <div>
+                <strong>Giải Nhất</strong> – Ấu · Thiếu · Nghĩa–Hiệp
+                <span>Cúp Vô Địch + Phần Thưởng</span>
+              </div>
+            </div>
+            <div class="tl-award second">
+              <i class="fa-solid fa-medal"></i>
+              <div>
+                <strong>Giải Nhì</strong> – Ấu · Thiếu · Nghĩa–Hiệp
+                <span>Phần Thưởng</span>
+              </div>
+            </div>
+            <div class="tl-award third">
+              <i class="fa-solid fa-award"></i>
+              <div>
+                <strong>Giải Ba</strong> – Ấu · Thiếu · Nghĩa–Hiệp
+                <span>Phần Thưởng</span>
+              </div>
+            </div>
+          </div>
+        </details>
+
+        <details class="tl-rule-block spirit">
+          <summary class="tl-rule-hd">
+            <span class="tl-rule-num"><i class="fa-solid fa-dove"></i></span>
+            <span>Tinh Thần Thi Đấu</span>
+            <i class="fa-solid fa-chevron-down tl-chevron"></i>
+          </summary>
+          <blockquote class="tl-spirit-quote">
+            Các em thiếu nhi xứ đoàn Kitô Vua Hàng Xanh thi đấu trong tình
+            <strong>Huynh Đệ</strong> vui vẻ, nhiệt tình, <strong>FairPlay</strong>,
+            giao lưu học hỏi với nhau trong tinh thần Đức Ki-tô.
+            Nối kết tình anh em lại gần nhau hơn.
+          </blockquote>
+        </details>
+
+      </div><!-- end tl-rules -->
+
+      <!-- Signatures -->
+      <div class="tl-signatures">
+        <div class="tl-sig">
+          <i class="fa-solid fa-star"></i>
+          <span>Xứ Đoàn Trưởng</span>
+        </div>
+        <div class="tl-sig">
+          <i class="fa-solid fa-cross"></i>
+          <span>Linh Mục Tuyên Úy</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
   <!-- ░░ NOTES ░░ -->
   <section class="ht-notes">
     <div class="ht-container">
       <div class="notes-box">
-        <h3>📌 Lưu Ý Thể Lệ</h3>
+        <h3><i class="fa-solid fa-thumbtack"></i> Lưu Ý Thể Lệ</h3>
         <ul>
           <li>
-            <span class="note-icon">🍀</span>
+            <span class="note-icon"><i class="fa-solid fa-clover"></i></span>
             <div>
               <strong>Lớp 2C (Thiếu Nhi)</strong> được bốc thăm may mắn —
               không phải đá vòng loại, vào thẳng vòng trong (Bán Kết Bảng D).
             </div>
           </li>
           <li>
-            <span class="note-icon">🏅</span>
+            <span class="note-icon"><i class="fa-solid fa-medal"></i></span>
             <div>
               Ở vòng <strong>BÁN KẾT</strong> sẽ chọn thêm một đội đi tiếp!
               Dựa trên <strong>hiệu số bàn thắng</strong> &amp; <strong>số thẻ phạt</strong>.
             </div>
           </li>
           <li>
-            <span class="note-icon">⛪</span>
+            <span class="note-icon"><i class="fa-solid fa-church"></i></span>
             <div>
               Tất cả các trận đấu diễn ra vào <strong>Chủ Nhật</strong> tại <strong>Sân Nhà Thờ Kitô Vua</strong>.
               Tinh thần thi đấu Fair-play và huynh đệ là trên hết.
             </div>
           </li>
           <li>
-            <span class="note-icon">✝</span>
+            <span class="note-icon"><i class="fa-solid fa-cross"></i></span>
             <div>
               Trước mỗi trận đấu sẽ có <strong>lời cầu nguyện</strong> chung.
               Hội Thao là dịp vui chơi lành mạnh trong tinh thần Công Giáo.
@@ -920,13 +1131,13 @@
     <div class="ht-footer-inner">
       <a href="index.html" class="hf-back-btn">← Quay Về Trang Chủ Xứ Đoàn</a>
       <div class="hf-brand">
-        <span class="hf-cross">✝</span>
+        <span class="hf-cross"><i class="fa-solid fa-cross"></i></span>
         <div>
           <strong>Xứ Đoàn TNTT Kitô Vua Hàng Xanh</strong>
           <span>Hội Thao 2026 · Thể Thao &amp; Đức Tin</span>
         </div>
       </div>
-      <p>© 2026 Xứ Đoàn TNTT Kitô Vua Hàng Xanh ✝ Sống Đức Tin – Loan Truyền Đức Tin</p>
+      <p>© 2026 Xứ Đoàn TNTT Kitô Vua Hàng Xanh <i class="fa-solid fa-cross"></i> Sống Đức Tin – Loan Truyền Đức Tin</p>
     </div>
   </footer>
 
