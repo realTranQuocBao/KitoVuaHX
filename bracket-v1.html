@@ -522,6 +522,7 @@
     <ul>
       <li><i class="fa-solid fa-clover"></i> <strong>Thiếu 2C</strong> được bốc thăm may mắn, không qua vòng loại, vào thẳng Bán Kết.</li>
       <li><i class="fa-solid fa-medal"></i> Vòng <strong>Bán Kết</strong> sẽ chọn thêm 1 đội đi tiếp — dựa trên hiệu số bàn thắng &amp; số thẻ phạt.</li>
+      <li><span style="display:inline-flex;gap:3px;vertical-align:middle;margin-right:4px"><span class="card-y">2</span><span class="card-r">1</span></span>Số thẻ vàng / thẻ đỏ của mỗi đội &nbsp;·&nbsp; <strong>Pen. 4–3</strong> = hòa, đá luân lưu kết quả 4–3</li>
     </ul>
   </div>
 </div>
@@ -538,6 +539,13 @@ function renderResults(MATCH_DATA) {
     if (d.score) card.classList.add('played');
 
     const rows = card.querySelectorAll('.team-row');
+
+    // Cập nhật tên đội từ JSON (BK/CK sẽ cập nhật sau khi biết kết quả VL)
+    rows.forEach((row, i) => {
+      if (d.teams?.[i] == null) return;
+      const ns = row.querySelector('span:first-child');
+      if (ns) { ns.textContent = d.teams[i]; row.classList.remove('tbd'); }
+    });
 
     // Determine winner index (0 or 1), -1 if draw without penalty
     let winIdx = -1;

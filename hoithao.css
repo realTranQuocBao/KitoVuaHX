@@ -542,6 +542,20 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   font-weight: 700;
   color: #7c3aed;
 }
+.bracket-legend {
+  margin-top: 12px;
+  font-size: .78rem;
+  color: #64748b;
+  text-align: center;
+}
+.leg-y, .leg-r {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 18px; height: 14px; border-radius: 2px;
+  font-size: .68rem; font-weight: 900; padding: 0 4px;
+  vertical-align: middle;
+}
+.leg-y { background: #fbbf24; color: #78350f; }
+.leg-r { background: #ef4444; color: #fff; }
 @keyframes ht-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
 .ht-shimmer-bar {
   display: inline-block; width: 52px; height: 16px; border-radius: 4px; vertical-align: middle;

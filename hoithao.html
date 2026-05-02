@@ -355,6 +355,7 @@
           </tbody>
         </table>
       </div><!-- /table-scroll-wrap -->
+      <p class="bracket-legend"><span class="leg-y">2</span> Thẻ vàng &ensp;<span class="leg-r">1</span> Thẻ đỏ &ensp;⚽ <strong>Pen. 4–3</strong> = hòa, đá luân lưu kết quả 4–3</p>
     </div>
   </section>
 
@@ -1151,20 +1152,27 @@
       if (!d) return;
       if (d.score) {
         let html = d.score[0] + ' – ' + d.score[1];
-        if (d.penalty) html += `<span class="sc-pen">⚽ pk ${d.penalty[0]}–${d.penalty[1]}</span>`;
+        if (d.penalty) html += `<span class="sc-pen">⚽ Pen. ${d.penalty[0]}–${d.penalty[1]}</span>`;
         td.innerHTML = html;
       } else {
         td.innerHTML = '<span class="ht-shimmer-bar"></span>';
       }
     });
-    // Panel ngành (nr-score-box)
+    // Panel ngành (nr-score-box) + cập nhật tên đội
     document.querySelectorAll('.nr-score-box[data-match]').forEach(div => {
       const d = data[div.dataset.match];
       if (!d) return;
+      // Cập nhật tên đội trong nr-match-display
+      if (d.teams) {
+        const teamSpans = div.closest('.nr-card')?.querySelectorAll('.nr-team');
+        if (teamSpans) d.teams.forEach((name, i) => {
+          if (name && teamSpans[i]) teamSpans[i].textContent = name;
+        });
+      }
       if (!d.score) { div.classList.add('ht-score-shimmer'); return; }
 
       let html = `<span class="nrs-score">${d.score[0]} – ${d.score[1]}</span>`;
-      if (d.penalty) html += `<span class="nrs-pen">⚽ pk ${d.penalty[0]} – ${d.penalty[1]}</span>`;
+      if (d.penalty) html += `<span class="nrs-pen">⚽ Pen. ${d.penalty[0]} – ${d.penalty[1]}</span>`;
       const y = d.yellow || [0,0], r = d.red || [0,0];
       const yTotal = y[0] + y[1], rTotal = r[0] + r[1];
       if (yTotal || rTotal) {

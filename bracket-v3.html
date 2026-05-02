@@ -480,6 +480,10 @@
       <div class="n3-title"><i class="fa-solid fa-medal"></i> Luật Chọn Đội Đặc Biệt</div>
       <div class="n3-body">Ở Bán Kết sẽ chọn thêm 1 đội đi tiếp — dựa trên hiệu số bàn thắng và số thẻ phạt tích lũy.</div>
     </div>
+    <div class="n3-item" style="background:rgba(0,0,0,.04);border-color:#e2e8f0">
+      <div class="n3-title"><i class="fa-solid fa-circle-info"></i> Ký Hiệu Kết Quả</div>
+      <div class="n3-body"><span class="card-y3" style="font-size:.75rem">2</span> Số thẻ vàng &nbsp;·&nbsp; <span class="card-r3" style="font-size:.75rem">1</span> Số thẻ đỏ &nbsp;·&nbsp; <strong>Pen. 4–3</strong> = hòa, đá luân lưu kết quả 4–3</div>
+    </div>
   </div>
 
 </div>
@@ -503,6 +507,10 @@ function renderV3(data) {
       else if (d.penalty) winIdx = d.penalty[0] > d.penalty[1] ? 0 : 1;
     }
     card.querySelectorAll('.t3').forEach((row, i) => {
+      if (d.teams?.[i] != null) {
+        const ns = row.querySelector('span:first-child');
+        if (ns) { ns.textContent = d.teams[i]; row.classList.remove('tbd'); }
+      }
       const s3 = row.querySelector('.s3');
       if (!s3) return;
       if (d.score) {

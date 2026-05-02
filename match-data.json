@@ -1,24 +1,24 @@
 {
-  "_comment": "Kết quả Hội Thao 2026. score:[trên,dưới] null=chưa đấu. penalty:[trên,dưới] khi hòa. yellow/red:[trên,dưới] số thẻ.",
+  "_comment": "Kết quả Hội Thao 2026. teams:[trên,dưới] tên đội (cập nhật khi biết đội BK/CK). score:[trên,dưới] null=chưa đấu. penalty:[trên,dưới] khi hòa. yellow/red:[trên,dưới] số thẻ.",
 
-  "au-A":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "au-B":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "au-C":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "au-D":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "au-E":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "au-CK": { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-A":  { "teams": ["Ấu 1A",   "Ấu 1B"],      "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-B":  { "teams": ["Ấu 2A",   "Ấu 2B"],      "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-C":  { "teams": ["Ấu 3A",   "Ấu 3B"],      "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-D":  { "teams": ["Thắng A", null],           "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-E":  { "teams": ["Thắng B", "Thắng C"],     "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-CK": { "teams": ["Thắng D", "Thắng E"],     "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
 
-  "th-A":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "th-B":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "th-C":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "th-D":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "th-E":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "th-CK": { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-A":  { "teams": ["Thiếu 1A", "Thiếu 1B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-B":  { "teams": ["Thiếu 2A", "Thiếu 2B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-C":  { "teams": ["Thiếu 3A", "Thiếu 3B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-D":  { "teams": ["Thiếu 2C", "Thắng C"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-E":  { "teams": ["Thắng A",  "Thắng B"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-CK": { "teams": ["Thắng D",  "Thắng E"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
 
-  "ng-A":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "ng-B":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "ng-C":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "ng-D":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "ng-E":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "ng-CK": { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] }
+  "ng-A":  { "teams": ["Nghĩa 1A", "Nghĩa 1B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-B":  { "teams": ["Nghĩa 2A", "Nghĩa 2B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-C":  { "teams": ["Nghĩa 3",  "Hiệp Sĩ"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-D":  { "teams": ["Thắng A",  null],          "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-E":  { "teams": ["Thắng C",  "Thắng D"],    "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-CK": { "teams": ["Thắng D",  "Thắng E"],    "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] }
 }
