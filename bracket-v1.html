@@ -72,7 +72,20 @@
   .nb-hd.au    { background: linear-gradient(135deg,rgba(34,197,94,.12),rgba(21,128,61,.08)); border: 1px solid rgba(34,197,94,.2); }
   .nb-hd.thieu { background: linear-gradient(135deg,rgba(56,189,248,.12),rgba(3,105,161,.08)); border: 1px solid rgba(56,189,248,.2); }
   .nb-hd.nghia { background: linear-gradient(135deg,rgba(251,191,36,.12),rgba(161,98,7,.08));  border: 1px solid rgba(251,191,36,.2); }
-  .nb-icon { font-size: 2.2rem; }
+  .nb-icon {
+    width: 44px; height: 44px; border-radius: 10px;
+    position: relative; flex-shrink: 0; overflow: hidden;
+  }
+  .nb-icon::before {
+    content: ''; position: absolute; inset: 0;
+    clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%);
+  }
+  .nb-hd.au    .nb-icon { background: #4ade80; }
+  .nb-hd.au    .nb-icon::before { background: #fbbf24; }
+  .nb-hd.thieu .nb-icon { background: #38bdf8; }
+  .nb-hd.thieu .nb-icon::before { background: #fbbf24; }
+  .nb-hd.nghia .nb-icon { background: #facc15; }
+  .nb-hd.nghia .nb-icon::before { background: #dc2626; }
   .nb-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; }
   .nb-hd.au    .nb-name { color: var(--au-c); }
   .nb-hd.thieu .nb-name { color: var(--thieu-c); }
@@ -237,7 +250,7 @@
   <!-- ══ ẤU NHI ══ -->
   <div class="nb">
     <div class="nb-hd au">
-      <span class="nb-icon"><i class="fa-solid fa-spa"></i></span>
+      <span class="nb-icon" aria-hidden="true"></span>
       <div>
         <div class="nb-name">Ngành Ấu Nhi</div>
         <div class="nb-time">⏰ 10h35 – 10h50 · Khẩu Hiệu: <strong style="color:#86efac">Ngoan</strong></div>
@@ -312,7 +325,7 @@
   <!-- ══ THIẾU NHI ══ -->
   <div class="nb">
     <div class="nb-hd thieu">
-      <span class="nb-icon"><i class="fa-solid fa-star"></i></span>
+      <span class="nb-icon" aria-hidden="true"></span>
       <div>
         <div class="nb-name">Ngành Thiếu Nhi</div>
         <div class="nb-time">⏰ 10h55 – 11h10 · Khẩu Hiệu: <strong style="color:#7dd3fc">Hy Sinh</strong></div>
@@ -387,7 +400,7 @@
   <!-- ══ NGHĨA–HIỆP ══ -->
   <div class="nb">
     <div class="nb-hd nghia">
-      <span class="nb-icon"><i class="fa-solid fa-chess-knight"></i></span>
+      <span class="nb-icon" aria-hidden="true"></span>
       <div>
         <div class="nb-name">Ngành Nghĩa Sĩ – Hiệp Sĩ</div>
         <div class="nb-time">⏰ 11h15 – 11h30 · Khẩu Hiệu: <strong style="color:#fde68a">Dấn Thân</strong> / <strong style="color:#fde68a">Chinh Phục</strong></div>

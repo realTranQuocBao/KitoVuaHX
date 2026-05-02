@@ -65,6 +65,23 @@
   .ng-tab.nghia.active { background: var(--ng); }
   .ng-sub { display: block; font-size: .72rem; font-weight: 600; opacity: .8; margin-top: 2px; }
 
+  /* ── Cross pattée badge in tab ── */
+  .ng-cross {
+    width: 24px; height: 24px; border-radius: 6px;
+    flex-shrink: 0; position: relative; display: inline-block; overflow: hidden;
+  }
+  .ng-cross::before {
+    content: ''; position: absolute; inset: 0;
+    clip-path: polygon(30% 5%, 70% 5%, 60% 40%, 95% 30%, 95% 70%, 60% 60%, 70% 95%, 30% 95%, 40% 60%, 5% 70%, 5% 30%, 40% 40%);
+  }
+  .ng-tab.au    .ng-cross { background: #4ade80; }
+  .ng-tab.au    .ng-cross::before { background: #fbbf24; }
+  .ng-tab.thieu .ng-cross { background: #38bdf8; }
+  .ng-tab.thieu .ng-cross::before { background: #fbbf24; }
+  .ng-tab.nghia .ng-cross { background: #facc15; }
+  .ng-tab.nghia .ng-cross::before { background: #dc2626; }
+  .ng-tab.active .ng-cross { filter: brightness(1.1); }
+
   .ng-panel { display: none; }
   .ng-panel.active { display: block; }
 
@@ -222,13 +239,13 @@
   <!-- ── NGÀNH TABS ── -->
   <div class="ng-tabs">
     <button class="ng-tab au active" data-tab="au">
-      <i class="fa-solid fa-spa"></i> Ấu Nhi <span class="ng-sub">10h35–10h50 · Ngoan</span>
+      <span class="ng-cross" aria-hidden="true"></span> Ấu Nhi <span class="ng-sub">10h35–10h50 · Ngoan</span>
     </button>
     <button class="ng-tab thieu" data-tab="thieu">
-      <i class="fa-solid fa-star"></i> Thiếu Nhi <span class="ng-sub">10h55–11h10 · Hy Sinh</span>
+      <span class="ng-cross" aria-hidden="true"></span> Thiếu Nhi <span class="ng-sub">10h55–11h10 · Hy Sinh</span>
     </button>
     <button class="ng-tab nghia" data-tab="nghia">
-      <i class="fa-solid fa-chess-knight"></i> Nghĩa–Hiệp <span class="ng-sub">11h15–11h30 · Dấn Thân</span>
+      <span class="ng-cross" aria-hidden="true"></span> Nghĩa–Hiệp <span class="ng-sub">11h15–11h30 · Dấn Thân</span>
     </button>
   </div>
 
