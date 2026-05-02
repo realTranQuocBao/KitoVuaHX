@@ -219,6 +219,52 @@
     .match-label { font-size: .7rem; }
     .team-name { font-size: .78rem; }
   }
+
+  /* ── MATCH RESULTS ── */
+  .mc.played { border-color: rgba(255,255,255,.22); }
+  .team-row.winner { background: rgba(240,192,64,.12) !important; }
+  .team-row.winner > span:first-child { color: #fff; font-weight: 900; }
+
+  .score-box { min-width: 28px; }
+  .score-box.score-win {
+    background: rgba(240,192,64,.28);
+    color: var(--gold);
+    font-weight: 900;
+  }
+
+  /* Pending (chưa đấu) shimmer */
+  .score-box.score-pending {
+    color: transparent;
+    background: linear-gradient(90deg,
+      rgba(255,255,255,.06) 25%,
+      rgba(255,255,255,.16) 50%,
+      rgba(255,255,255,.06) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+    border-radius: 4px;
+    min-width: 28px;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+  }
+
+  /* Card indicators (yellow / red rectangles) */
+  .card-wrap { display: inline-flex; gap: 2px; margin-left: 5px; align-items: center; vertical-align: middle; flex-shrink: 0; }
+  .card-y { display: inline-block; width: 7px; height: 10px; background: #fbbf24; border-radius: 1px; box-shadow: 0 1px 4px rgba(251,191,36,.55); }
+  .card-r { display: inline-block; width: 7px; height: 10px; background: #ef4444; border-radius: 1px; box-shadow: 0 1px 4px rgba(239,68,68,.55); }
+
+  /* Penalty shootout row */
+  .penalty-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 5px 10px 6px;
+    font-size: .72rem; color: #d8b4fe;
+    border-top: 1px solid rgba(168,85,247,.25);
+    background: rgba(168,85,247,.07);
+    letter-spacing: .03em;
+  }
+  .penalty-score { font-weight: 900; letter-spacing: .06em; }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
@@ -481,6 +527,109 @@
 </div>
 
 <script>
+/* ═══════════════════════════════════════════════════════════════
+   KẾT QUẢ TRẬN ĐẤU — chỉnh tại đây
+
+   Mỗi trận gồm:
+     score   : [đội_trên, đội_dưới]   — null nếu chưa đấu
+     penalty : [đội_trên, đội_dưới]   — chỉ điền nếu đá luân lưu
+     yellow  : [đội_trên, đội_dưới]   — số thẻ vàng
+     red     : [đội_trên, đội_dưới]   — số thẻ đỏ
+
+   Ví dụ đã đấu, Ấu 1A thắng 2-1, 1 thẻ vàng mỗi bên:
+     'au-A': { score: [2,1], yellow: [1,1], red: [0,0] }
+
+   Ví dụ hòa, đá luân lưu đội trên thắng 4-3:
+     'au-B': { score: [1,1], penalty: [4,3], yellow: [0,0], red: [0,0] }
+═══════════════════════════════════════════════════════════════ */
+const MATCH_DATA = {
+
+  /* ── Ấu Nhi ── */
+  'au-A':  { score: null, yellow: [0,0], red: [0,0] },
+  'au-B':  { score: null, yellow: [0,0], red: [0,0] },
+  'au-C':  { score: null, yellow: [0,0], red: [0,0] },
+  'au-D':  { score: null, yellow: [0,0], red: [0,0] },
+  'au-E':  { score: null, yellow: [0,0], red: [0,0] },
+  'au-CK': { score: null, yellow: [0,0], red: [0,0] },
+
+  /* ── Thiếu Nhi ── */
+  'th-A':  { score: null, yellow: [0,0], red: [0,0] },
+  'th-B':  { score: null, yellow: [0,0], red: [0,0] },
+  'th-C':  { score: null, yellow: [0,0], red: [0,0] },
+  'th-D':  { score: null, yellow: [0,0], red: [0,0] },
+  'th-E':  { score: null, yellow: [0,0], red: [0,0] },
+  'th-CK': { score: null, yellow: [0,0], red: [0,0] },
+
+  /* ── Nghĩa–Hiệp ── */
+  'ng-A':  { score: null, yellow: [0,0], red: [0,0] },
+  'ng-B':  { score: null, yellow: [0,0], red: [0,0] },
+  'ng-C':  { score: null, yellow: [0,0], red: [0,0] },
+  'ng-D':  { score: null, yellow: [0,0], red: [0,0] },
+  'ng-E':  { score: null, yellow: [0,0], red: [0,0] },
+  'ng-CK': { score: null, yellow: [0,0], red: [0,0] },
+};
+
+/* ─── Render kết quả vào từng thẻ trận đấu ─── */
+function renderResults() {
+  Object.entries(MATCH_DATA).forEach(([id, d]) => {
+    const card = document.getElementById(id);
+    if (!card) return;
+
+    if (d.score) card.classList.add('played');
+
+    const rows = card.querySelectorAll('.team-row');
+
+    // Determine winner index (0 or 1), -1 if draw without penalty
+    let winIdx = -1;
+    if (d.score) {
+      const [s0, s1] = d.score;
+      if (s0 !== s1) winIdx = s0 > s1 ? 0 : 1;
+      else if (d.penalty) winIdx = d.penalty[0] > d.penalty[1] ? 0 : 1;
+    }
+
+    rows.forEach((row, i) => {
+      // Score
+      const sb = row.querySelector('.score-box');
+      if (sb) {
+        if (d.score) {
+          sb.textContent = d.score[i] ?? '';
+          if (i === winIdx) sb.classList.add('score-win');
+        } else {
+          sb.textContent = '  ';   // two nbsp for width
+          sb.classList.add('score-pending');
+        }
+      }
+
+      // Winner row highlight
+      if (i === winIdx) row.classList.add('winner');
+
+      // Card badges
+      const yc = d.yellow?.[i] || 0;
+      const rc = d.red?.[i]    || 0;
+      if (yc || rc) {
+        const wrap = document.createElement('span');
+        wrap.className = 'card-wrap';
+        for (let k = 0; k < yc; k++) wrap.insertAdjacentHTML('beforeend', '<span class="card-y" title="Thẻ vàng"></span>');
+        for (let k = 0; k < rc; k++) wrap.insertAdjacentHTML('beforeend', '<span class="card-r" title="Thẻ đỏ"></span>');
+        const nameSpan = row.querySelector('span:first-child');
+        if (nameSpan) nameSpan.insertAdjacentElement('afterend', wrap);
+      }
+    });
+
+    // Penalty row
+    if (d.score && d.penalty) {
+      const body = card.querySelector('.mc-body');
+      if (body) {
+        const pr = document.createElement('div');
+        pr.className = 'penalty-row';
+        pr.innerHTML = `<span>⚽ Luân lưu</span><span class="penalty-score">${d.penalty[0]} – ${d.penalty[1]}</span>`;
+        body.appendChild(pr);
+      }
+    }
+  });
+}
+
+/* ─── SVG Bezier connectors ─── */
 function drawConnectors(containerId, edges) {
   const wrap = document.getElementById(containerId);
   if (!wrap) return;
@@ -556,7 +705,10 @@ function drawAll() {
   Object.entries(EDGES).forEach(([id, edges]) => drawConnectors(id, edges));
 }
 
-window.addEventListener('load', drawAll);
+window.addEventListener('load', () => {
+  renderResults(); // render scores/cards once
+  drawAll();       // draw SVG connectors
+});
 
 // Debounced resize handler
 let _rt;
