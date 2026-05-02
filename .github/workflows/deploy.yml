@@ -3,7 +3,6 @@ name: Deploy to giaoly.edu.vn
 on:
   push:
     branches:
-      - claude/create-youth-landing-page-dAvgF
       - main
 
 jobs:
