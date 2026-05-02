@@ -527,50 +527,10 @@
 </div>
 
 <script>
-/* ═══════════════════════════════════════════════════════════════
-   KẾT QUẢ TRẬN ĐẤU — chỉnh tại đây
-
-   Mỗi trận gồm:
-     score   : [đội_trên, đội_dưới]   — null nếu chưa đấu
-     penalty : [đội_trên, đội_dưới]   — chỉ điền nếu đá luân lưu
-     yellow  : [đội_trên, đội_dưới]   — số thẻ vàng
-     red     : [đội_trên, đội_dưới]   — số thẻ đỏ
-
-   Ví dụ đã đấu, Ấu 1A thắng 2-1, 1 thẻ vàng mỗi bên:
-     'au-A': { score: [2,1], yellow: [1,1], red: [0,0] }
-
-   Ví dụ hòa, đá luân lưu đội trên thắng 4-3:
-     'au-B': { score: [1,1], penalty: [4,3], yellow: [0,0], red: [0,0] }
-═══════════════════════════════════════════════════════════════ */
-const MATCH_DATA = {
-
-  /* ── Ấu Nhi ── */
-  'au-A':  { score: null, yellow: [0,0], red: [0,0] },
-  'au-B':  { score: null, yellow: [0,0], red: [0,0] },
-  'au-C':  { score: null, yellow: [0,0], red: [0,0] },
-  'au-D':  { score: null, yellow: [0,0], red: [0,0] },
-  'au-E':  { score: null, yellow: [0,0], red: [0,0] },
-  'au-CK': { score: null, yellow: [0,0], red: [0,0] },
-
-  /* ── Thiếu Nhi ── */
-  'th-A':  { score: null, yellow: [0,0], red: [0,0] },
-  'th-B':  { score: null, yellow: [0,0], red: [0,0] },
-  'th-C':  { score: null, yellow: [0,0], red: [0,0] },
-  'th-D':  { score: null, yellow: [0,0], red: [0,0] },
-  'th-E':  { score: null, yellow: [0,0], red: [0,0] },
-  'th-CK': { score: null, yellow: [0,0], red: [0,0] },
-
-  /* ── Nghĩa–Hiệp ── */
-  'ng-A':  { score: null, yellow: [0,0], red: [0,0] },
-  'ng-B':  { score: null, yellow: [0,0], red: [0,0] },
-  'ng-C':  { score: null, yellow: [0,0], red: [0,0] },
-  'ng-D':  { score: null, yellow: [0,0], red: [0,0] },
-  'ng-E':  { score: null, yellow: [0,0], red: [0,0] },
-  'ng-CK': { score: null, yellow: [0,0], red: [0,0] },
-};
+/* kết quả trận đấu load từ match-data.json — chỉnh sửa tại file đó */
 
 /* ─── Render kết quả vào từng thẻ trận đấu ─── */
-function renderResults() {
+function renderResults(MATCH_DATA) {
   Object.entries(MATCH_DATA).forEach(([id, d]) => {
     const card = document.getElementById(id);
     if (!card) return;
@@ -706,8 +666,11 @@ function drawAll() {
 }
 
 window.addEventListener('load', () => {
-  renderResults(); // render scores/cards once
-  drawAll();       // draw SVG connectors
+  drawAll();
+  fetch('match-data.json')
+    .then(r => r.json())
+    .then(data => renderResults(data))
+    .catch(() => {});
 });
 
 // Debounced resize handler

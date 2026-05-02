@@ -1,0 +1,24 @@
+{
+  "_comment": "Kết quả Hội Thao 2026. score:[trên,dưới] null=chưa đấu. penalty:[trên,dưới] khi hòa. yellow/red:[trên,dưới] số thẻ.",
+
+  "au-A":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-B":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-C":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-D":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-E":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-CK": { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+
+  "th-A":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-B":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-C":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-D":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-E":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-CK": { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+
+  "ng-A":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-B":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-C":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-D":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-E":  { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "ng-CK": { "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] }
+}
