@@ -1343,7 +1343,7 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 @media (max-width: 640px) {
   .ht-topnav { flex-wrap: wrap; padding: 10px 16px 0; gap: 6px; }
   .ht-topnav-title { font-size: .8rem; }
-  .ht-topnav-year { font-size: .72rem; padding: 3px 9px; }
+  .ht-topnav-year { display: none; }
   .ht-back { font-size: .8rem; padding: 4px 10px; }
   .ht-topnav-links {
     display: flex;
