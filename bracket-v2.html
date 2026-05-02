@@ -211,6 +211,18 @@
     .t2 span:first-child { font-size: .82rem; }
     .mc2-hd { font-size: .75rem; padding: 6px 10px; }
   }
+
+  /* ── Score rendering ── */
+  .sc-pending {
+    display: inline-block; min-width: 26px; height: 14px; border-radius: 3px; vertical-align: middle;
+    background: linear-gradient(90deg, rgba(0,0,0,.06) 25%, rgba(0,0,0,.16) 50%, rgba(0,0,0,.06) 75%);
+    background-size: 200% 100%;
+    animation: v2-shimmer 1.6s ease-in-out infinite;
+    color: transparent;
+  }
+  @keyframes v2-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+  .sc-win { background: rgba(22,163,74,.18) !important; color: #14532d !important; font-weight: 900 !important; border-radius: 3px; }
+  .t2-winner > span:first-child { font-weight: 900; }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 </head>
@@ -230,7 +242,7 @@
 <!-- ── HERO ── -->
 <div class="hero">
   <span class="hero-badge"><i class="fa-solid fa-palette"></i> KIỂU 2 · DÒNG CHẢY MÀU SẮC · CHỌN NGÀNH</span>
-  <h1>HỘI THAO <em>XỨ ĐOÀN TNTT KITÔ VUA HÀNG XANH</em> 2026</h1>
+  <h1>HỘI THAO <em>XỨ ĐOÀN TNTT KITÔ VUA HÀNG SANH</em> 2026</h1>
   <span class="hero-dates">03/05 → 07/06/2026</span>
 </div>
 
@@ -333,21 +345,21 @@
   <div class="ng-panel thieu-panel" id="pnl-thieu">
     <div class="vbracket">
       <div class="round-row vl-row" data-label="Vòng Loại">
-        <div class="mc2">
+        <div class="mc2" id="v2-th-A">
           <div class="mc2-hd" style="background:#e0f2fe;color:var(--th)"><span>Bảng A</span><span>CN 03/05</span></div>
           <div class="mc2-body">
             <div class="t2"><span>Thiếu 1A</span><span class="sc">&nbsp;</span></div>
             <div class="t2"><span>Thiếu 1B</span><span class="sc">&nbsp;</span></div>
           </div>
         </div>
-        <div class="mc2">
+        <div class="mc2" id="v2-th-B">
           <div class="mc2-hd" style="background:#e0f2fe;color:var(--th)"><span>Bảng B</span><span>CN 10/05</span></div>
           <div class="mc2-body">
             <div class="t2"><span>Thiếu 2A</span><span class="sc">&nbsp;</span></div>
             <div class="t2"><span>Thiếu 2B</span><span class="sc">&nbsp;</span></div>
           </div>
         </div>
-        <div class="mc2">
+        <div class="mc2" id="v2-th-C">
           <div class="mc2-hd" style="background:#e0f2fe;color:var(--th)"><span>Bảng C</span><span>CN 17/05</span></div>
           <div class="mc2-body">
             <div class="t2"><span>Thiếu 3A</span><span class="sc">&nbsp;</span></div>
@@ -361,14 +373,14 @@
         <div class="arr-col"><div class="arr-line" style="background:#7c3aed"></div><div class="arr-tip" style="color:#7c3aed">▼</div><div class="arr-label" style="color:#7c3aed">→ Bán Kết D</div></div>
       </div>
       <div class="round-row bk-row" data-label="Bán Kết">
-        <div class="mc2 bk">
+        <div class="mc2 bk" id="v2-th-D">
           <div class="mc2-hd bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
           <div class="mc2-body">
             <div class="t2 lucky"><span><i class="fa-solid fa-clover"></i> Thiếu 2C</span><span class="sc">&nbsp;</span></div>
             <div class="t2 tbd"><span><i class="fa-solid fa-medal"></i> Thắng C</span><span class="sc">&nbsp;</span></div>
           </div>
         </div>
-        <div class="mc2 bk">
+        <div class="mc2 bk" id="v2-th-E">
           <div class="mc2-hd bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
           <div class="mc2-body">
             <div class="t2 tbd"><span><i class="fa-solid fa-medal"></i> Thắng A</span><span class="sc">&nbsp;</span></div>
@@ -381,7 +393,7 @@
         <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Chung Kết</div></div>
       </div>
       <div class="round-row ck-row" data-label="🏆 Chung Kết">
-        <div class="mc2 ck">
+        <div class="mc2 ck" id="v2-th-CK">
           <div class="ck-trophy2"><i class="fa-solid fa-trophy"></i></div>
           <div class="mc2-hd ck"><span>Chung Kết</span><span>CN 07/06</span></div>
           <div class="mc2-body">
@@ -402,21 +414,21 @@
   <div class="ng-panel nghia-panel" id="pnl-nghia">
     <div class="vbracket">
       <div class="round-row vl-row" data-label="Vòng Loại">
-        <div class="mc2">
+        <div class="mc2" id="v2-ng-A">
           <div class="mc2-hd" style="background:#fef9c3;color:var(--ng)"><span>Bảng A</span><span>CN 03/05</span></div>
           <div class="mc2-body">
             <div class="t2"><span>Nghĩa 1A</span><span class="sc">&nbsp;</span></div>
             <div class="t2"><span>Nghĩa 1B</span><span class="sc">&nbsp;</span></div>
           </div>
         </div>
-        <div class="mc2">
+        <div class="mc2" id="v2-ng-B">
           <div class="mc2-hd" style="background:#fef9c3;color:var(--ng)"><span>Bảng B</span><span>CN 10/05</span></div>
           <div class="mc2-body">
             <div class="t2"><span>Nghĩa 2A</span><span class="sc">&nbsp;</span></div>
             <div class="t2"><span>Nghĩa 2B</span><span class="sc">&nbsp;</span></div>
           </div>
         </div>
-        <div class="mc2">
+        <div class="mc2" id="v2-ng-C">
           <div class="mc2-hd" style="background:#fef9c3;color:var(--ng)"><span>Bảng C</span><span>CN 17/05</span></div>
           <div class="mc2-body">
             <div class="t2"><span>Nghĩa 3</span><span class="sc">&nbsp;</span></div>
@@ -430,14 +442,14 @@
         <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Bán Kết E</div></div>
       </div>
       <div class="round-row bk-row" data-label="Bán Kết">
-        <div class="mc2 bk">
+        <div class="mc2 bk" id="v2-ng-D">
           <div class="mc2-hd bk"><span>Bán Kết D</span><span>CN 24/05</span></div>
           <div class="mc2-body">
             <div class="t2 tbd"><span><i class="fa-solid fa-medal"></i> Thắng A</span><span class="sc">&nbsp;</span></div>
             <div class="t2 tbd"><span>___</span><span class="sc">&nbsp;</span></div>
           </div>
         </div>
-        <div class="mc2 bk">
+        <div class="mc2 bk" id="v2-ng-E">
           <div class="mc2-hd bk"><span>Bán Kết E</span><span>CN 31/05</span></div>
           <div class="mc2-body">
             <div class="t2 tbd"><span><i class="fa-solid fa-medal"></i> Thắng C</span><span class="sc">&nbsp;</span></div>
@@ -450,7 +462,7 @@
         <div class="arr-col"><div class="arr-line"></div><div class="arr-tip">▼</div><div class="arr-label">→ Chung Kết</div></div>
       </div>
       <div class="round-row ck-row" data-label="🏆 Chung Kết">
-        <div class="mc2 ck">
+        <div class="mc2 ck" id="v2-ng-CK">
           <div class="ck-trophy2"><i class="fa-solid fa-trophy"></i></div>
           <div class="mc2-hd ck"><span>Chung Kết</span><span>CN 07/06</span></div>
           <div class="mc2-body">
@@ -482,6 +494,41 @@ document.querySelectorAll('.ng-tab').forEach(btn => {
     document.getElementById('pnl-' + t).classList.add('active');
   });
 });
+
+/* ── Render kết quả từ match-data.json ── */
+const V2_MAP = {
+  'v2-au-A':'au-A','v2-au-B':'au-B','v2-au-C':'au-C','v2-au-D':'au-D','v2-au-E':'au-E','v2-au-CK':'au-CK',
+  'v2-th-A':'th-A','v2-th-B':'th-B','v2-th-C':'th-C','v2-th-D':'th-D','v2-th-E':'th-E','v2-th-CK':'th-CK',
+  'v2-ng-A':'ng-A','v2-ng-B':'ng-B','v2-ng-C':'ng-C','v2-ng-D':'ng-D','v2-ng-E':'ng-E','v2-ng-CK':'ng-CK',
+};
+function renderV2(data) {
+  Object.entries(V2_MAP).forEach(([elemId, matchId]) => {
+    const card = document.getElementById(elemId);
+    const d = data[matchId];
+    if (!card || !d) return;
+    let winIdx = -1;
+    if (d.score) {
+      const [s0,s1] = d.score;
+      if (s0 !== s1) winIdx = s0 > s1 ? 0 : 1;
+      else if (d.penalty) winIdx = d.penalty[0] > d.penalty[1] ? 0 : 1;
+    }
+    card.querySelectorAll('.t2').forEach((row, i) => {
+      const sc = row.querySelector('.sc');
+      if (!sc) return;
+      if (d.score) {
+        sc.textContent = d.score[i] ?? '';
+        if (i === winIdx) { sc.classList.add('sc-win'); row.classList.add('t2-winner'); }
+      } else {
+        sc.classList.add('sc-pending');
+        sc.textContent = '';
+      }
+    });
+  });
+}
+fetch('match-data.json')
+  .then(r => r.json())
+  .then(data => renderV2(data))
+  .catch(() => {});
 </script>
 </body>
 </html>

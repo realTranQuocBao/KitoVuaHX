@@ -1,5 +1,5 @@
 /* ===================================================
-   HỘI THAO 2026 – TNTT Kitô Vua Hàng Xanh
+   HỘI THAO 2026 – TNTT Kitô Vua Hàng Sanh
    Event Page Styles
 =================================================== */
 /* ── Font Awesome icon helpers ── */
@@ -531,6 +531,28 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
   color: var(--navy2);
   min-width: 60px;
   height: 28px;
+}
+@keyframes ht-shimmer { 0% { background-position: 200% 0; } 100% { background-position: -200% 0; } }
+.ht-shimmer-bar {
+  display: inline-block; width: 52px; height: 16px; border-radius: 4px; vertical-align: middle;
+  background: linear-gradient(90deg, rgba(10,22,40,.06) 25%, rgba(10,22,40,.18) 50%, rgba(10,22,40,.06) 75%);
+  background-size: 200% 100%;
+  animation: ht-shimmer 1.6s ease-in-out infinite;
+}
+.nr-score-box.ht-score-shimmer {
+  background: linear-gradient(90deg, rgba(255,255,255,.04) 25%, rgba(255,255,255,.14) 50%, rgba(255,255,255,.04) 75%);
+  background-size: 200% 100%;
+  animation: ht-shimmer 1.6s ease-in-out infinite;
+  border-style: solid;
+  color: transparent;
+}
+.nr-score-box.ht-score-played {
+  color: #fff;
+  font-weight: 900;
+  font-size: 1rem;
+  background: rgba(255,255,255,.1);
+  border-style: solid;
+  border-color: rgba(255,255,255,.3);
 }
 
 /* ===================================================

@@ -9,9 +9,9 @@
 2026
 
 ## Tên chuẩn (KHÔNG dùng "Kito Vua" hay "Hàng Sanh")
-- Giáo xứ: **Giáo xứ Hàng Xanh**
+- Giáo xứ: **Giáo xứ Hàng Sanh**
 - Xứ đoàn (đầy đủ): **Xứ đoàn Thiếu nhi Thánh Thể Kitô Vua**
-- Xứ đoàn (viết tắt): **Xứ đoàn TNTT Kitô Vua Hàng Xanh**
+- Xứ đoàn (viết tắt): **Xứ đoàn TNTT Kitô Vua Hàng Sanh**
 - Tên ngắn trong navbar/logo: **Kitô Vua**
 
 ## Cấu trúc files
