@@ -441,12 +441,14 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .ng-icon {
   width: 40px; height: 40px;
   border-radius: 10px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.25rem;
-  font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Noto Sans Symbols', serif;
+  position: relative;
   margin: 0 auto 6px;
   box-shadow: 0 2px 8px rgba(0,0,0,.28);
+  flex-shrink: 0;
 }
+.ng-icon::before, .ng-icon::after { content: ''; position: absolute; border-radius: 2px; }
+.ng-icon::before { width: 58%; height: 18%; top: 41%; left: 21%; }
+.ng-icon::after  { width: 18%; height: 64%; top: 18%; left: 41%; }
 .ng-name { color: var(--white); font-weight: 800; font-size: .95rem; }
 .ng-time { color: rgba(255,255,255,.5); font-size: .75rem; margin-top: 2px; }
 
@@ -455,10 +457,13 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .thieu-row .td-nganh { background: linear-gradient(135deg, #0c4a6e, #0369a1); }
 .nghia-row .td-nganh { background: linear-gradient(135deg, #78350f, #92400e); }
 
-/* ng-icon badge colours per ngành */
-.au-row .ng-icon    { background: #4ade80; color: #fbbf24; }
-.thieu-row .ng-icon { background: #38bdf8; color: #fbbf24; }
-.nghia-row .ng-icon { background: #facc15; color: #dc2626; }
+/* ng-icon badge: background = scarf, cross = gold (đỏ cho Nghĩa) */
+.au-row .ng-icon    { background: #4ade80; }
+.au-row .ng-icon::before, .au-row .ng-icon::after    { background: #fbbf24; }
+.thieu-row .ng-icon { background: #38bdf8; }
+.thieu-row .ng-icon::before, .thieu-row .ng-icon::after { background: #fbbf24; }
+.nghia-row .ng-icon { background: #facc15; }
+.nghia-row .ng-icon::before, .nghia-row .ng-icon::after { background: #dc2626; }
 
 /* Match cells */
 .mc {
@@ -567,18 +572,24 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .ntab:hover  { background: rgba(255,255,255,.15); color: var(--white); }
 .ntab.active { background: var(--gold); border-color: var(--gold); color: var(--white); }
 
-/* ✠ badge inside tab button */
+/* CSS-drawn cross badge inside tab button */
 .ntab-cross {
-  font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Noto Sans Symbols', serif;
-  font-size: .85rem;
   width: 22px; height: 22px;
   border-radius: 6px;
-  display: inline-flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }
-.ntab[data-tab="au"] .ntab-cross    { background: #4ade80; color: #fbbf24; }
-.ntab[data-tab="thieu"] .ntab-cross { background: #38bdf8; color: #fbbf24; }
-.ntab[data-tab="nghia"] .ntab-cross { background: #facc15; color: #dc2626; }
+.ntab-cross::before, .ntab-cross::after { content: ''; position: absolute; border-radius: 2px; }
+.ntab-cross::before { width: 58%; height: 18%; top: 41%; left: 21%; }
+.ntab-cross::after  { width: 18%; height: 64%; top: 18%; left: 41%; }
+.ntab[data-tab="au"] .ntab-cross    { background: #4ade80; }
+.ntab[data-tab="au"] .ntab-cross::before,    .ntab[data-tab="au"] .ntab-cross::after    { background: #fbbf24; }
+.ntab[data-tab="thieu"] .ntab-cross { background: #38bdf8; }
+.ntab[data-tab="thieu"] .ntab-cross::before, .ntab[data-tab="thieu"] .ntab-cross::after { background: #fbbf24; }
+.ntab[data-tab="nghia"] .ntab-cross { background: #facc15; }
+.ntab[data-tab="nghia"] .ntab-cross::before, .ntab[data-tab="nghia"] .ntab-cross::after { background: #dc2626; }
 
 .nganh-panel { display: none; }
 .nganh-panel.active { display: block; }
@@ -598,15 +609,19 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .np-icon {
   width: 56px; height: 56px;
   border-radius: 14px;
-  display: flex; align-items: center; justify-content: center;
-  font-size: 1.8rem;
-  font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Noto Sans Symbols', serif;
+  position: relative;
   flex-shrink: 0;
   box-shadow: 0 4px 14px rgba(0,0,0,.22), inset 0 1px 0 rgba(255,255,255,.2);
 }
-.au-header .np-icon    { background: #4ade80; color: #fbbf24; }
-.thieu-header .np-icon { background: #38bdf8; color: #fbbf24; }
-.nghia-header .np-icon { background: #facc15; color: #dc2626; }
+.np-icon::before, .np-icon::after { content: ''; position: absolute; border-radius: 2px; }
+.np-icon::before { width: 58%; height: 18%; top: 41%; left: 21%; }
+.np-icon::after  { width: 18%; height: 64%; top: 18%; left: 41%; }
+.au-header .np-icon    { background: #4ade80; }
+.au-header .np-icon::before,    .au-header .np-icon::after    { background: #fbbf24; }
+.thieu-header .np-icon { background: #38bdf8; }
+.thieu-header .np-icon::before, .thieu-header .np-icon::after { background: #fbbf24; }
+.nghia-header .np-icon { background: #facc15; }
+.nghia-header .np-icon::before, .nghia-header .np-icon::after { background: #dc2626; }
 .np-meta h3 { font-size: 1.4rem; color: var(--white); }
 .np-meta span { font-size: .88rem; color: rgba(255,255,255,.7); }
 .np-teams-badge {
@@ -779,16 +794,20 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .wk-match.special-match { background: #faf5ff; }
 .wk-match.ck-match { font-weight: 800; opacity: 1; }
 .wk-nganh {
-  font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Noto Sans Symbols', serif;
-  font-size: .9rem;
   width: 26px; height: 26px;
   border-radius: 7px;
-  display: flex; align-items: center; justify-content: center;
   flex-shrink: 0;
+  position: relative;
 }
-.wk-match.au .wk-nganh    { background: #4ade80; color: #fbbf24; }
-.wk-match.thieu .wk-nganh { background: #38bdf8; color: #fbbf24; }
-.wk-match.nghia .wk-nganh { background: #facc15; color: #dc2626; }
+.wk-nganh::before, .wk-nganh::after { content: ''; position: absolute; border-radius: 2px; }
+.wk-nganh::before { width: 58%; height: 18%; top: 41%; left: 21%; }
+.wk-nganh::after  { width: 18%; height: 64%; top: 18%; left: 41%; }
+.wk-match.au .wk-nganh    { background: #4ade80; }
+.wk-match.au .wk-nganh::before,    .wk-match.au .wk-nganh::after    { background: #fbbf24; }
+.wk-match.thieu .wk-nganh { background: #38bdf8; }
+.wk-match.thieu .wk-nganh::before, .wk-match.thieu .wk-nganh::after { background: #fbbf24; }
+.wk-match.nghia .wk-nganh { background: #facc15; }
+.wk-match.nghia .wk-nganh::before, .wk-match.nghia .wk-nganh::after { background: #dc2626; }
 .wk-time { font-size: .78rem; color: var(--muted); font-weight: 700; min-width: 36px; }
 .wk-vs { font-weight: 700; color: var(--text); font-size: .85rem; }
 
