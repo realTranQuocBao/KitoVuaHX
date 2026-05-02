@@ -63,6 +63,10 @@
   --shadow:     0 4px 24px rgba(0,0,0,.10);
   --shadow-lg:  0 8px 40px rgba(0,0,0,.15);
   --transition: .3s ease;
+  --grass:      #16a34a;
+  --grass-light:#4ade80;
+  --grass-dark: #0d5c26;
+  --field-dark: #040d18;
 }
 
 html { scroll-behavior: smooth; }
@@ -246,7 +250,7 @@ ul { list-style: none; }
   justify-content: center;
   text-align: center;
   overflow: hidden;
-  background: linear-gradient(160deg, #0d1f4a 0%, #1b3a6b 40%, #2a5298 70%, #1e3c72 100%);
+  background: linear-gradient(160deg, #060e1e 0%, #0d1f4a 35%, #162c54 65%, #0b2214 100%);
 }
 .hero::before {
   content: '';
@@ -254,7 +258,35 @@ ul { list-style: none; }
   inset: 0;
   background:
     radial-gradient(ellipse at 20% 50%, rgba(201,134,10,.2) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.06) 0%, transparent 50%);
+    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,.06) 0%, transparent 50%),
+    radial-gradient(ellipse at 50% 108%, rgba(22,163,74,.4) 0%, transparent 42%);
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent 0,
+    transparent 60px,
+    rgba(255,255,255,.013) 60px,
+    rgba(255,255,255,.013) 62px
+  );
+  pointer-events: none;
+}
+
+/* Large soccer ball watermark */
+.hero-ball-bg {
+  position: absolute;
+  right: -4%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(240px, 52vmin, 500px);
+  color: rgba(255,255,255,.028);
+  pointer-events: none;
+  line-height: 1;
+  z-index: 0;
 }
 
 /* Particles */
@@ -330,6 +362,7 @@ ul { list-style: none; }
   color: rgba(255,255,255,.5);
   font-size: .8rem;
   letter-spacing: .1em;
+  z-index: 2;
 }
 .scroll-arrow {
   width: 20px;
@@ -346,6 +379,7 @@ ul { list-style: none; }
   position: absolute;
   bottom: 0;
   left: 0; right: 0;
+  z-index: 3;
 }
 .hero-wave svg { display: block; width: 100%; height: 80px; }
 
@@ -353,9 +387,11 @@ ul { list-style: none; }
    STATS BAR
 =================================================== */
 .stats-bar {
-  background: var(--white);
+  background: var(--navy);
+  border-top: 4px solid var(--grass);
+  border-bottom: 1px solid rgba(255,255,255,.06);
   padding: 40px 0;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 28px rgba(0,0,0,.28);
 }
 .stats-container {
   max-width: 900px;
@@ -378,21 +414,23 @@ ul { list-style: none; }
   font-family: 'Playfair Display', serif;
   font-size: 3rem;
   font-weight: 700;
-  color: var(--navy);
+  color: var(--gold-light);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 24px rgba(240,192,64,.35);
 }
 .stat-label {
-  font-size: .85rem;
+  font-size: .75rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .08em;
-  color: var(--text-muted);
-  margin-top: 4px;
+  letter-spacing: .12em;
+  color: rgba(255,255,255,.48);
+  margin-top: 6px;
 }
 .stat-divider {
-  font-size: 1.5rem;
-  color: var(--gold);
-  opacity: .4;
+  font-size: 1.4rem;
+  color: var(--grass);
+  opacity: .55;
 }
 
 /* ===================================================
@@ -517,7 +555,7 @@ ul { list-style: none; }
   overflow: hidden;
 }
 .doanthe::before {
-  content: '✝';
+  content: '✠';
   position: absolute;
   font-size: 400px;
   color: rgba(255,255,255,.03);
@@ -622,36 +660,21 @@ ul { list-style: none; }
   box-shadow: 0 0 12px var(--sc, transparent);
 }
 
-/* ── CSS Maltese-style cross (top-right corner) ── */
+/* ── Thánh Giá ✠ (top-right corner, coloured via --cc var) ── */
 .card-cross {
   position: absolute;
-  top: 14px;
-  right: 16px;
-  width: 20px;
-  height: 20px;
+  top: 12px;
+  right: 14px;
+  font-size: 1.1rem;
+  color: var(--cc, #fbbf24);
+  font-family: 'Segoe UI Symbol', 'Apple Symbols', 'Noto Sans Symbols', serif;
+  line-height: 1;
+  user-select: none;
+  opacity: .9;
 }
 .card-cross-left {
   right: auto;
-  left: 16px;
-}
-.card-cross::before,
-.card-cross::after {
-  content: '';
-  position: absolute;
-  background: var(--cc, #fbbf24);
-  border-radius: 2px;
-}
-.card-cross::before {   /* horizontal bar */
-  width: 100%;
-  height: 36%;
-  top: 32%;
-  left: 0;
-}
-.card-cross::after {    /* vertical bar */
-  width: 36%;
-  height: 100%;
-  top: 0;
-  left: 32%;
+  left: 14px;
 }
 
 .nganh-abbr {
@@ -673,6 +696,21 @@ ul { list-style: none; }
   font-weight: 700;
   margin-bottom: 8px;
   opacity: .9;
+}
+
+/* ── Jersey number watermark on card ── */
+.card-jersey-num {
+  position: absolute;
+  bottom: -18px;
+  right: -6px;
+  font-size: 6.5rem;
+  font-weight: 900;
+  font-family: 'Playfair Display', serif;
+  color: rgba(255,255,255,.055);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -.04em;
 }
 
 /* ===================================================
@@ -753,6 +791,17 @@ ul { list-style: none; }
 =================================================== */
 .hoatdong {
   background: linear-gradient(160deg, #1a2a4a 0%, #0f1f3a 100%);
+  position: relative;
+}
+.hoatdong::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(22,163,74,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(22,163,74,.045) 1px, transparent 1px);
+  background-size: 80px 80px;
+  pointer-events: none;
 }
 .hoatdong-grid {
   display: grid;
@@ -771,6 +820,8 @@ ul { list-style: none; }
   backdrop-filter: blur(6px);
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 .hd-card:hover {
   background: rgba(255,255,255,.11);
@@ -1160,17 +1211,43 @@ cite {
 /* ===================================================
    SỰ KIỆN NỔI BẬT
 =================================================== */
-.sukien { background: var(--bg); }
+.sukien {
+  background: linear-gradient(160deg, #041108 0%, #081e0d 45%, #040d1a 100%);
+  position: relative;
+}
+.sukien::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0,
+    transparent 39px,
+    rgba(22,163,74,.07) 39px,
+    rgba(22,163,74,.07) 40px
+  );
+  pointer-events: none;
+}
+.sukien .section-tag {
+  color: var(--grass-light);
+}
+.sukien .section-tag::before, .sukien .section-tag::after {
+  background: var(--grass-light);
+}
+.sukien .section-header h2 { color: var(--white); }
+.sukien .section-desc { color: rgba(255,255,255,.75); }
 
 .sukien-banner {
   display: grid;
   grid-template-columns: 1fr 1.4fr;
   gap: 40px;
   align-items: stretch;
-  background: linear-gradient(160deg, var(--navy) 0%, #1e3c72 100%);
+  background: linear-gradient(160deg, #081e0d 0%, #0a2813 50%, #0d1f4a 100%);
   border-radius: 24px;
   overflow: hidden;
   box-shadow: var(--shadow-lg);
+  border: 1px solid rgba(22,163,74,.18);
+  border-top: 3px solid var(--grass-light);
 }
 
 .sk-left {
@@ -1369,7 +1446,7 @@ cite {
 
   .doanthe-grid { grid-template-columns: 1fr; }
   .doanthe-card { padding: 24px 18px; }
-  .card-cross { width: 16px; height: 16px; top: 12px; right: 12px; }
+  .card-cross { font-size: .95rem; top: 10px; right: 10px; }
   .nganh-motto { font-size: .88rem; }
 
   .contact-info { grid-template-columns: 1fr; }
