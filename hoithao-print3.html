@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sơ Đồ Thi Đấu – Hội Thao 2026</title>
+  <link rel="icon" type="image/jpeg" href="https://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', Arial, sans-serif;
+    background: #0a1628;
+    color: #fff;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: 2580mm 1590mm landscape;
+    margin: 25mm 35mm;
+  }
+
+  /* ── BADGE (shared) ── */
+  .p-badge { background: #0a1628; color: #f0c040; padding: 8mm 16mm; border-radius: 3mm; font-size: 42pt; font-weight: 900; flex-shrink: 0; }
+
+  /* ── SD LAYOUT ── */
+  .p-sd-wrap { display: flex; flex-direction: column; height: 1540mm; }
+
+  .p-sd-header {
+    display: flex; align-items: center; gap: 16mm;
+    padding: 14mm 20mm;
+    background: #0d1f3c; border-radius: 6mm;
+    margin-bottom: 10mm; flex-shrink: 0;
+    border: 1.5px solid rgba(255,255,255,.08);
+  }
+  .p-sd-header img { width: 60mm; height: 60mm; border-radius: 3mm; object-fit: contain; flex-shrink: 0; }
+  .p-sd-header h1 { font-family:'Playfair Display',serif; font-size:52pt; color:#fff; line-height:1.2; }
+  .p-sd-header h1 em { color:#f0c040; }
+  .p-sd-header p { font-size:22pt; color:rgba(255,255,255,.5); margin-top:3mm; font-weight:600; }
+  .p-sd-header .p-badge { margin-left:auto; }
+
+  .p-sd-main { flex: 1; display: flex; gap: 14mm; min-height: 0; }
+
+  .p-sd-branch {
+    flex: 1; display: flex; flex-direction: column;
+    background: #0d1f3c;
+    border-radius: 5mm; overflow: hidden;
+    border: 1.5px solid rgba(255,255,255,.1);
+  }
+  .p-sd-hdr {
+    display: flex; align-items: center;
+    padding: 9mm 14mm; flex-shrink: 0;
+    border-bottom: 3px solid rgba(255,255,255,.12);
+  }
+  .p-sd-hdr.au    { border-bottom-color: #4ade80; }
+  .p-sd-hdr.thieu { border-bottom-color: #38bdf8; }
+  .p-sd-hdr.nghia { border-bottom-color: #fbbf24; }
+  .p-sd-hdr .nm { font-family:'Playfair Display',serif; font-size:36pt; font-weight:700; color:#fff; }
+  .p-sd-hdr .tm { margin-left:auto; font-size:18pt; color:rgba(255,255,255,.45); font-weight:700; }
+
+  .p-sd-cols { flex: 1; display: flex; flex-direction: row; align-items: stretch; padding: 8mm 10mm; min-height: 0; }
+
+  .p-sd-col-vl { width:200mm; flex-shrink:0; display:flex; flex-direction:column; min-height:0; }
+  .p-sd-col-bk { width:200mm; flex-shrink:0; display:flex; flex-direction:column; min-height:0; }
+  .p-sd-col-ck { flex:1; display:flex; flex-direction:column; min-height:0; }
+  .p-sd-svg-w  { width:100mm; flex-shrink:0; position:relative; }
+  .p-sd-svg-w svg { position:absolute; top:0; left:0; width:100%; height:100%; overflow:visible; }
+
+  .p-sd-mc {
+    flex:1; min-height:0; display:flex; flex-direction:column;
+    border:1.5px solid rgba(255,255,255,.1);
+    border-radius:3mm; overflow:hidden;
+  }
+  .p-sd-mc-hd { display:flex; justify-content:space-between; align-items:center; padding:3mm 6mm; flex-shrink:0; }
+  .p-sd-mc-hd.vl { background:rgba(22,163,74,.22); }
+  .p-sd-mc-hd.bk { background:rgba(217,119,6,.22); }
+  .p-sd-mc-hd.ck { background:rgba(220,38,38,.22); }
+  .p-sd-lbl { font-size:20pt; font-weight:900; letter-spacing:.06em; }
+  .p-sd-lbl.vl { color:#4ade80; }
+  .p-sd-lbl.bk { color:#fbbf24; }
+  .p-sd-lbl.ck { color:#f87171; }
+  .p-sd-dt { font-size:13pt; color:rgba(255,255,255,.4); font-weight:700; }
+
+  .p-sd-mc-body { flex:1; display:flex; flex-direction:column; justify-content:space-evenly; padding:4mm 6mm; }
+  .p-sd-team {
+    display:flex; align-items:center; justify-content:space-between;
+    padding:3mm 5mm; border-radius:2mm;
+    background:rgba(255,255,255,.06);
+  }
+  .p-sd-team.tbd   { opacity:.4; font-style:italic; }
+  .p-sd-team.lucky { background:rgba(109,40,217,.32); opacity:1; font-style:normal; }
+  .p-sd-tname  { font-size:19pt; font-weight:800; color:#fff; }
+  .p-sd-tscore { font-size:24pt; font-weight:900; color:#f0c040; min-width:22mm; text-align:right; }
+
+  .p-sd-path { fill:none; stroke-width:3; opacity:.7; }
+  .p-sd-path.vl    { stroke:#4ade80; }
+  .p-sd-path.bk    { stroke:#fbbf24; }
+  .p-sd-path.lucky { stroke:#a78bfa; stroke-dasharray:8,4; }
+
+  /* ── SCREEN PREVIEW ── */
+  @media screen {
+    body { background: #0a1628; padding: 24px; }
+    .preview-wrap {
+      margin: 0 auto;
+      background: #0a1628;
+      box-shadow: 0 4px 32px rgba(0,0,0,.5);
+      overflow: hidden;
+      width: calc(2580mm * 0.13);
+      height: calc(1590mm * 0.13);
+    }
+    .page-wrap {
+      padding: 25mm 35mm;
+      transform: scale(0.13);
+      transform-origin: top left;
+      width: 2580mm;
+      min-height: 1590mm;
+    }
+  }
+
+  @media print {
+    body { background: #0a1628; padding: 0; }
+    .preview-wrap { overflow: visible; width: auto; height: auto; }
+    .page-wrap { transform: none; width: auto; padding: 0; }
+  }
+  </style>
+</head>
+<body>
+<div class="preview-wrap">
+<div class="page-wrap">
+<div class="p-sd-wrap">
+
+  <div class="p-sd-header">
+    <img src="https://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg" alt="Logo"/>
+    <div>
+      <h1>Sơ Đồ Thi Đấu <em>Hội Thao 2026</em></h1>
+      <p>Xứ Đoàn TNTT Kitô Vua Hàng Sanh · 03/05 – 07/06/2026 · Sân Nhà Thờ Hàng Sanh</p>
+    </div>
+    <div class="p-badge">2026</div>
+  </div>
+
+  <div class="p-sd-main">
+
+    <!-- ── ẤU NHI ── -->
+    <div class="p-sd-branch">
+      <div class="p-sd-hdr au">
+        <span class="nm"><i class="fa-solid fa-child-reaching"></i> Ấu Nhi</span>
+        <span class="tm">10:35 – 10:50</span>
+      </div>
+      <div class="p-sd-cols">
+
+        <div class="p-sd-col-vl">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG A</span><span class="p-sd-dt">03/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="au-A" data-team="0"><span class="p-sd-tname">Ấu 1A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="au-A" data-team="1"><span class="p-sd-tname">Ấu 1B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG B</span><span class="p-sd-dt">10/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="au-B" data-team="0"><span class="p-sd-tname">Ấu 2A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="au-B" data-team="1"><span class="p-sd-tname">Ấu 2B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG C</span><span class="p-sd-dt">17/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="au-C" data-team="0"><span class="p-sd-tname">Ấu 3A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="au-C" data-team="1"><span class="p-sd-tname">Ấu 3B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A→D, B→E, C→E -->
+        <div class="p-sd-svg-w">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="p-sd-path vl" d="M0,16.67 C50,16.67 50,25 100,25"/>
+            <path class="p-sd-path vl" d="M0,50    C50,50    50,75 100,75"/>
+            <path class="p-sd-path vl" d="M0,83.33 C50,83.33 50,75 100,75"/>
+          </svg>
+        </div>
+
+        <div class="p-sd-col-bk">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd bk"><span class="p-sd-lbl bk">BÁN KẾT D</span><span class="p-sd-dt">24/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="au-D" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-medal"></i> Thắng A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="au-D" data-team="1"><span class="p-sd-tname">___</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd bk"><span class="p-sd-lbl bk">BÁN KẾT E</span><span class="p-sd-dt">31/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="au-E" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-medal"></i> Thắng B</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="au-E" data-team="1"><span class="p-sd-tname">Thắng C</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-sd-svg-w">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="p-sd-path bk" d="M0,25 C50,25 50,50 100,50"/>
+            <path class="p-sd-path bk" d="M0,75 C50,75 50,50 100,50"/>
+          </svg>
+        </div>
+
+        <div class="p-sd-col-ck">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd ck"><span class="p-sd-lbl ck"><i class="fa-solid fa-trophy"></i> CHUNG KẾT</span><span class="p-sd-dt">07/06</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="au-CK" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-trophy"></i> Thắng D</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="au-CK" data-team="1"><span class="p-sd-tname">Thắng E</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── THIẾU NHI ── -->
+    <div class="p-sd-branch">
+      <div class="p-sd-hdr thieu">
+        <span class="nm"><i class="fa-solid fa-person"></i> Thiếu Nhi</span>
+        <span class="tm">10:55 – 11:10</span>
+      </div>
+      <div class="p-sd-cols">
+
+        <div class="p-sd-col-vl">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG A</span><span class="p-sd-dt">03/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="th-A" data-team="0"><span class="p-sd-tname">Thiếu 1A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="th-A" data-team="1"><span class="p-sd-tname">Thiếu 1B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG B</span><span class="p-sd-dt">10/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="th-B" data-team="0"><span class="p-sd-tname">Thiếu 2A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="th-B" data-team="1"><span class="p-sd-tname">Thiếu 2B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG C</span><span class="p-sd-dt">17/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="th-C" data-team="0"><span class="p-sd-tname">Thiếu 3A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="th-C" data-team="1"><span class="p-sd-tname">Thiếu 3B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A→E, B→E, C→D (lucky) -->
+        <div class="p-sd-svg-w">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="p-sd-path vl"    d="M0,16.67 C50,16.67 50,75 100,75"/>
+            <path class="p-sd-path vl"    d="M0,50    C50,50    50,75 100,75"/>
+            <path class="p-sd-path lucky" d="M0,83.33 C50,83.33 50,25 100,25"/>
+          </svg>
+        </div>
+
+        <div class="p-sd-col-bk">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd bk"><span class="p-sd-lbl bk">BÁN KẾT D</span><span class="p-sd-dt">24/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team lucky" data-match="th-D" data-team="0"><span class="p-sd-tname">Thiếu 2C <i class="fa-solid fa-clover"></i></span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd"   data-match="th-D" data-team="1"><span class="p-sd-tname"><i class="fa-solid fa-medal"></i> Thắng C</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd bk"><span class="p-sd-lbl bk">BÁN KẾT E</span><span class="p-sd-dt">31/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="th-E" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-medal"></i> Thắng A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="th-E" data-team="1"><span class="p-sd-tname">Thắng B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-sd-svg-w">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="p-sd-path bk" d="M0,25 C50,25 50,50 100,50"/>
+            <path class="p-sd-path bk" d="M0,75 C50,75 50,50 100,50"/>
+          </svg>
+        </div>
+
+        <div class="p-sd-col-ck">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd ck"><span class="p-sd-lbl ck"><i class="fa-solid fa-trophy"></i> CHUNG KẾT</span><span class="p-sd-dt">07/06</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="th-CK" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-trophy"></i> Thắng D</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="th-CK" data-team="1"><span class="p-sd-tname">Thắng E</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── NGHĨA – HIỆP ── -->
+    <div class="p-sd-branch">
+      <div class="p-sd-hdr nghia">
+        <span class="nm"><i class="fa-solid fa-person-walking"></i> Nghĩa – Hiệp</span>
+        <span class="tm">11:15 – 11:30</span>
+      </div>
+      <div class="p-sd-cols">
+
+        <div class="p-sd-col-vl">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG A</span><span class="p-sd-dt">03/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="ng-A" data-team="0"><span class="p-sd-tname">Nghĩa 1A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="ng-A" data-team="1"><span class="p-sd-tname">Nghĩa 1B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG B</span><span class="p-sd-dt">10/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="ng-B" data-team="0"><span class="p-sd-tname">Nghĩa 2A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="ng-B" data-team="1"><span class="p-sd-tname">Nghĩa 2B</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd vl"><span class="p-sd-lbl vl">BẢNG C</span><span class="p-sd-dt">17/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team" data-match="ng-C" data-team="0"><span class="p-sd-tname">Nghĩa 3</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team" data-match="ng-C" data-team="1"><span class="p-sd-tname">Hiệp Sĩ</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- A→D, B→E, C→E -->
+        <div class="p-sd-svg-w">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="p-sd-path vl" d="M0,16.67 C50,16.67 50,25 100,25"/>
+            <path class="p-sd-path vl" d="M0,50    C50,50    50,75 100,75"/>
+            <path class="p-sd-path vl" d="M0,83.33 C50,83.33 50,75 100,75"/>
+          </svg>
+        </div>
+
+        <div class="p-sd-col-bk">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd bk"><span class="p-sd-lbl bk">BÁN KẾT D</span><span class="p-sd-dt">24/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="ng-D" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-medal"></i> Thắng A</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="ng-D" data-team="1"><span class="p-sd-tname">___</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd bk"><span class="p-sd-lbl bk">BÁN KẾT E</span><span class="p-sd-dt">31/05</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="ng-E" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-medal"></i> Thắng B</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="ng-E" data-team="1"><span class="p-sd-tname">Thắng C</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-sd-svg-w">
+          <svg viewBox="0 0 100 100" preserveAspectRatio="none">
+            <path class="p-sd-path bk" d="M0,25 C50,25 50,50 100,50"/>
+            <path class="p-sd-path bk" d="M0,75 C50,75 50,50 100,50"/>
+          </svg>
+        </div>
+
+        <div class="p-sd-col-ck">
+          <div class="p-sd-mc">
+            <div class="p-sd-mc-hd ck"><span class="p-sd-lbl ck"><i class="fa-solid fa-trophy"></i> CHUNG KẾT</span><span class="p-sd-dt">07/06</span></div>
+            <div class="p-sd-mc-body">
+              <div class="p-sd-team tbd" data-match="ng-CK" data-team="0"><span class="p-sd-tname"><i class="fa-solid fa-trophy"></i> Thắng D</span><span class="p-sd-tscore">–</span></div>
+              <div class="p-sd-team tbd" data-match="ng-CK" data-team="1"><span class="p-sd-tname">Thắng E</span><span class="p-sd-tscore">–</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div><!-- /p-sd-main -->
+</div><!-- /p-sd-wrap -->
+</div><!-- /page-wrap -->
+</div><!-- /preview-wrap -->
+
+<script>
+fetch('match-data.json')
+  .then(r => r.json())
+  .then(data => {
+    document.querySelectorAll('.p-sd-team[data-match]').forEach(row => {
+      const d = data[row.dataset.match];
+      if (!d || !d.score) return;
+      const sc = row.querySelector('.p-sd-tscore');
+      if (sc) sc.textContent = d.score[+row.dataset.team];
+      row.classList.remove('tbd');
+    });
+  })
+  .catch(() => {});
+</script>
+</body>
+</html>
