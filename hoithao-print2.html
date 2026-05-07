@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bảng Thi Đấu – Hội Thao 2026</title>
+  <link rel="icon" type="image/jpeg" href="https://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', Arial, sans-serif;
+    background: #fff;
+    color: #0f172a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: 2580mm 1590mm landscape;
+    margin: 25mm 35mm;
+  }
+
+  /* ── HEADER ── */
+  .p-header {
+    display: flex; align-items: center;
+    gap: 20mm;
+    padding-bottom: 20mm;
+    border-bottom: 8px solid #0a1628;
+    margin-bottom: 22mm;
+  }
+  .p-logo { width: 65mm; height: 65mm; border-radius: 3mm; object-fit: contain; flex-shrink: 0; }
+  .p-title-group h1 { font-family: 'Playfair Display', serif; font-size: 56pt; color: #0a1628; line-height: 1.2; }
+  .p-title-group h1 em { color: #c9860a; font-style: italic; }
+  .p-title-group p { font-size: 26pt; color: #64748b; margin-top: 4mm; font-weight: 600; }
+  .p-badge { margin-left: auto; background: #0a1628; color: #f0c040; padding: 8mm 18mm; border-radius: 3mm; font-size: 46pt; font-weight: 900; flex-shrink: 0; }
+
+  /* ── BRACKET TABLE ── */
+  .p-btable { width: 100%; border-collapse: collapse; table-layout: fixed; }
+  .p-btable th, .p-btable td { border: 4px solid #334155; padding: 8mm 12mm; vertical-align: middle; text-align: center; }
+
+  .p-ph { font-size: 34pt; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: 10mm; }
+  .p-ph.vl { background: #dcfce7; color: #15803d; }
+  .p-ph.bk { background: #fef3c7; color: #b45309; }
+  .p-ph.ck { background: #fee2e2; color: #dc2626; }
+
+  .p-th-round { background: #f8fafc; padding: 10mm 8mm !important; }
+  .p-rlbl { font-family: 'Playfair Display', serif; font-size: 52pt; font-weight: 700; }
+  .p-rlbl.vl { color: #15803d; }
+  .p-rlbl.bk { color: #b45309; }
+  .p-rlbl.ck { color: #dc2626; }
+  .p-rdt { font-size: 22pt; color: #64748b; font-weight: 700; margin-top: 4mm; }
+
+  .p-corner { background: #0a1628; width: 240mm; }
+  .p-corner-box { position: relative; height: 70mm; }
+  .p-corner-slash {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom left,
+      transparent calc(50% - 3px),
+      rgba(255,255,255,.35) 50%,
+      transparent calc(50% + 3px)
+    );
+  }
+  .p-corner-ngay  { position: absolute; top: 10mm; right: 12mm; color: rgba(255,255,255,.85); font-size: 22pt; font-weight: 800; }
+  .p-corner-nganh { position: absolute; bottom: 10mm; left: 12mm; color: rgba(255,255,255,.85); font-size: 22pt; font-weight: 800; }
+
+  .p-td-nganh { background: #0a1628; color: #fff; text-align: left; padding: 10mm 16mm !important; }
+  .p-ng-name  { font-family: 'Playfair Display', serif; font-size: 40pt; font-weight: 700; }
+  .p-ng-time  { font-size: 20pt; color: rgba(255,255,255,.65); margin-top: 4mm; }
+
+  .p-mc { vertical-align: middle; }
+  .p-mc.vl { background: #f0fdf4; }
+  .p-mc.bk { background: #fffbeb; }
+  .p-mc.ck { background: #fff1f2; }
+  .p-mc.special { background: #ede9fe; }
+
+  .p-chip { display: flex; flex-direction: column; align-items: center; gap: 5mm; }
+  .p-team { font-size: 28pt; font-weight: 800; color: #0f172a; }
+  .p-team.tbd   { color: #94a3b8; font-style: italic; }
+  .p-team.lucky { color: #6d28d9; }
+  .p-team.champ { color: #dc2626; font-weight: 900; }
+  .p-vs { font-size: 18pt; font-weight: 900; color: #94a3b8; background: #f1f5f9; padding: 2mm 8mm; border-radius: 6mm; }
+
+  .p-score-lbl  { background: #f1f5f9; font-size: 18pt; font-weight: 700; color: #64748b; }
+  .p-score-cell { font-size: 36pt; font-weight: 900; color: #15803d; height: 35mm; }
+
+  .p-bracket-legend { margin-top: 18mm; display: flex; align-items: center; gap: 10mm; font-size: 20pt; color: #64748b; }
+  .p-leg-y { background: #ca8a04; color: #fff; padding: 2mm 7mm; border-radius: 4mm; font-weight: 900; }
+  .p-leg-r { background: #dc2626; color: #fff; padding: 2mm 7mm; border-radius: 4mm; font-weight: 900; }
+
+  /* ── SCREEN PREVIEW ── */
+  @media screen {
+    body { background: #e2e8f0; padding: 24px; }
+    .preview-wrap {
+      margin: 0 auto 40px;
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+      overflow: hidden;
+      width: calc(2580mm * 0.18);
+      height: calc(1590mm * 0.18);
+    }
+    .page-wrap {
+      padding: 25mm 35mm;
+      transform: scale(0.18);
+      transform-origin: top left;
+      width: 2580mm;
+      min-height: 1590mm;
+    }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .preview-wrap { overflow: visible; width: auto; height: auto; }
+    .page-wrap { transform: none; width: auto; padding: 0; }
+  }
+  </style>
+</head>
+<body>
+<div class="preview-wrap">
+<div class="page-wrap">
+
+  <div class="p-header">
+    <img class="p-logo" src="https://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg" alt="Logo" />
+    <div class="p-title-group">
+      <h1>Lịch Thi Đấu <em>Hội Thao 2026</em></h1>
+      <p>Xứ Đoàn TNTT Kitô Vua Hàng Sanh · 03/05 – 07/06/2026 · Sân Nhà Thờ Hàng Sanh</p>
+    </div>
+    <div class="p-badge">2026</div>
+  </div>
+
+  <table class="p-btable">
+    <thead>
+      <tr>
+        <th class="p-corner" rowspan="2">
+          <div class="p-corner-box">
+            <span class="p-corner-ngay">Ngày</span>
+            <div class="p-corner-slash"></div>
+            <span class="p-corner-nganh">Ngành</span>
+          </div>
+        </th>
+        <th class="p-ph vl" colspan="3">Vòng Loại</th>
+        <th class="p-ph bk" colspan="2">Bán Kết</th>
+        <th class="p-ph ck"><i class="fa-solid fa-trophy"></i> Chung Kết</th>
+      </tr>
+      <tr>
+        <th class="p-th-round"><div class="p-rlbl vl">A</div><div class="p-rdt">CN 03/05</div></th>
+        <th class="p-th-round"><div class="p-rlbl vl">B</div><div class="p-rdt">CN 10/05</div></th>
+        <th class="p-th-round"><div class="p-rlbl vl">C</div><div class="p-rdt">CN 17/05</div></th>
+        <th class="p-th-round"><div class="p-rlbl bk">D</div><div class="p-rdt">CN 24/05</div></th>
+        <th class="p-th-round"><div class="p-rlbl bk">E</div><div class="p-rdt">CN 31/05</div></th>
+        <th class="p-th-round"><div class="p-rlbl ck">CK</div><div class="p-rdt">CN 07/06</div></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <!-- ── ẤU NHI ── -->
+      <tr>
+        <td class="p-td-nganh" rowspan="2">
+          <div class="p-ng-name">Ấu Nhi</div>
+          <div class="p-ng-time">10:35 – 10:50</div>
+        </td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Ấu 1A</span><span class="p-vs">VS</span><span class="p-team">Ấu 1B</span></div></td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Ấu 2A</span><span class="p-vs">VS</span><span class="p-team">Ấu 2B</span></div></td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Ấu 3A</span><span class="p-vs">VS</span><span class="p-team">Ấu 3B</span></div></td>
+        <td class="p-mc bk"><div class="p-chip"><span class="p-team tbd"><i class="fa-solid fa-medal"></i> Thắng A</span><span class="p-vs">VS</span><span class="p-team tbd">___</span></div></td>
+        <td class="p-mc bk"><div class="p-chip"><span class="p-team tbd"><i class="fa-solid fa-medal"></i> Thắng B</span><span class="p-vs">VS</span><span class="p-team tbd">Thắng C</span></div></td>
+        <td class="p-mc ck"><div class="p-chip"><span class="p-team champ"><i class="fa-solid fa-trophy"></i> Thắng D</span><span class="p-vs">VS</span><span class="p-team champ">Thắng E</span></div></td>
+      </tr>
+      <tr>
+        <td class="p-score-cell" data-match="au-A"></td>
+        <td class="p-score-cell" data-match="au-B"></td>
+        <td class="p-score-cell" data-match="au-C"></td>
+        <td class="p-score-cell" data-match="au-D"></td>
+        <td class="p-score-cell" data-match="au-E"></td>
+        <td class="p-score-cell" data-match="au-CK"></td>
+      </tr>
+
+      <!-- ── THIẾU NHI ── -->
+      <tr>
+        <td class="p-td-nganh" rowspan="2">
+          <div class="p-ng-name">Thiếu Nhi</div>
+          <div class="p-ng-time">10:55 – 11:10</div>
+        </td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Thiếu 1A</span><span class="p-vs">VS</span><span class="p-team">Thiếu 1B</span></div></td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Thiếu 2A</span><span class="p-vs">VS</span><span class="p-team">Thiếu 2B</span></div></td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Thiếu 3A</span><span class="p-vs">VS</span><span class="p-team">Thiếu 3B</span></div></td>
+        <td class="p-mc bk special"><div class="p-chip"><span class="p-team lucky">Thiếu 2C <i class="fa-solid fa-clover"></i></span><span class="p-vs">VS</span><span class="p-team tbd"><i class="fa-solid fa-medal"></i> Thắng C</span></div></td>
+        <td class="p-mc bk"><div class="p-chip"><span class="p-team tbd"><i class="fa-solid fa-medal"></i> Thắng A</span><span class="p-vs">VS</span><span class="p-team tbd">Thắng B</span></div></td>
+        <td class="p-mc ck"><div class="p-chip"><span class="p-team champ"><i class="fa-solid fa-trophy"></i> Thắng D</span><span class="p-vs">VS</span><span class="p-team champ">Thắng E</span></div></td>
+      </tr>
+      <tr>
+        <td class="p-score-cell" data-match="th-A"></td>
+        <td class="p-score-cell" data-match="th-B"></td>
+        <td class="p-score-cell" data-match="th-C"></td>
+        <td class="p-score-cell" data-match="th-D"></td>
+        <td class="p-score-cell" data-match="th-E"></td>
+        <td class="p-score-cell" data-match="th-CK"></td>
+      </tr>
+
+      <!-- ── NGHĨA – HIỆP ── -->
+      <tr>
+        <td class="p-td-nganh" rowspan="2">
+          <div class="p-ng-name">Nghĩa – Hiệp</div>
+          <div class="p-ng-time">11:15 – 11:30</div>
+        </td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Nghĩa 1A</span><span class="p-vs">VS</span><span class="p-team">Nghĩa 1B</span></div></td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Nghĩa 2A</span><span class="p-vs">VS</span><span class="p-team">Nghĩa 2B</span></div></td>
+        <td class="p-mc vl"><div class="p-chip"><span class="p-team">Nghĩa 3</span><span class="p-vs">VS</span><span class="p-team">Hiệp Sĩ</span></div></td>
+        <td class="p-mc bk"><div class="p-chip"><span class="p-team tbd"><i class="fa-solid fa-medal"></i> Thắng A</span><span class="p-vs">VS</span><span class="p-team tbd">___</span></div></td>
+        <td class="p-mc bk"><div class="p-chip"><span class="p-team tbd"><i class="fa-solid fa-medal"></i> Thắng B</span><span class="p-vs">VS</span><span class="p-team tbd">Thắng C</span></div></td>
+        <td class="p-mc ck"><div class="p-chip"><span class="p-team champ"><i class="fa-solid fa-trophy"></i> Thắng D</span><span class="p-vs">VS</span><span class="p-team champ">Thắng E</span></div></td>
+      </tr>
+      <tr>
+        <td class="p-score-cell" data-match="ng-A"></td>
+        <td class="p-score-cell" data-match="ng-B"></td>
+        <td class="p-score-cell" data-match="ng-C"></td>
+        <td class="p-score-cell" data-match="ng-D"></td>
+        <td class="p-score-cell" data-match="ng-E"></td>
+        <td class="p-score-cell" data-match="ng-CK"></td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <div class="p-bracket-legend">
+    <span class="p-leg-y">2</span> Thẻ Vàng &ensp;
+    <span class="p-leg-r">1</span> Thẻ Đỏ &ensp;
+    <i class="fa-solid fa-futbol"></i> <strong>Pen. 4–3</strong> = hòa, đá luân lưu kết quả 4–3 &ensp;
+    <i class="fa-solid fa-clover" style="color:#6d28d9"></i> Lucky draw – vào thẳng bán kết
+  </div>
+
+</div><!-- /page-wrap -->
+</div><!-- /preview-wrap -->
+
+<script>
+fetch('match-data.json')
+  .then(r => r.json())
+  .then(data => {
+    document.querySelectorAll('.p-score-cell[data-match]').forEach(td => {
+      const d = data[td.dataset.match];
+      if (!d || !d.score) return;
+      let html = `<strong>${d.score[0]} – ${d.score[1]}</strong>`;
+      if (d.penalty) html += `<br><span style="font-size:.6em;color:#7c3aed;font-weight:700">⚽ Pen. ${d.penalty[0]}–${d.penalty[1]}</span>`;
+      td.innerHTML = html;
+    });
+  })
+  .catch(() => {});
+</script>
+</body>
+</html>

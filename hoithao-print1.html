@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>Thể Lệ Thi Đấu – Hội Thao 2026</title>
+  <link rel="icon" type="image/jpeg" href="https://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,700&family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Nunito', Arial, sans-serif;
+    background: #fff;
+    color: #0f172a;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: 420mm 594mm portrait;
+    margin: 15mm 18mm;
+  }
+
+  /* ── HEADER ── */
+  .p-header {
+    display: flex; align-items: center; gap: 8mm;
+    padding-bottom: 7mm;
+    border-bottom: 3px solid #0a1628;
+    margin-bottom: 9mm;
+  }
+  .p-logo { width: 18mm; height: 18mm; border-radius: 3mm; object-fit: contain; flex-shrink: 0; }
+  .p-title-group h1 { font-family: 'Playfair Display', serif; font-size: 17pt; color: #0a1628; line-height: 1.2; }
+  .p-title-group h1 em { color: #c9860a; font-style: italic; }
+  .p-title-group p { font-size: 8.5pt; color: #64748b; margin-top: 1.5mm; font-weight: 600; }
+  .p-badge { margin-left: auto; background: #0a1628; color: #f0c040; padding: 3mm 7mm; border-radius: 3mm; font-size: 16pt; font-weight: 900; flex-shrink: 0; }
+
+  /* ── INFO GRID ── */
+  .p-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm; margin-bottom: 7mm; }
+  .p-info-card { display: flex; align-items: center; gap: 4mm; padding: 3mm 5mm; border: 1.5px solid #e2e8f0; border-radius: 2.5mm; background: #f8fafc; }
+  .p-info-icon { font-size: 13pt; color: #0a1628; width: 7mm; text-align: center; flex-shrink: 0; }
+  .p-info-label { font-size: 6.5pt; color: #64748b; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; }
+  .p-info-val { font-size: 9pt; font-weight: 800; color: #0f172a; margin-top: .5mm; }
+
+  /* ── PHỤ TRÁCH ── */
+  .p-phutach { display: flex; align-items: center; gap: 6mm; padding: 3.5mm 6mm; background: #eff6ff; border-left: 4px solid #0a1628; border-radius: 0 2mm 2mm 0; margin-bottom: 6mm; }
+  .p-phutach-title { font-size: 7.5pt; font-weight: 900; color: #0a1628; text-transform: uppercase; letter-spacing: .08em; }
+  .p-pt-item { display: flex; align-items: center; gap: 2mm; font-size: 8.5pt; color: #0f172a; }
+  .p-pt-item i { color: #c9860a; }
+  .p-pt-chief { font-weight: 900; }
+  .p-pt-sep { color: #cbd5e1; }
+
+  /* ── RULE BLOCKS ── */
+  .p-rule-block { margin-bottom: 4mm; border: 1.5px solid #e2e8f0; border-radius: 2.5mm; overflow: hidden; }
+  .p-rule-hd { display: flex; align-items: center; gap: 4mm; padding: 3mm 5mm; background: #0a1628; color: #fff; }
+  .p-rule-num { background: #f0c040; color: #0a1628; width: 6.5mm; height: 6.5mm; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8pt; font-weight: 900; flex-shrink: 0; }
+  .p-rule-hd > span { font-size: 10pt; font-weight: 800; }
+  .p-rule-body { padding: 3.5mm 5mm; }
+  .p-rule-list { list-style: none; display: flex; flex-direction: column; gap: 2mm; }
+  .p-rule-list li { display: flex; align-items: flex-start; gap: 3mm; font-size: 8.5pt; line-height: 1.45; color: #1e293b; }
+  .p-rule-list li i { color: #0a1628; margin-top: .8mm; flex-shrink: 0; width: 3.5mm; text-align: center; }
+
+  /* ── PENALTY CARDS ── */
+  .p-cards-row { display: flex; gap: 3mm; margin: 3mm 0; }
+  .p-card { flex: 1; display: flex; align-items: center; gap: 3mm; padding: 2.5mm 5mm; border-radius: 2mm; font-size: 9pt; font-weight: 800; }
+  .p-card.yellow { background: #fef9c3; border: 2px solid #ca8a04; color: #78350f; }
+  .p-card.red    { background: #fee2e2; border: 2px solid #dc2626; color: #7f1d1d; }
+  .p-card.dark   { background: #f1f5f9; border: 2px solid #334155; color: #0f172a; }
+  .p-card span   { font-size: 7.5pt; font-weight: 600; }
+
+  /* ── AWARDS ── */
+  .p-awards { display: flex; gap: 3mm; }
+  .p-award { flex: 1; display: flex; align-items: center; gap: 3mm; padding: 3mm 5mm; border-radius: 2mm; font-size: 8.5pt; }
+  .p-award i { font-size: 14pt; }
+  .p-award strong { display: block; font-size: 9pt; }
+  .p-award span { font-size: 7.5pt; opacity: .75; }
+  .p-award.first  { background: #fef9c3; border: 2px solid #ca8a04; color: #78350f; }
+  .p-award.second { background: #f1f5f9; border: 2px solid #94a3b8; color: #0f172a; }
+  .p-award.third  { background: #fff7ed; border: 2px solid #c2410c; color: #7c2d12; }
+
+  /* ── SPIRIT ── */
+  .p-spirit { padding: 4mm 6mm; background: #f0fdf4; border-left: 4px solid #16a34a; border-radius: 0 2mm 2mm 0; font-size: 8.5pt; line-height: 1.6; font-style: italic; color: #14532d; }
+
+  /* ── NOTES ── */
+  .p-notes { margin-top: 6mm; padding: 4mm 6mm; background: #fffbeb; border: 1.5px solid #fbbf24; border-radius: 2.5mm; }
+  .p-notes h4 { font-size: 9.5pt; color: #78350f; margin-bottom: 3mm; }
+  .p-notes ul { list-style: none; display: flex; flex-direction: column; gap: 2mm; }
+  .p-notes li { display: flex; gap: 3mm; font-size: 8.5pt; line-height: 1.4; }
+  .p-notes li i { color: #b45309; flex-shrink: 0; margin-top: .8mm; width: 3.5mm; }
+
+  /* ── SIGNATURES ── */
+  .p-sigs { margin-top: 10mm; display: flex; justify-content: space-around; }
+  .p-sig { text-align: center; }
+  .p-sig-title { font-size: 9.5pt; font-weight: 900; color: #0a1628; }
+  .p-sig-line  { margin: 14mm auto 2mm; width: 55mm; border-bottom: 1.5px solid #0a1628; }
+  .p-sig-name  { font-size: 7.5pt; color: #64748b; }
+
+  /* ── SCREEN PREVIEW ── */
+  @media screen {
+    body { background: #e2e8f0; padding: 24px; }
+    .page-wrap {
+      background: #fff;
+      box-shadow: 0 4px 24px rgba(0,0,0,.18);
+      width: 420mm; min-height: 594mm;
+      padding: 15mm 18mm;
+      margin: 0 auto;
+    }
+  }
+
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page-wrap { padding: 0; }
+  }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <div class="p-header">
+    <img class="p-logo" src="https://giaoly.edu.vn/tabor/assets/images/logo_phong_trao.jpg" alt="Logo" />
+    <div class="p-title-group">
+      <h1>Hội Thao <em>2026</em> – Thể Lệ Thi Đấu</h1>
+      <p>Xứ Đoàn TNTT Kitô Vua Hàng Sanh · Môn Bóng Đá · Sân Nhà Thờ Hàng Sanh</p>
+    </div>
+    <div class="p-badge">2026</div>
+  </div>
+
+  <div class="p-info-grid">
+    <div class="p-info-card">
+      <div class="p-info-icon"><i class="fa-solid fa-users"></i></div>
+      <div>
+        <div class="p-info-label">Thành phần</div>
+        <div class="p-info-val">Ngành Ấu · Thiếu · Nghĩa–Hiệp</div>
+      </div>
+    </div>
+    <div class="p-info-card">
+      <div class="p-info-icon"><i class="fa-solid fa-location-dot"></i></div>
+      <div>
+        <div class="p-info-label">Địa điểm</div>
+        <div class="p-info-val">Giáo Xứ Hàng Sanh – Sân Tầng Trệt</div>
+      </div>
+    </div>
+    <div class="p-info-card">
+      <div class="p-info-icon"><i class="fa-solid fa-clock"></i></div>
+      <div>
+        <div class="p-info-label">Thời gian</div>
+        <div class="p-info-val">Sau Thánh Lễ & Giáo Lý · 10:35 – 11:30</div>
+      </div>
+    </div>
+    <div class="p-info-card">
+      <div class="p-info-icon"><i class="fa-solid fa-person-running"></i></div>
+      <div>
+        <div class="p-info-label">Số cầu thủ</div>
+        <div class="p-info-val">4 cầu thủ + 1 thủ môn / đội</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-phutach">
+    <span class="p-phutach-title"><i class="fa-solid fa-star"></i> Phụ Trách:</span>
+    <span class="p-pt-item p-pt-chief"><i class="fa-solid fa-crown"></i> Trưởng phụ trách: G.B Ngô Vạn Cát</span>
+    <span class="p-pt-sep">·</span>
+    <span class="p-pt-item"><i class="fa-solid fa-wrench"></i> Ban Kỹ Thuật</span>
+    <span class="p-pt-sep">·</span>
+    <span class="p-pt-item"><i class="fa-solid fa-shield-halved"></i> Dự Trưởng II</span>
+    <span class="p-pt-sep">·</span>
+    <span class="p-pt-item"><i class="fa-solid fa-clipboard-list"></i> Ban Quản Lý</span>
+  </div>
+
+  <div class="p-rule-block">
+    <div class="p-rule-hd"><span class="p-rule-num">1</span><span>Thể Thức Thi Đấu</span></div>
+    <div class="p-rule-body">
+      <ul class="p-rule-list">
+        <li><i class="fa-solid fa-futbol"></i> Mỗi lớp đăng ký <strong>1 đội gồm 4 cầu thủ và 1 thủ môn</strong>, không phân biệt nam nữ, thi đấu theo Ngành.</li>
+        <li><i class="fa-solid fa-table-list"></i> Các đội thi đấu theo Bảng Thi Đấu đã được xếp sẵn.</li>
+        <li><i class="fa-solid fa-calendar-days"></i> Danh sách cầu thủ nộp cho BTC (Tr. Cát) trước ngày <strong>02/05/2026</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="p-rule-block">
+    <div class="p-rule-hd"><span class="p-rule-num">2</span><span>Luật Thi Đấu</span></div>
+    <div class="p-rule-body">
+      <ul class="p-rule-list">
+        <li><i class="fa-solid fa-clock"></i> Áp dụng Luật bóng đá <strong>5 người</strong>. Mỗi trận <strong>15 phút</strong>; thời gian bù giờ do trọng tài quyết định.</li>
+        <li><i class="fa-solid fa-scale-balanced"></i> Bằng điểm sau vòng loại: xét Hiệu số → Số bàn thắng → Fairplay → Đá luân lưu (5 quả/đội).</li>
+        <li><i class="fa-solid fa-stopwatch"></i> Đá biên không quá <strong>3 giây</strong>; bóng đặt trên đường biên. Bóng chết không tính thời gian.</li>
+        <li><i class="fa-solid fa-arrows-rotate"></i> Mỗi đội được thay người <strong>không giới hạn</strong> trong trận.</li>
+        <li><i class="fa-solid fa-gavel"></i> Trọng tài có toàn quyền điều khiển. Khiếu nại giải quyết sau trận.</li>
+        <li><i class="fa-solid fa-hand"></i> Không vào bóng nguy hiểm, không tỳ đè xô đẩy quá mạnh, không lăng mạ xúc phạm.</li>
+        <li><i class="fa-solid fa-users"></i> Đội chuẩn bị tập trung khu vực thi đấu <strong>trước 5 phút</strong>.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="p-rule-block">
+    <div class="p-rule-hd"><span class="p-rule-num">3</span><span>Trang Phục Thi Đấu</span></div>
+    <div class="p-rule-body">
+      <ul class="p-rule-list">
+        <li><i class="fa-solid fa-shirt"></i> Đồ TNTT hoặc đồng phục riêng của lớp; áo thun + quần đùi dài ngang gối trở xuống.</li>
+        <li><i class="fa-solid fa-shirt"></i> Xứ Đoàn chuẩn bị <strong>áo pitch</strong> phân biệt 2 đội và thủ môn. Nếu màu trùng → bốc thăm mặc áo pitch.</li>
+        <li><i class="fa-solid fa-shoe-prints"></i> Giày đế trơn, sandal, bata. <strong>Không mang giày đinh, không đi chân không.</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="p-rule-block">
+    <div class="p-rule-hd"><span class="p-rule-num">4</span><span>Quy Định Xử Phạt</span></div>
+    <div class="p-rule-body">
+      <div class="p-cards-row">
+        <div class="p-card yellow"><i class="fa-solid fa-square"></i> <div><strong>Thẻ Vàng</strong><span> – 1 điểm</span></div></div>
+        <div class="p-card red"   ><i class="fa-solid fa-square"></i> <div><strong>Thẻ Đỏ</strong><span> – 2 điểm</span></div></div>
+        <div class="p-card dark"  ><i class="fa-solid fa-equals"></i> <div><strong>2 Thẻ Vàng</strong><span> = 1 Thẻ Đỏ</span></div></div>
+      </div>
+      <ul class="p-rule-list" style="margin-top:3mm">
+        <li><i class="fa-solid fa-square" style="color:#ef4444"></i> Cầu thủ thẻ đỏ bị truất quyền thi đấu trận đó; trận sau vẫn tham gia được.</li>
+        <li><i class="fa-solid fa-stopwatch"></i> Sau <strong>5 phút</strong> đội có cầu thủ bị thẻ đỏ được bổ sung cầu thủ khác vào sân.</li>
+        <li><i class="fa-solid fa-triangle-exclamation"></i> Hành vi phi thể thao (chửi thề, xúc phạm…) bị trừ điểm tuỳ mức độ.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="p-rule-block">
+    <div class="p-rule-hd"><span class="p-rule-num">5</span><span>Cơ Cấu Giải Thưởng</span></div>
+    <div class="p-rule-body">
+      <div class="p-awards">
+        <div class="p-award first" ><i class="fa-solid fa-trophy"></i><div><strong>Giải Nhất</strong><span>Ấu · Thiếu · Nghĩa–Hiệp · Cúp + Phần Thưởng</span></div></div>
+        <div class="p-award second"><i class="fa-solid fa-medal"></i> <div><strong>Giải Nhì</strong><span>Ấu · Thiếu · Nghĩa–Hiệp · Phần Thưởng</span></div></div>
+        <div class="p-award third" ><i class="fa-solid fa-award"></i> <div><strong>Giải Ba</strong><span>Ấu · Thiếu · Nghĩa–Hiệp · Phần Thưởng</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-spirit">
+    <i class="fa-solid fa-dove"></i>&ensp;Các em thiếu nhi xứ đoàn Kitô Vua Hàng Sanh thi đấu trong tình
+    <strong>Huynh Đệ</strong> vui vẻ, nhiệt tình, <strong>FairPlay</strong>,
+    giao lưu học hỏi với nhau trong tinh thần Đức Ki-tô. Nối kết tình anh em lại gần nhau hơn.
+  </div>
+
+  <div class="p-notes">
+    <h4><i class="fa-solid fa-thumbtack"></i> Lưu Ý</h4>
+    <ul>
+      <li><i class="fa-solid fa-clover"></i><span><strong>Lớp 2C (Thiếu Nhi)</strong> được bốc thăm may mắn – không đá vòng loại, vào thẳng Bán Kết Bảng D.</span></li>
+      <li><i class="fa-solid fa-medal"></i><span>Ở vòng <strong>BÁN KẾT</strong> sẽ chọn thêm một đội đi tiếp dựa trên <strong>hiệu số bàn thắng</strong> &amp; <strong>số thẻ phạt</strong>.</span></li>
+      <li><i class="fa-solid fa-church"></i><span>Tất cả trận đấu vào <strong>Chúa Nhật</strong> tại <strong>Sân Nhà Thờ Hàng Sanh</strong>. Tinh thần Fair-play và huynh đệ là trên hết.</span></li>
+    </ul>
+  </div>
+
+  <div class="p-sigs">
+    <div class="p-sig">
+      <div class="p-sig-title"><i class="fa-solid fa-star"></i> Xứ Đoàn Trưởng</div>
+      <div class="p-sig-line"></div>
+      <div class="p-sig-name">G.B Ngô Vạn Cát</div>
+    </div>
+    <div class="p-sig">
+      <div class="p-sig-title"><i class="fa-solid fa-cross"></i> Linh Mục Tuyên Úy</div>
+      <div class="p-sig-line"></div>
+      <div class="p-sig-name">&nbsp;</div>
+    </div>
+  </div>
+
+</div><!-- /page-wrap -->
+</body>
+</html>
