@@ -529,13 +529,15 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .special-chip .vs-dot { background: var(--lucky); }
 
 /* Score cell: card badges */
-.sc-cards { display:flex; align-items:center; justify-content:center; margin-top:2px; gap:1px; }
+.sc-cards { display:flex; align-items:center; margin-top:2px; }
+.sc-side { display:flex; align-items:center; flex:1; min-width:0; }
+.sc-side.sc-l { justify-content:flex-end; }
+.sc-side.sc-r { justify-content:flex-start; }
 .sc-card {
   display:inline-flex; align-items:center; justify-content:center;
   min-width:13px; height:11px; border-radius:2px; padding:0 2px;
   font-size:.58rem; font-weight:900; margin:0 1px;
 }
-.sc-ph { display:inline-block; min-width:8px; }
 .sc-y { background:#fbbf24; color:#78350f; }
 .sc-r { background:#ef4444; color:#fff; }
 .sc-sep { font-size:.6rem; color:#94a3b8; margin:0 2px; flex-shrink:0; }
