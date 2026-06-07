@@ -538,6 +538,7 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .sc-y { background:#fbbf24; color:#78350f; }
 .sc-r { background:#ef4444; color:#fff; }
 .sc-sep { font-size:.6rem; color:#94a3b8; margin:0 2px; vertical-align:middle; }
+.wk-tname { cursor:help; border-bottom:1px dotted currentColor; }
 
 /* Score rows */
 .tr-score td {
