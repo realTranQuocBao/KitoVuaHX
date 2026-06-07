@@ -46,10 +46,10 @@
 | Ngành | Giờ | Vòng loại (A/B/C) | Bán kết (D/E) | Chung kết |
 |-------|-----|-------------------|---------------|-----------|
 | Ấu Nhi | 10:35–10:50 | A:1a-1b, B:2a-2b, C:3a-3b | D:W(A)-?, E:W(B)-W(C) | W(D)-W(E) |
-| Thiếu Nhi | 10:55–11:10 | A:1a-1b, B:2a-2b, C:3a-3b | D:W(A)-?, E:W(B)-W(C) | W(D)-W(E) |
-| Nghĩa–Hiệp | 11:15–11:30 | A:1a-1b, B:2a-2b, C:N3-Hiệp | D:W(A)-?, E:W(B)-W(C) | W(D)-W(E) |
+| Thiếu Nhi | 10:55–11:10 | A:1a-1b, B:2a-2b, C:3a-3b | D:?-W(C), E:W(A)-W(B) | W(D)-W(E) |
+| Nghĩa–Hiệp | 11:15–11:30 | A:1a-1b, B:2a-2b, C:N3-Hiệp | D:W(A)-?, E:W(C)-W(B) | W(D)-W(E) |
 
-Bán Kết D mỗi ngành: Thắng A gặp đội hệ số tốt nhất (không có lucky draw nữa).
+BK D Ấu/Nghĩa: Thắng A gặp đội hệ số tốt nhất. BK D Thiếu: wildcard gặp Thắng C.
 
 ## CSS theme
 - **index.html**: Navy/Gold — `--navy:#0a1628`, `--gold:#c9860a`, `--gold-light:#f0c040`
@@ -66,5 +66,5 @@ Bán Kết D mỗi ngành: Thắng A gặp đội hệ số tốt nhất (không
 Match IDs: `au-A..au-CK`, `th-A..th-CK`, `ng-A..ng-CK`
 
 Edges Ấu Nhi: A→D, B→E, C→E, D→CK, E→CK  
-Edges Thiếu Nhi: A→D, B→E, C→E, D→CK, E→CK  
+Edges Thiếu Nhi: A→E, B→E, C→D, D→CK, E→CK  
 Edges Nghĩa–Hiệp: A→D, B→E, C→E, D→CK, E→CK
