@@ -1169,8 +1169,8 @@
         if (d.penalty) html += `<span class="sc-pen">⚽ ${d.penalty[0]}–${d.penalty[1]}</span>`;
         const y = d.yellow || [0,0], r = d.red || [0,0];
         if (y[0]+y[1]+r[0]+r[1] > 0) {
-          const mkSide = (yi,ri,pos) => `<span class="sc-side sc-${pos}">${(yi?`<span class="sc-card sc-y">${yi}</span>`:'')}${(ri?`<span class="sc-card sc-r">${ri}</span>`:'')}</span>`;
-          html += `<span class="sc-cards">${mkSide(y[0],r[0],'l')}<span class="sc-sep">|</span>${mkSide(y[1],r[1],'r')}</span>`;
+          const mkSide = (yi,ri) => (yi||ri) ? (yi?`<span class="sc-card sc-y">${yi}</span>`:'')+(ri?`<span class="sc-card sc-r">${ri}</span>`:'') : '<span class="sc-zero">0</span>';
+          html += `<span class="sc-cards">${mkSide(y[0],r[0])}<span class="sc-sep">|</span>${mkSide(y[1],r[1])}</span>`;
         }
         td.innerHTML = html;
       } else {
