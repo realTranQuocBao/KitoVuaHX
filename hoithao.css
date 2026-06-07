@@ -504,7 +504,40 @@ h2 em, h1 em { color: var(--gold-light); font-style: italic; }
 .champ-t{ color: var(--ck); font-size: .9rem; }
 .lucky  { color: var(--lucky); font-weight: 900; }
 
+/* BK/CK cells: vertical 3-line layout */
+.bk-cell .match-chip,
+.ck-cell .match-chip {
+  flex-direction: column;
+  gap: 2px;
+  white-space: normal;
+  text-align: center;
+}
+.bk-cell .team,
+.ck-cell .team {
+  font-size: .78rem;
+  line-height: 1.2;
+  text-align: center;
+  word-break: keep-all;
+}
+.bk-cell .vs-dot,
+.ck-cell .vs-dot {
+  align-self: center;
+  font-size: .55rem;
+  padding: 1px 4px;
+}
+
 .special-chip .vs-dot { background: var(--lucky); }
+
+/* Score cell: card badges */
+.sc-cards { display:block; margin-top:2px; line-height:1; }
+.sc-card {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:13px; height:11px; border-radius:2px; padding:0 2px;
+  font-size:.58rem; font-weight:900; vertical-align:middle; margin:0 1px;
+}
+.sc-y { background:#fbbf24; color:#78350f; }
+.sc-r { background:#ef4444; color:#fff; }
+.sc-sep { font-size:.6rem; color:#94a3b8; margin:0 2px; vertical-align:middle; }
 
 /* Score rows */
 .tr-score td {

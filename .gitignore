@@ -1,0 +1,3 @@
+# match-data.json chứa dữ liệu thực tế trên server — không commit lên git
+# Dùng match-data.example.json làm template
+match-data.json

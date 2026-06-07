@@ -1,5 +1,5 @@
 {
-  "_comment": "Kết quả Hội Thao 2026. teams:[trên,dưới] tên đội (cập nhật khi biết đội BK/CK). score:[trên,dưới] null=chưa đấu. penalty:[trên,dưới] khi hòa. yellow/red:[trên,dưới] số thẻ.",
+  "_comment": "Template cấu trúc match-data.json. Copy file này thành match-data.json trên server. teams:[trên,dưới]. score:[trên,dưới] null=chưa đấu. penalty:[trên,dưới] khi hòa. yellow/red:[trên,dưới] số thẻ.",
 
   "au-A":  { "teams": ["Ấu 1A",   "Ấu 1B"],      "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "au-B":  { "teams": ["Ấu 2A",   "Ấu 2B"],      "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
