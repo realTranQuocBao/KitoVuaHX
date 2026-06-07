@@ -5,14 +5,14 @@
   "au-B":  { "teams": ["Ấu 2A",   "Ấu 2B"],      "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "au-C":  { "teams": ["Ấu 3A",   "Ấu 3B"],      "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "au-D":  { "teams": ["Thắng A", null],           "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "au-E":  { "teams": ["Thắng C", "Thắng B"],     "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "au-E":  { "teams": ["Thắng B", "Thắng C"],     "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "au-CK": { "teams": ["Thắng D", "Thắng E"],     "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
 
   "th-A":  { "teams": ["Thiếu 1A", "Thiếu 1B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "th-B":  { "teams": ["Thiếu 2A", "Thiếu 2B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "th-C":  { "teams": ["Thiếu 3A", "Thiếu 3B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "th-D":  { "teams": ["Thắng A",  null],          "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
-  "th-E":  { "teams": ["Thắng C",  "Thắng B"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-D":  { "teams": [null, "Thắng C"],           "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
+  "th-E":  { "teams": ["Thắng A",  "Thắng B"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
   "th-CK": { "teams": ["Thắng D",  "Thắng E"],   "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
 
   "ng-A":  { "teams": ["Nghĩa 1A", "Nghĩa 1B"],  "score": null, "penalty": null, "yellow": [0,0], "red": [0,0] },
